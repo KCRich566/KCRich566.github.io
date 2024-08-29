@@ -1,0 +1,65 @@
+# 基本設定
+title: "KCRich566 website"
+description: "This is my site."
+baseurl: ""
+url: "https://KCRich566.github.io"
+
+# 作者資訊
+author:
+  name: "KCRich566"
+  email: "KCRich566@gmail.com"
+
+# GitHub Pages 設定
+theme: "minima"
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+# 分頁配置
+paginate: 5
+paginate_path: "/page:num/"
+
+# 自定義變數
+nav:
+  - name: "Home"
+    link: "/"
+  - name: "About"
+    link: "/about"
+  - name: "Blog"
+    link: "/blog"
+  - name: "Contact"
+    link: "/contact"
+  - name: "Resume"
+    link: "/resume"
+
+# Markdown 處理器
+markdown: kramdown
+kramdown:
+  input: "GFM"
+
+# Sass 和 SCSS 選項
+sass:
+  style: compressed
+
+# Exclusions
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor/
+
+# Collections 設定
+collections:
+  my_collection:
+    output: true
+    permalink: /:collection/:path/
+
+# 自定義變數 - 可用於模板和佈局中
+custom_var: "Custom Value"
+
+# 本地開發設定
+future: true
+show_drafts: false
