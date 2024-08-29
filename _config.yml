@@ -23,14 +23,19 @@ paginate_path: "/page:num/"
 
 # 自定義變數
 nav:
+    # 
   - name: "Home"
     link: "/"
+    # 撰寫網頁說明
   - name: "About"
     link: "/about"
+    # 撰寫我的內容
   - name: "Blog"
     link: "/blog"
+    # 聯絡我
   - name: "Contact"
     link: "/contact"
+    # 我的履歷
   - name: "Resume"
     link: "/resume"
 
@@ -63,3 +68,12 @@ custom_var: "Custom Value"
 # 本地開發設定
 future: true
 show_drafts: false
+
+
+# 語言設定
+languages:
+  - en
+  - zh
+
+# 默认语言
+default_lang: "en"

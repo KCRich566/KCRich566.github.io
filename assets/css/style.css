@@ -1,0 +1,15 @@
+/* Ensure the image is circular and fits its container */
+.navbar-brand {
+    display: flex;
+    align-items: center; /* Center the logo vertically */
+    justify-content: center; /* Center the logo horizontally */
+}
+
+.rounded-logo {
+    width: 100%; /* Adjust width to fit the parent element */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100px; /* Limit the maximum width */
+    max-height: 100px; /* Limit the maximum height */
+    object-fit: cover; /* Ensure the image covers the circle area */
+    border-radius: 50%; /* Make the image circular */
+}

@@ -22,6 +22,11 @@ Jekyll 是一個靜態網站生成器，它使用 Liquid 模板語言來創建�
 │   存放模板文件，這些模板決定了頁面的渲染方式。`default.html` 或 `base.html` 通常是基本佈局文件，其他佈局文件（如 `post.html`）可以繼承自此文件。
 │   ├── default.html or base.html
 │   ├── post.html
+├── _i18n/: 如果要資源多語言，需要在此增加md檔案，但如果要使用html支援，則需要再跟目錄添加*.zh.html來操作
+│   ├── en/
+│   │   └── index.md
+│   └── zh/
+│       └── index.md
 ├── _pages
 │   用於存放非博客文章的其他頁面，如 `about.md`、`contact.md` 等。這個文件夾不是 Jekyll 的預設文件夾，但可以根據需要創建。
 │   └── about.md
