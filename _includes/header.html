@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light">
     <!-- Logo as Brand -->
-    <a class="navbar-brand d-flex align-items-center" href="{{ '/' | relative_url }}">
+    <a class="navbar-brand d-flex align-items-center" href="{% if page.language == 'zh' %}/zh{% endif %}/">
         <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="My Site Logo" class="navbar-logo rounded-circle">
     </a>
     
@@ -11,13 +11,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{{ '/' | relative_url }}">Home</a>
+                <!-- 动态生成 Home 链接 -->
+                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/">{{ 'Home' | translate }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ '/resume.html' | relative_url }}">Resume</a>
+                <!-- 动态生成 Resume 链接 -->
+                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/resume.html">{{ 'Resume' | translate }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ '/portfolio.html' | relative_url }}">Portfolio</a>
+                <!-- 动态生成 Portfolio 链接 -->
+                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/portfolio.html">{{ 'Portfolio' | translate }}</a>
             </li>
             <!-- Add other navigation items here -->
         </ul>
@@ -26,12 +29,43 @@
     <!-- Language Switcher Combo Box -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <select class="form-control">
-                <!-- English Page -->
-                <option value="en" {% if page.language == 'en' %}selected{% endif %}>English</option>
-                <!-- Chinese Page -->
-                <option value="zh" {% if page.language == 'zh' %}selected{% endif %}>中文</option>
-            </select>
+            <form id="language-form" action="" method="get" class="form-inline">
+                <select name="lang" class="form-control" onchange="updateLanguage(this)">
+                    <!-- English Page -->
+                    <option value="en" {% if page.language == 'en' %}selected{% endif %}>English</option>
+                    <!-- Chinese Page -->
+                    <option value="zh" {% if page.language == 'zh' %}selected{% endif %}>中文</option>
+                </select>
+            </form>
         </li>
     </ul>
 </nav>
+<script>
+    function updateLanguage(selectElement) {
+        const lang = selectElement.value;
+        const currentPath = window.location.pathname;
+        const pathSegments = currentPath.split('/').filter(Boolean); // 分割路径并去掉空值
+        
+        if (lang === 'en') {
+            // 英文页面，不需要前缀
+            if (pathSegments[0] === 'zh') {
+                // 如果当前路径是中文页面，去掉前缀并重定向到英文页面
+                const newPath = `/${pathSegments.slice(1).join('/')}`; // 去掉 'zh' 前缀
+                window.location.href = newPath === '' ? '/' : newPath;
+            } else {
+                // 如果当前路径已经是英文页面或根路径，保持不变
+                window.location.href = currentPath === '/' ? '/' : currentPath;
+            }
+        } else if (lang === 'zh') {
+            // 中文页面，需要 'zh' 前缀
+            if (pathSegments[0] !== 'zh') {
+                // 如果当前路径没有中文前缀，添加 'zh' 前缀
+                const newPath = `/zh${currentPath === '/' ? '/' : currentPath}`;
+                window.location.href = newPath;
+            } else {
+                // 如果当前路径已经是中文页面，保持不变
+                window.location.href = currentPath;
+            }
+        }
+    }
+</script>
