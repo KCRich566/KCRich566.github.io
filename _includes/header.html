@@ -28,23 +28,21 @@
         <li class="nav-item">
             <select class="form-control" onchange="changeLanguage(this.value);">
                 <!-- English Page -->
-                <option value="{{ '/' | relative_url }}" {% if page.language == 'en' %}selected{% endif %}>English</option>
+                <option value="?lang=en" {% if page.language == 'en' %}selected{% endif %}>English</option>
                 <!-- Chinese Page -->
-                <option value="{{ '/zh/' | relative_url }}" {% if page.language == 'zh' %}selected{% endif %}>中文</option>
+                <option value="?lang=zh" {% if page.language == 'zh' %}selected{% endif %}>中文</option>
             </select>
         </li>
     </ul>
 </nav>
 
 <script>
-    function changeLanguage(langUrl) {
-        // Construct the current page URL with the selected language
-        var currentPath = window.location.pathname;
-        var baseUrl = window.location.origin;
+      function changeLanguage(langParam) {
+        // Get the current URL without the language query parameter
+        var currentUrl = new URL(window.location.href);
+        currentUrl.searchParams.set('lang', langParam.slice(1)); // Remove leading "?"
 
-        // If langUrl is the base URL, keep the current path
-        var newUrl = (langUrl.endsWith('/')) ? baseUrl + langUrl + currentPath : baseUrl + langUrl;
-
-        window.location.href = newUrl;
+        // Redirect to the new URL with the selected language
+        window.location.href = currentUrl.href;
     }
 </script>
