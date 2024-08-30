@@ -7,18 +7,26 @@
 		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
 		<!-- Custom CSS -->
 		<style>
-			.navbar{
-	height: 60px;
+		*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.navbar{
+	height: 80px;
 }
 .navbar-brand {
     align-items: center;
     justify-content: center; /* 水平居中图像 */
-   
+    overflow: hidden; /* 隐藏溢出的图像部分 */
 }
 
 .navbar-logo {
+	display: block;
+	line-height:0;
     height: 100%; /* 使图像与父容器同高 */
-    width: 50px; /* 确保图像不会超出父容器宽度 */
+    width: 70px; /* 确保图像不会超出父容器宽度 */
     object-fit: contain; /* 保持图像比例并适应容器 */
     border-radius: 50%; /* 确保图像是圆形的 */
 }

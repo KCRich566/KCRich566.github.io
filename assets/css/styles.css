@@ -1,8 +1,13 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
 .navbar{
 	height: 80px;
 }
 .navbar-brand {
-    display: flex;
     align-items: center;
     justify-content: center; /* 水平居中图像 */
     overflow: hidden; /* 隐藏溢出的图像部分 */
