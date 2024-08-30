@@ -26,23 +26,12 @@
     <!-- Language Switcher Combo Box -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <select class="form-control" onchange="changeLanguage(this.value);">
+            <select class="form-control">
                 <!-- English Page -->
-                <option value="?lang=en" {% if page.language == 'en' %}selected{% endif %}>English</option>
+                <option value="en" {% if page.language == 'en' %}selected{% endif %}>English</option>
                 <!-- Chinese Page -->
-                <option value="?lang=zh" {% if page.language == 'zh' %}selected{% endif %}>中文</option>
+                <option value="zh" {% if page.language == 'zh' %}selected{% endif %}>中文</option>
             </select>
         </li>
     </ul>
 </nav>
-
-<script>
-      function changeLanguage(langParam) {
-        // Get the current URL without the language query parameter
-        var currentUrl = new URL(window.location.href);
-        currentUrl.searchParams.set('lang', langParam.slice(1)); // Remove leading "?"
-
-        // Redirect to the new URL with the selected language
-        window.location.href = currentUrl.href;
-    }
-</script>
