@@ -1,17 +1,17 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light">
     <!-- Logo as Brand -->
-    <a class="navbar-brand d-flex align-items-center" href="{% if page.language == 'zh' %}/zh{% else %}/{{ page.url }}{% endif %}">
+    <a class="navbar-brand d-flex align-items-center" href="{% if page.language == 'zh' %}/zh{% endif %}/">
         <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="My Site Logo" class="navbar-logo rounded-circle">
     </a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav me-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% else %}/{% endif %}">
+                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/">
                     {% if page.language == 'en' %}
                         {{ site.data.en.home }}
                     {% elsif page.language == 'zh' %}
@@ -22,7 +22,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% else %}/resume.html{% endif %}">
+                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/resume.html">
                     {% if page.language == 'en' %}
                         {{ site.data.en.resume }}
                     {% elsif page.language == 'zh' %}
@@ -33,7 +33,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% else %}/blog.html{% endif %}">
+                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/blog.html">
                     {% if page.language == 'en' %}
                         {{ site.data.en.blog }}
                     {% elsif page.language == 'zh' %}
@@ -44,7 +44,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% else %}/portfolio.html{% endif %}">
+                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/portfolio.html">
                     {% if page.language == 'en' %}
                         {{ site.data.en.portfolio }}
                     {% elsif page.language == 'zh' %}
@@ -58,10 +58,10 @@
     </div>
 
     <!-- Language Switcher Combo Box -->
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ms-auto">
         <li class="nav-item">
             <form id="language-form" action="" method="get" class="form-inline">
-                <select name="lang" class="form-control" onchange="updateLanguage(this)">
+                <select name="lang" class="form-select" onchange="updateLanguage(this)">
                     <option value="en" {% if page.language == 'en' %}selected{% endif %}>English</option>
                     <option value="zh" {% if page.language == 'zh' %}selected{% endif %}>中文</option>
                 </select>
