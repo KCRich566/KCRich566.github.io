@@ -1,81 +1,75 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light">
     <!-- Logo as Brand -->
-    <a class="navbar-brand d-flex align-items-center" href="{% if page.language == 'zh' %}/zh{% endif %}/">
+    <a class="navbar-brand d-flex align-items-center" href="{% if page.language == 'zh' %}/zh{% else %}/{{ page.url }}{% endif %}">
         <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="My Site Logo" class="navbar-logo rounded-circle">
     </a>
-    
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    
+
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <!-- 动态生成 Home 链接 -->
-                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/">
-					{% if page.language == 'en' %}
-        {{ site.data.en.home }}
-    {% elsif page.language == 'zh' %}
-        {{ site.data.zh.home }}
-    {% else %}
-        {{ site.data.en.home }} <!-- 預設為英文 -->
-    {% endif %}
-				</a>
+                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% else %}/{% endif %}">
+                    {% if page.language == 'en' %}
+                        {{ site.data.en.home }}
+                    {% elsif page.language == 'zh' %}
+                        {{ site.data.zh.home }}
+                    {% else %}
+                        {{ site.data.en.home }} <!-- 預設為英文 -->
+                    {% endif %}
+                </a>
             </li>
             <li class="nav-item">
-                <!-- 动态生成 Resume 链接 -->
-                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/resume.html">
-				{% if page.language == 'en' %}
-        {{ site.data.en.resume }}
-    {% elsif page.language == 'zh' %}
-        {{ site.data.zh.resume }}
-    {% else %}
-        {{ site.data.en.resume }} <!-- 預設為英文 -->
-    {% endif %}
-				</a>
-            </li>
-			<li class="nav-item">
-                <!-- 动态生成 Portfolio 链接 -->
-                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/blog.html">
-							{% if page.language == 'en' %}
-        {{ site.data.en.blog }}
-    {% elsif page.language == 'zh' %}
-        {{ site.data.zh.blog }}
-    {% else %}
-        {{ site.data.en.blog }} <!-- 預設為英文 -->
-    {% endif %}
-				</a>
+                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% else %}/resume.html{% endif %}">
+                    {% if page.language == 'en' %}
+                        {{ site.data.en.resume }}
+                    {% elsif page.language == 'zh' %}
+                        {{ site.data.zh.resume }}
+                    {% else %}
+                        {{ site.data.en.resume }} <!-- 預設為英文 -->
+                    {% endif %}
+                </a>
             </li>
             <li class="nav-item">
-                <!-- 动态生成 Portfolio 链接 -->
-                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/portfolio.html">
-							{% if page.language == 'en' %}
-        {{ site.data.en.portfolio }}
-    {% elsif page.language == 'zh' %}
-        {{ site.data.zh.portfolio }}
-    {% else %}
-        {{ site.data.en.portfolio }} <!-- 預設為英文 -->
-    {% endif %}
-				</a>
+                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% else %}/blog.html{% endif %}">
+                    {% if page.language == 'en' %}
+                        {{ site.data.en.blog }}
+                    {% elsif page.language == 'zh' %}
+                        {{ site.data.zh.blog }}
+                    {% else %}
+                        {{ site.data.en.blog }} <!-- 預設為英文 -->
+                    {% endif %}
+                </a>
             </li>
-            <!-- Add other navigation items here -->
+            <li class="nav-item">
+                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% else %}/portfolio.html{% endif %}">
+                    {% if page.language == 'en' %}
+                        {{ site.data.en.portfolio }}
+                    {% elsif page.language == 'zh' %}
+                        {{ site.data.zh.portfolio }}
+                    {% else %}
+                        {{ site.data.en.portfolio }} <!-- 預設為英文 -->
+                    {% endif %}
+                </a>
+            </li>
         </ul>
     </div>
-    
+
     <!-- Language Switcher Combo Box -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <form id="language-form" action="" method="get" class="form-inline">
                 <select name="lang" class="form-control" onchange="updateLanguage(this)">
-                    <!-- English Page -->
                     <option value="en" {% if page.language == 'en' %}selected{% endif %}>English</option>
-                    <!-- Chinese Page -->
                     <option value="zh" {% if page.language == 'zh' %}selected{% endif %}>中文</option>
                 </select>
             </form>
         </li>
     </ul>
 </nav>
+
 <script>
     function updateLanguage(selectElement) {
         const lang = selectElement.value;
