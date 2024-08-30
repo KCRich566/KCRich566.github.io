@@ -1,15 +1,17 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light">
+	<div class="container-fluid">
     <!-- Logo as Brand -->
     <a class="navbar-brand d-flex align-items-center" href="{% if page.language == 'zh' %}/zh{% endif %}/">
         <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="My Site Logo" class="navbar-logo rounded-circle">
     </a>
+
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto">
+        <ul class="navbar-nav bg-light me-auto mb-2 mb-lg-0">
             <li class="nav-item">
                 <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/">
                     {% if page.language == 'en' %}
@@ -55,11 +57,10 @@
                 </a>
             </li>
         </ul>
-    </div>
+			<!-- Language Switcher Combo Box -->
 
-    <!-- Language Switcher Combo Box -->
-    <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
+    <ul class="navbar-brand ms-auto">
+            <li class="nav-item">
             <form id="language-form" action="" method="get" class="form-inline">
                 <select name="lang" class="form-select" onchange="updateLanguage(this)">
                     <option value="en" {% if page.language == 'en' %}selected{% endif %}>English</option>
@@ -68,6 +69,9 @@
             </form>
         </li>
     </ul>
+    </div>
+
+    </div>
 </nav>
 
 <script>
