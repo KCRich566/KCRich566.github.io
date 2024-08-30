@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light">
     <!-- Logo as Brand -->
-	<a class="navbar-brand d-flex align-items-center" href="{{ '/' | relative_url }}">
-		<img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="My Site Logo" class="navbar-logo rounded-circle">
-	</a>
+    <a class="navbar-brand d-flex align-items-center" href="{{ '/' | relative_url }}">
+        <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="My Site Logo" class="navbar-logo rounded-circle">
+    </a>
     
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -13,19 +13,38 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ '/' | relative_url }}">Home</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ '/resume.html' | relative_url }}">Resume</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ '/portfolio.html' | relative_url }}">Portfolio</a>
+            </li>
             <!-- Add other navigation items here -->
         </ul>
     </div>
     
     <!-- Language Switcher Combo Box -->
-    <ul class="navbar-nav ml-auto"> <!-- Use ml-auto for Bootstrap 4 or ms-auto for Bootstrap 5 -->
+    <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <select class="form-control" onchange="location = this.value;">
+            <select class="form-control" onchange="changeLanguage(this.value);">
                 <!-- English Page -->
-                <option value="{{ '/index.html' | relative_url }}" {% if page.language == 'en' %}selected{% endif %}>English</option>
+                <option value="{{ '/' | relative_url }}" {% if page.language == 'en' %}selected{% endif %}>English</option>
                 <!-- Chinese Page -->
-                <option value="{{ '/zh/index.html' | relative_url }}" {% if page.language == 'zh' %}selected{% endif %}>中文</option>
+                <option value="{{ '/zh/' | relative_url }}" {% if page.language == 'zh' %}selected{% endif %}>中文</option>
             </select>
         </li>
     </ul>
 </nav>
+
+<script>
+    function changeLanguage(langUrl) {
+        // Construct the current page URL with the selected language
+        var currentPath = window.location.pathname;
+        var baseUrl = window.location.origin;
+
+        // If langUrl is the base URL, keep the current path
+        var newUrl = (langUrl.endsWith('/')) ? baseUrl + langUrl + currentPath : baseUrl + langUrl;
+
+        window.location.href = newUrl;
+    }
+</script>

@@ -21,3 +21,8 @@
     object-fit: contain; /* 保持图像比例并适应容器 */
     border-radius: 50%; /* 确保图像是圆形的 */
 }
+.float-start {
+    float: left;
+    margin-right: 15px; /* 右邊距離 */
+    margin-bottom: 15px; /* 底部距離 */
+}
