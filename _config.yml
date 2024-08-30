@@ -21,23 +21,15 @@ plugins:
 paginate: 5
 paginate_path: "/page:num/"
 
-# 自定義變數
 nav:
-    # 
-  - name: "Home"
+  - name: "home"
     link: "/"
-    # 撰寫網頁說明
-  - name: "About"
-    link: "/about"
-    # 撰寫我的內容
-  - name: "Blog"
-    link: "/blog"
-    # 聯絡我
-  - name: "Contact"
-    link: "/contact"
-    # 我的履歷
-  - name: "Resume"
+  - name: "resume"
     link: "/resume"
+  - name: "blog"
+    link: "/blog"
+  - name: "portfolio"
+    link: "/portfolio"
 
 # Markdown 處理器
 markdown: kramdown
