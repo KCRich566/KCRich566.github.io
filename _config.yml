@@ -16,6 +16,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-paginate
+  - jekyll-multiple-languages-plugin
 
 # 分頁配置
 paginate: 5
@@ -61,4 +62,7 @@ custom_var: "Custom Value"
 future: true
 show_drafts: false
 
+languages:
+  - en
+  - zh
 
