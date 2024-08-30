@@ -70,12 +70,3 @@ future: true
 show_drafts: false
 
 
-# 語言設定
-languages:
-  - en
-  - zh
-
-# 默认语言
-default_lang: "en"
-
-language: en
