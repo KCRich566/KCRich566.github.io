@@ -1,0 +1,38 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.navbar {
+    height: 80px;
+}
+.navbar-brand {
+	flex-shrink: 0; /* 確保 logo 不會被壓縮 */
+    align-items: center;
+    justify-content: center; /* 水平居中图像 */
+    overflow: hidden; /* 隐藏溢出的图像部分 */
+}
+
+.navbar-logo {
+	display: block;
+	line-height:0;
+    height: 100%; /* 使图像与父容器同高 */
+    width: 70px; /* 确保图像不会超出父容器宽度 */
+    object-fit: contain; /* 保持图像比例并适应容器 */
+    border-radius: 50%; /* 确保图像是圆形的 */
+}
+
+/* 確保語言切換器的 z-index 高於其他內容 */
+.navbar-nav .form-select {
+    z-index: 1060; /* 確保它高於下拉選單 */
+}
+.float-start {
+    float: left;
+    margin-right: 15px; /* 右邊距離 */
+    margin-bottom: 15px; /* 底部距離 */
+}
+
+.navbar .navbar-collapse {
+    z-index: 1050; /* 下拉菜單的 z-index 更高 */
+}
