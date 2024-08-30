@@ -12,15 +12,15 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <!-- 动态生成 Home 链接 -->
-                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/">{{ 'Home' | translate }}</a>
+                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/">{{ 'home' | translate }}</a>
             </li>
             <li class="nav-item">
                 <!-- 动态生成 Resume 链接 -->
-                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/resume.html">{{ 'Resume' | translate }}</a>
+                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/resume.html">{{ 'resume' | translate }}</a>
             </li>
             <li class="nav-item">
                 <!-- 动态生成 Portfolio 链接 -->
-                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/portfolio.html">{{ 'Portfolio' | translate }}</a>
+                <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/portfolio.html">{{ 'portfolio' | translate }}</a>
             </li>
             <!-- Add other navigation items here -->
         </ul>

@@ -1,58 +1,101 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<!-- Bootstrap CSS from CDN -->
-		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
-		<!-- Custom CSS -->
-		<style>
-		*{
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Horizontal Timeline</title>
+    <!-- Bootstrap CSS from CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .timeline {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline-item {
+            position: relative;
+            text-align: center;
+            flex: 1;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background-color: #007bff;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-item .date {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .timeline-item .description {
+            font-size: 14px;
+        }
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #007bff;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
 
-.navbar{
-	height: 80px;
-}
-.navbar-brand {
-    align-items: center;
-    justify-content: center; /* 水平居中图像 */
-    overflow: hidden; /* 隐藏溢出的图像部分 */
-}
+    <!-- Timeline Container -->
+    <div class="container">
+        <div class="timeline" id="timeline">
+            <!-- Timeline Line -->
+            <div class="timeline-line"></div>
+        </div>
+    </div>
 
-.navbar-logo {
-	display: block;
-	line-height:0;
-    height: 100%; /* 使图像与父容器同高 */
-    width: 70px; /* 确保图像不会超出父容器宽度 */
-    object-fit: contain; /* 保持图像比例并适应容器 */
-    border-radius: 50%; /* 确保图像是圆形的 */
-}
-
-		</style>
-	</head>
-	<body>
-		<nav class="navbar navbar-expand-md navbar-light bg-light">
-			<!-- Logo as Brand -->
-			<a class="navbar-brand d-flex align-items-center">
-				<img src="./assets/images/logo.jpg" alt="My Site Logo" class="navbar-logo rounded-circle"/>
-			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"/>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="{{ '/' | relative_url }}">Home</a>
-					</li>
-					<!-- Add other navigation items here -->
-				</ul>
-			</div>
-		</nav>
-		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4g6E5C8r8q+o5Hh9u9a3C/zF1/T2w1l7+Jh0p3" crossorigin="anonymous"/>
-		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-4K0g+68yt4QbdxPzF3nH8K1w6Tk0x2m/x8p9jF43W76yI9h1ltTzLMH7zZZX3KM" crossorigin="anonymous"/>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIqW9vEO5HqM0a8a6C0F0q9K5E8H7hM8yISx9suc1R5gxDP0G/j" crossorigin="anonymous"/>
-	</body>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script>
+        // JavaScript to dynamically generate timeline items
+        document.addEventListener('DOMContentLoaded', function() {
+            const timeline = document.getElementById('timeline');
+            const startDate = new Date('2024-01-01');
+            const endDate = new Date('2024-03-01');
+            const events = [
+                { date: new Date('2024-01-10'), description: 'Event 1 Description' },
+                { date: new Date('2024-01-20'), description: 'Event 2 Description' }
+            ];
+            
+            const totalDays = (endDate - startDate) / (1000 * 60 * 60 * 24);
+            
+            events.forEach(event => {
+                const daysFromStart = (event.date - startDate) / (1000 * 60 * 60 * 24);
+                const positionPercentage = (daysFromStart / totalDays) * 100;
+                
+                const item = document.createElement('div');
+                item.classList.add('timeline-item');
+                item.style.flex = `1 0 ${positionPercentage}%`;
+                
+                const date = document.createElement('div');
+                date.classList.add('date');
+                date.textContent = event.date.toLocaleDateString();
+                
+                const description = document.createElement('div');
+                description.classList.add('description');
+                description.textContent = event.description;
+                
+                item.appendChild(date);
+                item.appendChild(description);
+                timeline.appendChild(item);
+            });
+        });
+    </script>
+</body>
 </html>

@@ -1,4 +1,28 @@
 <!DOCTYPE html>
+<!--
+"{{ page.language | default: site.language }}":
+
+   使用Jekyll的Liquid模板語法，動態插入頁面的語言或站點的默認語言
+
+page.language:
+
+   Jekyll 中 Liquid 模板語法，用來設置和獲取頁面的語言信息。
+   
+   1. 頁面級別的設定: Jekyll 頁面（如 .md 或 .html 文件）中，你可以在 YAML 前置資料（YAML Front Matter）中設定 language。
+      例如：在html或md文件的最前方，我們會定義以下yaml的前置資料
+      ```
+      ---
+      title: "我的頁面"
+      language: "zh-TW"
+      ---
+      ```
+
+   2. 全站設定: 在 _config.yml 文件中設置全站的默認語言
+   
+   default: site.language: 如果該頁面沒有指定 language，可以使用 Liquid 的 default 運算符來回退到全站的默認語言
+   
+   如果頁面中有 language 屬性，則使用該屬性值；如果沒有，則使用全站默認語言 site.language
+-->
 <html lang="{{ page.language | default: site.language }}">
 <head>
     <meta charset="UTF-8">
@@ -7,15 +31,41 @@
     <!-- Bootstrap CSS from CDN -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
+	<!--
+        relative_url: 過濾器將會根據網站的實際路徑生成正確的 URL
+		如果你在 Jekyll 中配置了 baseurl，relative_url 會自動處理這些路徑
+		在 Jekyll 的 _config.yml 文件中，你可以設置 baseurl，它指定了站點的基礎 URL
+		如果你將 baseurl 設為空字符串（baseurl: ""），即網站部署在根目錄，relative_url 不會添加任何前綴
+		假設baseurl:"MyProject"，那麼使用{{ '/assets/css/styles.css' | relative_url }}
+		URL會變成`domain/{baseurl}/assets/css/styles.css`
+		在 Jekyll 的 _config.yml 文件中，url是用來設置domain的，不要與baseurl混淆了
+		
+		補充其他用法:
+		<link href="{{ site.url | append: site.baseurl | append: '/assets/css/styles.css' }}" rel="stylesheet">
+		會產生:
+		"https://example.com/{site.baseurl}/assets/css/styles.css?
+		
+		<link href="{{ '/assets/css/styles.css' | relative_url }}" rel="stylesheet">
+		會產生:
+		"{site.url}/{site.baseurl}/assets/css/styles.css"
+		
+	-->
     <link href="{{ '/assets/css/styles.css' | relative_url }}" rel="stylesheet">
     
 </head>
 <body>
+
+	<!--
+	include用於插入_includes目錄下的檔案內容
+	-->
     <!-- Header -->
     {% include header.html %}
 
     <!-- Main Content -->
     <div class="container mt-4">
+		<!--
+		在頁面渲染過程中被替換為當前頁面的主要內容
+		-->
         {{ content }}
     </div>
 
