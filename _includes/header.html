@@ -1,8 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{{ '/' | relative_url }}">My Site</a>
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <!-- Logo as Brand -->
+<a class="navbar-brand d-flex align-items-center" href="{{ '/' | relative_url }}">
+    <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="My Site Logo" class="navbar-logo rounded-circle">
+</a>
+    
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
+    
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
@@ -11,15 +16,16 @@
             <!-- Add other navigation items here -->
         </ul>
     </div>
-	<!-- Language Switcher Combo Box -->
-        <ul class="navbar-nav ml-auto"> <!-- Use ml-auto for Bootstrap 4 or ms-auto for Bootstrap 5 -->
-            <li class="nav-item">
-                <select class="form-control" onchange="location = this.value;">
-                    <!-- English Page -->
-                    <option value="{{ '/index.html' | relative_url }}" {% if page.language == 'en' %}selected{% endif %}>English</option>
-                    <!-- Chinese Page -->
-                    <option value="{{ '/zh/index.html' | relative_url }}" {% if page.language == 'zh' %}selected{% endif %}>中文</option>
-                </select>
-            </li>
-        </ul>
+    
+    <!-- Language Switcher Combo Box -->
+    <ul class="navbar-nav ml-auto"> <!-- Use ml-auto for Bootstrap 4 or ms-auto for Bootstrap 5 -->
+        <li class="nav-item">
+            <select class="form-control" onchange="location = this.value;">
+                <!-- English Page -->
+                <option value="{{ '/index.html' | relative_url }}" {% if page.language == 'en' %}selected{% endif %}>English</option>
+                <!-- Chinese Page -->
+                <option value="{{ '/zh/index.html' | relative_url }}" {% if page.language == 'zh' %}selected{% endif %}>中文</option>
+            </select>
+        </li>
+    </ul>
 </nav>

@@ -1,15 +1,19 @@
-/* Ensure the image is circular and fits its container */
+.navbar{
+	height: 40px;
+}
 .navbar-brand {
+    height: 100%; /* 确保父容器有 100% 的高度 */
     display: flex;
-    align-items: center; /* Center the logo vertically */
-    justify-content: center; /* Center the logo horizontally */
+    align-items: center;
+    justify-content: center; /* 水平居中图像 */
+    overflow: hidden; /* 隐藏溢出的图像部分 */
 }
 
-.rounded-logo {
-    width: 100%; /* Adjust width to fit the parent element */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 100px; /* Limit the maximum width */
-    max-height: 100px; /* Limit the maximum height */
-    object-fit: cover; /* Ensure the image covers the circle area */
-    border-radius: 50%; /* Make the image circular */
+.navbar-logo {
+	display: block;
+	line-height:0;
+    height: 100%; /* 使图像与父容器同高 */
+    width: 40px; /* 确保图像不会超出父容器宽度 */
+    object-fit: contain; /* 保持图像比例并适应容器 */
+    border-radius: 50%; /* 确保图像是圆形的 */
 }
