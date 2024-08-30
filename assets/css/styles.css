@@ -1,8 +1,7 @@
 .navbar{
-	height: 40px;
+	height: 80px;
 }
 .navbar-brand {
-    height: 100%; /* 确保父容器有 100% 的高度 */
     display: flex;
     align-items: center;
     justify-content: center; /* 水平居中图像 */
@@ -13,7 +12,7 @@
 	display: block;
 	line-height:0;
     height: 100%; /* 使图像与父容器同高 */
-    width: 40px; /* 确保图像不会超出父容器宽度 */
+    width: 70px; /* 确保图像不会超出父容器宽度 */
     object-fit: contain; /* 保持图像比例并适应容器 */
     border-radius: 50%; /* 确保图像是圆形的 */
 }
