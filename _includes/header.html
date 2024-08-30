@@ -10,14 +10,16 @@
             </li>
             <!-- Add other navigation items here -->
         </ul>
-        <ul class="navbar-nav">
-            <!-- Language Switcher -->
+    </div>
+	<!-- Language Switcher Combo Box -->
+        <ul class="navbar-nav ml-auto"> <!-- Use ml-auto for Bootstrap 4 or ms-auto for Bootstrap 5 -->
             <li class="nav-item">
-                <a class="nav-link{% if page.language == 'en' %} active{% endif %}" href="{{ '/index.html?language=en' | relative_url }}">English</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link{% if page.language == 'zh' %} active{% endif %}" href="{{ '/index.html?language=zh' | relative_url }}">中文</a>
+                <select class="form-control" onchange="location = this.value;">
+                    <!-- English Page -->
+                    <option value="{{ '/index.html' | relative_url }}" {% if page.language == 'en' %}selected{% endif %}>English</option>
+                    <!-- Chinese Page -->
+                    <option value="{{ '/zh/index.html' | relative_url }}" {% if page.language == 'zh' %}selected{% endif %}>中文</option>
+                </select>
             </li>
         </ul>
-    </div>
 </nav>
