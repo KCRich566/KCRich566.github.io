@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="{{ site.language | default: 'en' }}">
+<html lang="{{ page.language | default: site.language }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title | default: site.title }}</title>
     <!-- Bootstrap CSS from CDN -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap-theme.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{{ '/assets/css/styles.css' | relative_url }}" rel="stylesheet">
 </head>
@@ -16,24 +15,15 @@
 
     <!-- Main Content -->
     <div class="container mt-4">
-        {% block content %}
-        <!-- Page content will be injected here -->
-        {% endblock %}
+        {{ content }}
     </div>
 
     <!-- Footer -->
     {% include footer.html %}
-
-    <!-- Language Switcher -->
-    <div class="container mt-3">
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link{% if site.language == 'en' %} active{% endif %}" href="{{ '/en/' | relative_url }}">English</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link{% if site.language == 'es' %} active{% endif %}" href="{{ '/es/' | relative_url }}">Español</a>
-            </li>
-        </ul>
-    </div>
+	
+	<!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4g6E5C8r8q+o5Hh9u9a3C/zF1/T2w1l7+Jh0p3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-4K0g+68yt4QbdxPzF3nH8K1w6Tk0x2m/x8p9jF43W76yI9h1ltTzLMH7zZZX3KM" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIqW9vEO5HqM0a8a6C0F0q9K5E8H7hM8yISx9suc1R5gxDP0G/j" crossorigin="anonymous"></script>
 </body>
 </html>

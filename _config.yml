@@ -77,3 +77,5 @@ languages:
 
 # 默认语言
 default_lang: "en"
+
+language: en
