@@ -1,32 +1,39 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.default_lang }}">
+<html lang="{{ site.language | default: 'en' }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title | default: site.title }}</title>
-    <meta name="description" content="{{ page.description | default: site.description }}">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ "/assets/images/favicon.ico" | relative_url }}">
-    
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS from CDN -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap-theme.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+    <link href="{{ '/assets/css/styles.css' | relative_url }}" rel="stylesheet">
 </head>
 <body>
+    <!-- Header -->
     {% include header.html %}
-    
-    <main class="container mt-4">
-        {{ content }}
-    </main>
-    
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        {% block content %}
+        <!-- Page content will be injected here -->
+        {% endblock %}
+    </div>
+
+    <!-- Footer -->
     {% include footer.html %}
-    
-    <!-- jQuery and Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Language Switcher -->
+    <div class="container mt-3">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link{% if site.language == 'en' %} active{% endif %}" href="{{ '/en/' | relative_url }}">English</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link{% if site.language == 'es' %} active{% endif %}" href="{{ '/es/' | relative_url }}">Español</a>
+            </li>
+        </ul>
+    </div>
 </body>
 </html>
