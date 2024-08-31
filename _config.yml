@@ -55,6 +55,8 @@ collections:
     permalink: /:collection/:path/
   posts:
     output: true
+  profolios:
+    output: true
 # 自定義變數 - 可用於模板和佈局中
 custom_var: "Custom Value"
 
