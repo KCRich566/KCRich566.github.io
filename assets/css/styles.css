@@ -33,14 +33,8 @@
     border-radius: 50%; /* 确保图像是圆形的 */
 }
 
-.float-start {
-    float: left;
-    margin-right: 15px; /* 右边距离 */
-    margin-bottom: 15px; /* 底部距离 */
-}
-
 /* 自定义样式来美化标题和图片部分 */
-.index-section {
+.index section {
     margin-bottom: 20px; /* 增加每个 section 之间的间距 */
     padding: 20px;       /* 增加内边距 */
     border-radius: 10px; /* 添加圆角 */
@@ -48,54 +42,16 @@
     width: 100%;         /* 让每个 section 占满宽度 */
 }
 
-#intro, #skills {
-    background-color: #f8f9fa; /* 浅灰色背景 */
+.index section:nth-child(odd) {
+    background-color: #f0f0f0; /* 浅灰色背景 */
 }
 
-#portfolio, #contact {
+.index section:nth-child(even) {
     background-color: #ffffff; /* 白色背景 */
 }
 
-.index-h1 {
+.index h1 {
     font-size: 2.5rem; /* 调整标题字体大小 */
     margin-bottom: 20px; /* 调整标题的底部边距 */
-}
-
-.index-img {
-    max-width: 100%;
-    height: auto; /* 确保图片保持比例缩放 */
-}
-
-/* 使图片镜像效果 */
-.reflection-container {
-    position: relative;
-    text-align: center;
-    overflow: hidden; /* 隐藏超出的部分 */
-}
-
-.reflection-container img {
-    display: inline-block;
-    max-width: 100%;
-    height: auto;
-}
-
-.reflection-container:before,
-.reflection-container:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: url('{{ site.baseurl }}/assets/images/logo.jpg') no-repeat center center;
-    background-size: cover;
-    opacity: 0.4;
-    filter: blur(2px);
-}
-
-.reflection-container:before {
-    left: -100%; /* 将左侧镜像偏移到容器外 */
-    transform: scaleX(-1); /* 水平翻转 */
-}
-
-.reflection-container:after {
-    right: -100%; /* 将右侧镜像偏移到容器外 */
+	
 }

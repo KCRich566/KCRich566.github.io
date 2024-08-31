@@ -51,3 +51,54 @@ Jekyll 是一個靜態網站生成器，它使用 Liquid 模板語言來創建�
 └── README.md
 
 ```
+
+
+# 在Windows上運行Jekyll
+
+1. 安装 Ruby
+
+Jekyll 是一个用 Ruby 编写的静态网站生成器，因此首先需要安装 Ruby。
+
+下载 RubyInstaller: 访问 RubyInstaller for Windows 网站，下载并安装 Ruby。选择带有 Devkit 的版本，这样会自动安装一些构建工具，这对一些 Ruby gems 是必需的。
+
+运行安装程序: 执行下载的安装程序，并确保勾选了“Add Ruby executables to your PATH”和“Run 'ridk install'”选项。
+
+`中途如有遇到安裝MSY32的問題可以選3`
+
+完成安装: 完成安装后，打开命令提示符（cmd）或 PowerShell，并运行以下命令来确认 Ruby 是否已正确安装：
+
+```shell
+ruby -v
+这将显示 Ruby 的版本信息。
+```
+
+2. 安装 Jekyll 和 Bundler
+
+打开命令提示符或 PowerShell。
+
+安装 Jekyll 和 Bundler: 运行以下命令来安装 Jekyll 和 Bundler（一个管理 Ruby gems 的工具）：
+
+```shell
+gem install jekyll bundler
+```
+
+3. 更新
+```shell
+gem update jekyll bundler
+```
+
+4. 啟動bundle伺服器
+
+進入github io 的資料夾後需要安裝bundle
+
+在安裝之前需要有GemFile的存在
+
+```shell
+bundle install
+```
+
+运行 Jekyll 服务器：
+
+```shell
+bundle exec jekyll serve
+```
