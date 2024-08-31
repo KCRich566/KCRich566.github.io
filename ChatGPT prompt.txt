@@ -1,0 +1,223 @@
+請記住以下內容
+
+我是使用github io的網站
+
+我的目錄結構為
+
+# _includes/header.html
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container-fluid">
+        <!-- Logo as Brand -->
+        <a class="navbar-brand d-flex align-items-center" href="{% if page.language == 'zh' %}/zh{% endif %}/">
+            <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="My Site Logo" class="navbar-logo rounded-circle">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav bg-light me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/">
+                        {% if page.language == 'en' %}
+                            {{ site.data.en.home }}
+                        {% elsif page.language == 'zh' %}
+                            {{ site.data.zh.home }}
+                        {% else %}
+                            {{ site.data.en.home }} <!-- 預設為英文 -->
+                        {% endif %}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/resume.html">
+                        {% if page.language == 'en' %}
+                            {{ site.data.en.resume }}
+                        {% elsif page.language == 'zh' %}
+                            {{ site.data.zh.resume }}
+                        {% else %}
+                            {{ site.data.en.resume }} <!-- 預設為英文 -->
+                        {% endif %}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/blog.html">
+                        {% if page.language == 'en' %}
+                            {{ site.data.en.blog }}
+                        {% elsif page.language == 'zh' %}
+                            {{ site.data.zh.blog }}
+                        {% else %}
+                            {{ site.data.en.blog }} <!-- 預設為英文 -->
+                        {% endif %}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/portfolio.html">
+                        {% if page.language == 'en' %}
+                            {{ site.data.en.portfolio }}
+                        {% elsif page.language == 'zh' %}
+                            {{ site.data.zh.portfolio }}
+                        {% else %}
+                            {{ site.data.en.portfolio }} <!-- 預設為英文 -->
+                        {% endif %}
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Language Switcher Combo Box -->
+            <form id="language-form" action="" method="get" class="form-inline">
+                <select name="lang" class="form-select" onchange="updateLanguage(this)">
+                    <option value="en" {% if page.language == 'en' %}selected{% endif %}>English</option>
+                    <option value="zh" {% if page.language == 'zh' %}selected{% endif %}>中文</option>
+                </select>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<script>
+    function updateLanguage(selectElement) {
+        const lang = selectElement.value;
+        const currentPath = window.location.pathname;
+        const pathSegments = currentPath.split('/').filter(Boolean); // 分割路径并去掉空值
+        
+        if (lang === 'en') {
+            // 英文页面，不需要前缀
+            if (pathSegments[0] === 'zh') {
+                // 如果当前路径是中文页面，去掉前缀并重定向到英文页面
+                const newPath = `/${pathSegments.slice(1).join('/')}`; // 去掉 'zh' 前缀
+                window.location.href = newPath === '' ? '/' : newPath;
+            } else {
+                // 如果当前路径已经是英文页面或根路径，保持不变
+                window.location.href = currentPath === '/' ? '/' : currentPath;
+            }
+        } else if (lang === 'zh') {
+            // 中文页面，需要 'zh' 前缀
+            if (pathSegments[0] !== 'zh') {
+                // 如果当前路径没有中文前缀，添加 'zh' 前缀
+                const newPath = `/zh${currentPath === '/' ? '/' : currentPath}`;
+                window.location.href = newPath;
+            } else {
+                // 如果当前路径已经是中文页面，保持不变
+                window.location.href = currentPath;
+            }
+        }
+    }
+</script>
+
+# _layouts/default.html
+
+<!DOCTYPE html>
+<html lang="{{ page.language | default: site.language }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    <!-- Bootstrap CSS from CDN -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link href="{{ '/assets/css/styles.css' | relative_url }}" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    {% include header.html %}
+
+    <!-- Main Content -->
+    <div class="container-fluid">
+        {{ content }}
+    </div>
+
+    <!-- Footer -->
+    {% include footer.html %}
+    
+    <!-- Bootstrap JS and dependencies -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<!-- 
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+	-->
+</body>
+</html>
+
+
+# zh/blog.html
+
+# blog.html
+
+---
+layout: default
+title: "My Site"
+language: "en"
+---
+
+
+<h1>Test</h1>
+
+
+# _config.yml
+
+# 基本設定
+title: "KCRich566 website"
+description: "This is my site."
+baseurl: ""
+url: "https://KCRich566.github.io"
+
+# 作者資訊
+author:
+  name: "KCRich566"
+  email: "KCRich566@gmail.com"
+
+# GitHub Pages 設定
+theme: "minima"
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+  
+# 分頁配置
+paginate: 5
+paginate_path: "/page:num/"
+
+nav:
+  - name: "home"
+    link: "/"
+  - name: "resume"
+    link: "/resume"
+  - name: "blog"
+    link: "/blog"
+  - name: "portfolio"
+    link: "/portfolio"
+
+# Markdown 處理器
+markdown: kramdown
+kramdown:
+  input: "GFM"
+
+# Sass 和 SCSS 選項
+sass:
+  style: compressed
+
+# Exclusions
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor/
+
+# Collections 設定
+collections:
+  my_collection:
+    output: true
+    permalink: /:collection/:path/
+  posts:
+    output: true
+
+# 自定義變數 - 可用於模板和佈局中
+custom_var: "Custom Value"
+
+# 本地開發設定
+future: true
+show_drafts: false

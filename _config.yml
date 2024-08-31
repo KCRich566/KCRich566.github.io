@@ -53,10 +53,16 @@ collections:
   my_collection:
     output: true
     permalink: /:collection/:path/
-
 # 自定義變數 - 可用於模板和佈局中
 custom_var: "Custom Value"
 
 # 本地開發設定
 future: true
 show_drafts: false
+
+# Additional settings
+# Define language support
+languages:
+  - en
+  - zh
+

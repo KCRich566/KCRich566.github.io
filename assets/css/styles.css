@@ -55,3 +55,56 @@
     margin-bottom: 20px; /* 调整标题的底部边距 */
 	
 }
+
+
+
+
+/* Section title styling */
+.resume .resume-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0;
+}
+
+.resume .resume-subtitle {
+    font-size: 1.5em;
+    color: #777;
+    margin-top: 0;
+}
+
+/* Section styling */
+.resume section {
+    margin-bottom: 20px;
+}
+
+.resume h2 {
+    font-size: 1.8em;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.resume p, ul {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.resume ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.resume li {
+    padding: 5px 0;
+}
+
+/* Contact links */
+.resume a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.resume a:hover {
+    text-decoration: underline;
+}
