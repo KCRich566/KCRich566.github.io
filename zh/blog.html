@@ -1,8 +1,19 @@
 ---
 layout: default
-title: "My Site"
-language: "zh"
+title: "博客"
+language: zh
 ---
 
+<h1>博客</h1>
 
-<h1>Test</h1>
+{% for post in site.posts %}
+  {% if post.language == page.language %}
+    <article>
+      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      <p>{{ post.excerpt | markdownify }}</p>
+      <a href="{{ post.url }}">继续阅读</a>
+    </article>
+  {% endif %}
+{% else %}
+  <p>没有找到文章。</p>
+{% endfor %}

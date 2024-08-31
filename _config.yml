@@ -53,6 +53,8 @@ collections:
   my_collection:
     output: true
     permalink: /:collection/:path/
+  posts:
+    output: true
 # 自定義變數 - 可用於模板和佈局中
 custom_var: "Custom Value"
 

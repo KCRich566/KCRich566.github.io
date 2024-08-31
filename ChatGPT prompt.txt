@@ -3,6 +3,70 @@
 我是使用github io的網站
 
 我的目錄結構為
+│  blog.html
+│  index.html
+│  portfolio.html
+│  README.md
+│  resume.html
+│  test.html
+│  _config.yml
+├─assets
+│  ├─css
+│  │      styles.css
+│  │
+│  └─images
+│          favicon.ico
+│          logo.jfif
+│          logo.jpg
+│
+├─zh
+│      blog.html
+│      index.html
+│      portfolio.html
+│      resume.html
+│	   
+│
+├─_data
+│      en.yml
+│      zh.yml
+│
+├─_includes
+│      footer.html
+│      header.html
+│
+├─_layouts
+│      default.html
+│
+└─_site
+    │  blog.html
+    │  ChatGPT prompt.txt
+    │  feed.xml
+    │  index.html
+    │  LICENSE
+    │  portfolio.html
+    │  resume.html
+    │  robots.txt
+    │  sitemap.xml
+    │  test.html
+    │
+    ├─assets
+    │  │  main.css
+    │  │  minima-social-icons.svg
+    │  │
+    │  ├─css
+    │  │      styles.css
+    │  │
+    │  └─images
+    │          favicon.ico
+    │          logo.jfif
+    │          logo.jpg
+    │
+    └─zh
+            blog.html
+            index.html
+            portfolio.html
+            resume.html
+
 
 # _includes/header.html
 <nav class="navbar navbar-expand-md navbar-light bg-light">
