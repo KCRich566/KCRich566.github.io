@@ -1,9 +1,29 @@
 * {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
+/* 定義這個會讓navbar下拉時錯誤，因為這個會影響navbar本身collapse後的大小，所以只能在內部的其他元件內設定高度來撐開navbar
+.navbar {
+    height: 80px;
+}
+*/
+.navbar-brand {
+    flex-shrink: 0; /* 确保 logo 不会被压缩 */
+    align-items: center;
+    justify-content: center; /* 水平居中图像 */
+    overflow: hidden; /* 隐藏溢出的图像部分 */
+}
+
+/* 确保语言切换器的 z-index 高于其他内容 */
+.navbar-nav .form-select {
+    z-index: 1060; /* 确保它高于下拉选单 */
+}
+
+.navbar .navbar-collapse {
+    z-index: 1050; /* 下拉菜单的 z-index 更高 */
+}
+
 .navbar-logo {
     display: block;
     line-height: 0;
@@ -18,4 +38,3 @@
     margin-right: 15px; /* 右边距离 */
     margin-bottom: 15px; /* 底部距离 */
 }
-
