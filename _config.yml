@@ -1,26 +1,46 @@
 # 基本設定
+# 使用在模板的方式為site.<屬性名稱>
 title: "KCRich566 website"
 description: "This is my site."
+# baseurl 為空，這表示你的網站位於 GitHub Pages 的根目錄
 baseurl: ""
 url: "https://KCRich566.github.io"
 
 # 作者資訊
+# 使用在模板的方式為site.author.<屬性名稱>
 author:
   name: "KCRich566"
   email: "KCRich566@gmail.com"
 
 # GitHub Pages 設定
+# Jekyll 提供的默認主題之一
 theme: "minima"
+# 插件可以增強 Jekyll 的功能。這些插件在構建網站時自動運行
 plugins:
+# 用於 RSS feed
   - jekyll-feed
+# 站點地圖
   - jekyll-sitemap
+# SEO
   - jekyll-seo-tag
+# 分頁功能
   - jekyll-paginate
   
 # 分頁配置
+
+# 使用在模板的方式為site.{屬性名稱}
+# paginator.next_page_path
+# paginator.previous_page_path
 paginate: 5
 paginate_path: "/page:num/"
-
+# 自定義的導航菜單配置，在模板中使用這些變數動態生成導航欄
+# <nav>
+#  <ul>
+#  {% for item in site.nav %}
+#     <li><a href="{{ item.link }}">{{ item.name }}</a></li>
+#  {% endfor %}
+#  </ul>
+# </nav>
 nav:
   - name: "home"
     link: "/"
@@ -32,15 +52,19 @@ nav:
     link: "/portfolio"
 
 # Markdown 處理器
+# 當你撰寫 Markdown 文件（如 .md 文件）時，Jekyll 會根據這些設置來解析和渲染文件。
 markdown: kramdown
 kramdown:
   input: "GFM"
 
 # Sass 和 SCSS 選項
+# 當你在 assets 文件夾中使用 Sass 或 SCSS 文件時，Jekyll 會根據這些設定編譯它們
 sass:
   style: compressed
 
 # Exclusions
+# 在使用 GitHub Pages 時，不會將這些文件包含在網站中
+# 列表中的文件和文件夾不會被 Jekyll 包含在網站的生成過程中
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -49,23 +73,45 @@ exclude:
   - vendor/
 
 # Collections 設定
+# 定義了你網站的集合。集合是一種組織內容的方式，除了博客文章外，你可以定義自己的集合
 collections:
+  # permalink 設置用於定義網站中頁面的 URL 結構（永久鏈接結構）。它們有助於確保 URL 對 SEO 友好並易於人們理解
+  # :year: 發佈年份（例如，2024）
+  # :month: 發佈月份，兩位數（例如，09）
+  # :day: 發佈日期，兩位數（例如，02）
+  # :title: 文檔或文章的標題，基於文件名（例如，my-first-post）
+  # :categories: 類別路徑，根據文章的 categories 字段生成（例如，/news/tech）
+  # :collection: Collection 的名稱（例如，my_collection）
+  # :path: 文檔在 Collection 中的相對路徑
+  # :slug: 文檔或文章的 slug（通常是標題的 URL 安全版本）
+  # :id: 文檔或文章的唯一 ID（通常是自定義設置）
   my_collection:
+    # 指定 Jekyll 將這個 Collection 的內容輸出為靜態頁面
     output: true
+    # 定義了 Collection 項目 URL 的結構。:collection 是 Collection 的名稱，:path 是每個項目文件的名稱
     permalink: /:collection/:path/
   posts:
     output: true
-  profolios:
+    # 文章的分類 permalink: /:categories/:year/:month/:day/:title/
+  # 自定義的 Collection
+  portfolios:
     output: true
+    
 # 自定義變數 - 可用於模板和佈局中
+# {{ site.custom_var }}
 custom_var: "Custom Value"
 
 # 本地開發設定
+# 顯示未來的文章
 future: true
+# 不會顯示草稿
 show_drafts: false
 
 # Additional settings
 # Define language support
+# 在每個語言文件夾中，按照相同的結構組織內容。
+# 例如，你可以在 _en 和 _zh 文件夾中都創建 _posts、_my_collection 等文件夾，
+# 分別存放英文和中文的文章和 Collection 項目
 languages:
   - en
   - zh
