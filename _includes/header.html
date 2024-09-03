@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav bg-light me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/">
+                    <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% else %}/en{% endif %}/">
                         {% if page.language == 'en' %}
                             {{ site.data.en.home }}
                         {% elsif page.language == 'zh' %}
@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/resume.html">
+                    <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% else %}/en{% endif %}/resume.html">
                         {% if page.language == 'en' %}
                             {{ site.data.en.resume }}
                         {% elsif page.language == 'zh' %}
@@ -34,7 +34,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/blog.html">
+                    <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% else %}/en{% endif %}/blog.html">
                         {% if page.language == 'en' %}
                             {{ site.data.en.blog }}
                         {% elsif page.language == 'zh' %}
@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% endif %}/portfolio.html">
+                    <a class="nav-link" href="{% if page.language == 'zh' %}/zh{% else %}/en{% endif %}/portfolio.html">
                         {% if page.language == 'en' %}
                             {{ site.data.en.portfolio }}
                         {% elsif page.language == 'zh' %}
@@ -77,18 +77,18 @@
         if (lang === 'en') {
             // 英文页面，不需要前缀
             if (pathSegments[0] === 'zh') {
-                // 如果当前路径是中文页面，去掉前缀并重定向到英文页面
-                const newPath = `/${pathSegments.slice(1).join('/')}`; // 去掉 'zh' 前缀
-                window.location.href = newPath === '' ? '/' : newPath;
+                // 如果当前路径没有中文前缀，添加 'zh' 前缀
+                const newPath = `/en/${pathSegments.slice(1).join('/')}`; // 去掉 'zh' 前缀
+                window.location.href = newPath;
             } else {
-                // 如果当前路径已经是英文页面或根路径，保持不变
-                window.location.href = currentPath === '/' ? '/' : currentPath;
+                // 如果当前路径已经是中文页面，保持不变
+                window.location.href = currentPath;
             }
         } else if (lang === 'zh') {
             // 中文页面，需要 'zh' 前缀
-            if (pathSegments[0] !== 'zh') {
+            if (pathSegments[0] === 'en') {
                 // 如果当前路径没有中文前缀，添加 'zh' 前缀
-                const newPath = `/zh${currentPath === '/' ? '/' : currentPath}`;
+                const newPath = `/zh/${pathSegments.slice(1).join('/')}`; // 去掉 'zh' 前缀
                 window.location.href = newPath;
             } else {
                 // 如果当前路径已经是中文页面，保持不变
