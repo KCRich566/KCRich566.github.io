@@ -94,8 +94,12 @@ collections:
     output: true
     # 文章的分類 permalink: /:categories/:year/:month/:day/:title/
   # 自定義的 Collection
+  blogs:
+    output: true
+    permalink: /:collection/:categories/:title/
   portfolios:
     output: true
+    permalink: /:collection/:categories/:title/
     
 # 自定義變數 - 可用於模板和佈局中
 # {{ site.custom_var }}

@@ -4,11 +4,9 @@
         <a class="navbar-brand d-flex align-items-center" href="{% if page.language == 'zh' %}/zh{% endif %}/">
             <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="My Site Logo" class="navbar-logo rounded-circle">
         </a>
-
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav bg-light me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
@@ -56,12 +54,11 @@
                     </a>
                 </li>
             </ul>
-
             <!-- Language Switcher Combo Box -->
             <form id="language-form" action="" method="get" class="form-inline">
                 <select name="lang" class="form-select" onchange="updateLanguage(this)">
-                    <option value="en" {% if page.language == 'en' %}selected{% endif %}>English</option>
-                    <option value="zh" {% if page.language == 'zh' %}selected{% endif %}>中文</option>
+                    <option value="en" {% if page.language=='en' %}selected{% endif %}>English</option>
+                    <option value="zh" {% if page.language=='zh' %}selected{% endif %}>中文</option>
                 </select>
             </form>
         </div>
@@ -73,26 +70,20 @@
         const lang = selectElement.value;
         const currentPath = window.location.pathname;
         const pathSegments = currentPath.split('/').filter(Boolean); // 分割路径并去掉空值
-        
+
         if (lang === 'en') {
-            // 英文页面，不需要前缀
-            if (pathSegments[0] === 'zh') {
-                // 如果当前路径没有中文前缀，添加 'zh' 前缀
-                const newPath = `/en/${pathSegments.slice(1).join('/')}`; // 去掉 'zh' 前缀
-                window.location.href = newPath;
-            } else {
-                // 如果当前路径已经是中文页面，保持不变
-                window.location.href = currentPath;
+            // 检查路径中是否包含 'zh'，并将其替换为 'en'
+            const newPath = pathSegments.map(segment => segment === 'zh' ? 'en' : segment).join('/');
+            // 如果路径发生了改变，则跳转到新的路径
+            if (newPath !== currentPath) {
+                window.location.href = `/${newPath}`;
             }
         } else if (lang === 'zh') {
-            // 中文页面，需要 'zh' 前缀
-            if (pathSegments[0] === 'en') {
-                // 如果当前路径没有中文前缀，添加 'zh' 前缀
-                const newPath = `/zh/${pathSegments.slice(1).join('/')}`; // 去掉 'zh' 前缀
-                window.location.href = newPath;
-            } else {
-                // 如果当前路径已经是中文页面，保持不变
-                window.location.href = currentPath;
+            // 检查路径中是否包含 'en'，并将其替换为 'zh'
+            const newPath = pathSegments.map(segment => segment === 'en' ? 'zh' : segment).join('/');
+            // 如果路径发生了改变，则跳转到新的路径
+            if (newPath !== currentPath) {
+                window.location.href = `/${newPath}`;
             }
         }
     }

@@ -7,17 +7,17 @@ language: zh
   <h1 class="mb-4">部落格</h1>
   
   <div class="row">
-    {% assign posts = site.posts | where: "language", page.language %}
-    {% if posts.size > 0 %}
-      {% for post in posts %}
+    {% assign blogs = site.blogs | where: "language", page.language %}
+    {% if blogs.size > 0 %}
+      {% for blog in blogs %}
         <div class="col-md-6 mb-4">
           <article class="card h-100 shadow-sm">
             <div class="card-body d-flex flex-column">
               <h2 class="card-title">
-                <a href="{{ post.url }}" class="text-dark text-decoration-none">{{ post.title }}</a>
+                <a href="{{ blog.url }}" class="text-dark text-decoration-none">{{ blog.title }}</a>
               </h2>
-              <p class="card-text">{{ post.excerpt | markdownify }}</p>
-              <a href="{{ post.url }}" class="btn btn-primary mt-auto align-self-start">继续阅读</a>
+              <p class="card-text">{{ blog.excerpt | markdownify }}</p>
+              <a href="{{ blog.url }}" class="btn btn-primary mt-auto align-self-start">继续阅读</a>
             </div>
           </article>
         </div>
