@@ -54,6 +54,8 @@ nav:
 # Markdown 處理器
 # 當你撰寫 Markdown 文件（如 .md 文件）時，Jekyll 會根據這些設置來解析和渲染文件。
 markdown: kramdown # Markdown 渲染器
+kramdown:
+    input: GFM
 highlighter: rouge # 代码高亮器（GitHub Pages 默认使用 Rouge）
 
 # Sass 和 SCSS 選項
