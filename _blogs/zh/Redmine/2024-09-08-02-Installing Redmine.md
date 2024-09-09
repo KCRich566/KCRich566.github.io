@@ -3,6 +3,7 @@ layout: blog
 title: "02-安裝 Redmine"
 date: 2024-09-08 09:56:00 +0800
 language: zh
+lang: zh
 categories: Redmine
 tags: Redmine
 ---

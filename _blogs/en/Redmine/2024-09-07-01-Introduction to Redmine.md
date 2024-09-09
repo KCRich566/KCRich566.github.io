@@ -3,6 +3,7 @@ layout: blog
 title: "01-Introduction to Redmine"
 date: 2024-09-07 09:56:00 +0800
 language: en
+lang: en
 categories: Redmine
 ---
 

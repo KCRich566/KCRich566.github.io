@@ -3,6 +3,7 @@ layout: blog
 title: "03-設定 Redmine 管理員帳戶與郵件通知"
 date: 2024-09-09 09:56:00 +0800
 language: zh
+lang: zh
 categories: Redmine
 tags: Redmine
 ---

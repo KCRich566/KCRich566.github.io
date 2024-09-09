@@ -97,10 +97,10 @@ collections:
   # 自定義的 Collection
   blogs:
     output: true
-    permalink: /:collection/:categories/:title/
+    permalink: /:collection/:path
   portfolios:
     output: true
-    permalink: /:collection/:categories/:title/
+    permalink: /:collection/:path
     
 # 自定義變數 - 可用於模板和佈局中
 # {{ site.custom_var }}

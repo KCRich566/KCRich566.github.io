@@ -3,6 +3,7 @@ layout: blog
 title: "03-Setting Up Redmine Administrator Account and Email Notifications"
 date: 2024-09-09 09:56:00 +0800
 language: en
+lang: en
 categories: Redmine
 tags: Redmine
 ---
