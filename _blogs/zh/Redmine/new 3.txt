@@ -1,0 +1,82 @@
+1. 配置Redmine
+設置基本配置：在Redmine的管理界面中設置你的項目、用戶和權限。這包括配置郵件通知、項目設定、用戶權限等。
+安裝插件：根據需要安裝Redmine插件來擴展功能。你可以在Redmine的插件頁面找到合適的插件並安裝。
+
+預先操作
+使用 Google 的 Gmail 服務作為 SMTP 伺服器進行郵件配置，你可以按照以下步驟來設定 configuration.yml 文件：
+
+1. 編輯 configuration.yml 文件
+打開 config/configuration.yml 文件，或在必要時創建一個。
+
+配置 SMTP 設置，將其設置為 Gmail 的參數：
+
+yaml
+複製程式碼
+email_delivery:
+  delivery_method: :smtp
+  smtp_settings:
+    address: "smtp.gmail.com"
+    port: 587
+    domain: "example.com" # 這裡可以設為你的域名
+    authentication: :plain
+    user_name: "your-email@gmail.com" # 你的 Gmail 地址
+    password: "your-email-password" # 你的 Gmail 密碼或應用專用密碼
+    enable_starttls_auto: true
+address: Gmail 的 SMTP 伺服器地址是 smtp.gmail.com。
+port: 使用端口 587（TLS）或 465（SSL）。在上述配置中，使用 587 端口。
+domain: 這裡可以設為你的域名，或用於發送郵件的域名。
+authentication: 使用 :plain 認證方式。
+user_name: 你的 Gmail 地址。
+password: 這裡的密碼是你的 Gmail 密碼，或者如果你啟用了雙重身份驗證，你需要使用應用專用密碼。可以在 Google 帳戶安全性設置中生成應用專用密碼。
+enable_starttls_auto: 設置為 true 以啟用 STARTTLS。
+2. 重啟 Redmine
+完成配置後，重啟 Redmine 服務以使更改生效：
+
+3. 測試郵件設置
+登錄到 Redmine 管理界面。
+進入「管理」>「設定」>「郵件」。
+嘗試發送測試郵件以確認設置是否正確。
+4. 檢查日誌
+如果發送測試郵件時出現問題，檢查 Redmine 的日誌文件以查看錯誤信息，通常在 log 目錄下。例如，你可以查閱 production.log 以獲取有關郵件配置的錯誤信息。
+
+注意事項
+應用專用密碼：如果你使用的是 Google 的雙重身份驗證，請確保使用應用專用密碼，而不是你的 Google 密碼。可以在 Google 的應用專用密碼頁面 生成。
+
+
+1. 登錄 Redmine
+打開你的 Redmine 網站，並使用預設的 admin 帳戶登錄。
+預設的 admin 帳戶通常是 admin，密碼是安裝過程中設置的密碼。如果不確定，可以檢查安裝文檔或重置密碼。
+2. 設置基本配置
+郵件通知：
+進入管理界面，點擊「管理」。
+在「設定」中找到「郵件」設置部分。
+配置郵件服務器和相關設置，以便 Redmine 能夠發送郵件通知。
+項目設定：
+在管理界面中，選擇「項目」並點擊「新建項目」來創建新項目。
+設置項目名稱、描述、權限等信息。
+用戶權限：
+在管理界面中，選擇「用戶」來添加新用戶。
+為新用戶分配角色和權限。
+可以在「角色和權限」中定義角色和權限。
+3. 安裝插件
+查找插件：
+訪問 Redmine 的插件頁面（Redmine 插件目錄）。
+根據你的需求選擇合適的插件。
+安裝插件：
+下載插件並解壓。
+將插件文件放置在 Redmine 的 plugins 目錄中。
+進入 Redmine 根目錄，運行 bundle install 安裝插件依賴。
+執行 bundle exec rake redmine:plugins:migrate 以更新數據庫結構。
+重啟 Redmine 服務以使插件生效。
+
+
+
+
+2. 設定多語言支持
+添加和配置語言：在Redmine中設置多語言支持，這樣用戶可以根據需要選擇顯示語言。你可以在Redmine的管理界面中找到語言設置選項。
+3. 測試和驗證
+測試功能：確認所有設置都能正常工作，包括用戶登錄、項目管理、問題跟踪等功能。
+驗證安裝：檢查Redmine的安裝和配置是否符合你的需求，並確保一切都在正常運行。
+4. 文檔和培訓
+編寫文檔：為你的Redmine系統編寫用戶文檔和操作手冊。
+培訓用戶：為使用Redmine的用戶提供培訓，確保他們了解如何使用系統。
