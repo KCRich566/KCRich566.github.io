@@ -7,122 +7,24 @@ lang: zh
 categories: Docker
 ---
 
+
+docker pull ubuntu:latest
+docker run -it --name myubuntu ubuntu:latest
+
+
+```bash
+sudo apt update
+sudo apt-get update
+sudo apt nano apt
+```
+
+docker commit myubuntu ubuntu:new
+docker run -it ubuntu:new --name mynewubuntu
+
 使用 Docker 涉及幾個基本操作，包括創建和管理容器、映像檔、以及使用 Docker Compose 來管理多容器應用。以下是 Docker 的基本操作指南，包括容器和映像檔的使用、Dockerfile 的創建、以及 Docker Compose 的基本用法。
 
-1. Docker 容器和映像檔
 
-1.1 查看 Docker 版本
-```bash
-
-docker --version
-```
-1.2 拉取 Docker 映像檔
-Docker Hub 是 Docker 的官方映像檔註冊中心，你可以從這裡拉取公共映像檔：
-
-```bash
-
-docker pull <image_name>
-```
-例如，拉取 Ubuntu 映像檔：
-
-```bash
-
-docker pull ubuntu
-```
-1.3 創建並運行容器
-使用 docker run 命令來創建並運行容器：
-
-```bash
-
-docker run -d --name <container_name> <image_name>
-```
--d 參數表示以背景模式運行容器。
---name 參數為容器指定名稱。
-例如，運行一個 Ubuntu 容器：
-
-```bash
-
-docker run -d --name my_ubuntu_container ubuntu
-```
-
-如果你能运行 docker run -it ubuntu 但无法运行 docker run -d --name my_ubuntu_container ubuntu，可能的原因是由于你运行容器的方式不同。让我解释一下可能的原因：
-
-交互模式 (Interactive Mode) 与 后台模式 (Detached Mode) 的区别
--it 参数：表示交互模式，它启动容器并将你直接带入容器的命令行（即 /bin/bash 或其他 shell）。
--d 参数：表示后台模式，它启动容器并让它在后台运行，没有附加任何终端。
-问题原因
-当你使用 -d 参数时，容器在后台运行。但默认情况下，Ubuntu 容器在没有指定要运行的命令时，只会启动一个极简的基础镜像，然后立即退出，因为没有任何前台任务在运行。所以，容器可能会在启动后立即退出，这就是为什么你看起来无法运行它。
-验证容器状态
-你可以使用以下命令查看容器的状态：
-
-bash
-複製程式碼
-docker ps -a
-你可能会发现 my_ubuntu_container 容器已经停止（Exited 状态）。这意味着容器启动成功但很快就退出了，因为没有进程在后台运行。
-
-解决方法
-如果你希望容器在后台持续运行，你需要启动一个持续运行的服务或进程。你可以尝试以下几种方式：
-
-运行一个长期运行的命令： 例如，使用以下命令启动容器并运行一个长期运行的进程（如 tail）：
-
-bash
-複製程式碼
-docker run -d --name my_ubuntu_container ubuntu tail -f /dev/null
-这会启动容器，并使其一直运行 tail -f /dev/null，保持容器处于活动状态。
-
-指定启动命令： 你可以指定启动时执行的命令或脚本，如：
-
-bash
-複製程式碼
-docker run -d --name my_ubuntu_container ubuntu sleep 1000
-这个命令会使容器运行 sleep 1000，即睡眠 1000 秒，然后退出。
-
-创建自定义的 Dockerfile： 你可以通过编写一个 Dockerfile 来指定容器启动时运行的命令。这对于更复杂的应用场景非常有用。
-
-总结
-当你在后台模式启动一个 Ubuntu 容器时，如果没有指定需要持续运行的命令，容器会立即退出。通过运行一个长期运行的命令或进程，你可以让容器保持运行。
-
-
-
-
-
-1.4 查看正在運行的容器
-```bash
-
-docker ps
-```
-1.5 查看所有容器（包括已停止的）
-```bash
-
-docker ps -a
-```
-1.6 查看容器的日誌
-```bash
-
-docker logs <container_name>
-```
-1.7 進入運行中的容器
-```bash
-
-docker exec -it <container_name> /bin/bash
-```
--it 參數允許你以互動模式進入容器。
-1.8 停止容器
-```bash
-
-docker stop <container_name>
-```
-1.9 刪除容器
-```bash
-
-docker rm <container_name>
-```
-1.10 刪除映像檔
-```bash
-
-docker rmi <image_name>
-```
-
+如果
 2. 創建和使用 Dockerfile
 Dockerfile 是一個文本文件，定義了如何構建 Docker 映像檔。以下是一個簡單的 Dockerfile 範例：
 

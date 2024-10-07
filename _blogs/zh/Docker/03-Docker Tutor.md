@@ -1,25 +1,41 @@
 ---
 layout: blog
-title: "01-Install Ubuntu Platform"
-date: 2024-09-07 09:56:00 +0800
+title: "03-Docker Tutor"
 language: zh
 lang: zh
-categories: docker
+categories: Docker
 ---
+## Docker 基本概念
 
-## 必須要知道的事情
+### 定義
 
-Image: 鏡像
+映像是一個容器的靜態模板，包含了容器運行所需的所有內容。映像是只讀的，並且可以用來創建容器實例。
 
-Container: 容器
+### 構建
 
-docker run: 建立並執行容器，所有的配置要在這個命令前配置好
+映像是根據 Dockerfile 使用 docker build 命令構建出來的，其中 Dockerfile 定義了映像的構建過程和所需依賴。
 
-docker exec: 針對已建立的容器來執行命令
+### Dockerfile
 
-docker start|stop|restart: 針對已建立的容器啟動|停止|重啟
+定義：Dockerfile 是一個文本文件，包含了構建 Docker 映像的指令和設置。這些指令告訴 Docker 如何構建一個映像。
 
-## docker 常用指令與範例
+常見指令：
+
++ FROM：指定基礎映像。
+
++ RUN：在映像中執行命令，如安裝軟體。
+
++ COPY 或 ADD：將文件複製到映像中。
+
++ EXPOSE：指定容器要暴露的端口。
+
++ CMD 或 ENTRYPOINT：指定容器啟動時要執行的命令。
+
+### Docker Compose
+
+Docker Compose是一個用來定義和運行多容器 Docker 應用的工具。你可以通過一個 YAML 文件來配置應用的服務、網絡和卷等。只需一條命令就可以創建並啟動你在配置文件中定義的所有服務
+
+## Docker 基本操作
 
 ### 顯示docker版本
 
@@ -27,24 +43,34 @@ docker start|stop|restart: 針對已建立的容器啟動|停止|重啟
 docker --version
 ```
 
-### docker pull 拉取鏡像(Image)
+### 顯示目前有的鏡像
 
-從 docker Hub 拉取鏡像。
+```bash
+docker images
+```
+
+### 拉取鏡像：
 
 ```bash
 docker pull <image-name>:<tag>
 ```
 
-例如：
+例如，拉取最新的 Ubuntu 鏡像：
 
 ```bash
-docker pull ubuntu:20.04
+docker pull ubuntu:latest
 ```
 
-### docker image 顯示目前有的鏡像
+#### 拉取指定標籤的映像
 
 ```bash
-docker images
+	docker pull <image_name>:<tag>
+```
+
+例如
+
+```bash 
+	docker pull nginx:1.21.6
 ```
 
 ### 刪除目前有的鏡像
@@ -53,85 +79,68 @@ docker images
 docker rmi <image-id-or-name>
 ```
 
+### 建立並運行容器：
 
-### docker run 建立並運行一個新容器
-
-很多Container的配置在這個步驟就要處理完成
-
-後續的如啟動容器的方法，都是根據這些配置來處理的
-
-修改有點困難，所以還是先配置比較好
-
-不然你就要Commit你的容器使之成為鏡像再來使用run配置
+很多Container的配置在這個步驟就要處理完成，後續的如啟動容器的方法，都是根據這些配置來處理的。而在配置後修改會有點困難，所以還是先配置比較好，否則你就要Commit你的容器使之成為鏡像再來使用run命令來配置
 
 ```bash
 docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 ```
 
-例如：
-```
-docker run -d --name mycontainer ubuntu:20.04 /bin/bash
-```
++ IMAGE：要運行的 Docker 映像名稱。
 
++ COMMAND：可選，容器啟動後運行的命令。
 
-```
-docker run -it -p 8080:80 --name mycontainer ubuntu:20.04 /bin/bash
-```
+	- -it 標誌表示交互模式，允許進入容器內操作。
 
-常用選項：
+	- -d 參數表示以背景模式運行容器的程序,並返回容器的 ID
 
--it：交互模式，這是-i與-t的命令，-t表示分配一個虛擬終端機
+	- --name 參數為容器指定名稱。
 
---name <container name>：指定容器名稱
+	- -p：端口映射。將容器內的端口映射到主機端口，如將主機8080端口映射到容器內的80端口
 
--d：以分離模式運行容器
-
--p 8080:80：端口映射（-p <host-port>:<container-port>）
-	端口映射一定要在建立時設定，不然後面會很麻煩
-	
--e [MY_VAR=value]: 設定環境變量
-
--v <host-path>: <container-path>: 掛載目錄或文件到容器中
-
---rm: 容器停止後自動刪除容器
-
-
-啟動容器後容器馬上停止的問題，這通常是因為容器中沒有持續運行的進程。
-在 ubuntu基本鏡像中，沒有預設的持續運行的服務或命令，容器啟動後會立刻退出
-
-解決方法:
-
-使用sleep來設定閒置時間
-
-```
-docker run -d --name <container-name> <image> sleep infinity
-```
-
-如是可以使用dockerfile來指定容器運行Nginx的服務
-
-```dockerfile
-# dockerfile
-FROM ubuntu:20.04
-RUN apt-get update && apt-get install -y nginx
-CMD ["nginx", "-g", "daemon off;"]
-```
-
-使用以下命令構件與運行鏡像
+	- -e：設置環境變量。
 
 ```bash
-docker build -t mynginx .
-docker run -d --name mynginx-container mynginx
+docker run -d -e MY_ENV_VAR=value nginx
 ```
 
-### docker start|stop|restart 啟動,停止或重啟一個已經存在的容器
+	- -v：卷掛載。將主機目錄或文件掛載到容器內,如將主機的/my/local/dir掛載到容器的/data
 
 ```
-docker <start|stop|restart> <container-id-or-name>
+docker run -d -v /my/local/dir:/data nginx
 ```
 
-### docker exec 在運行中的容器執行命令
+	- --rm：容器停止後自動刪除容器
 
-1. 進入交互式 Shell
+```
+docker run --rm nginx
+```
+
+	- --network：指定容器所屬的網絡，如將容器連接到名為 my-network 的 Docker 網絡
+
+```bash
+docker run -d --network my-network nginx
+```
+
++ ARG...：可選，傳遞給命令的參數。
+
+
+例如運行一個交互式的 Ubuntu 容器
+
+```bash
+docker run -it -d --name mycontainer ubuntu
+```
+
+例如將host的8080端口映射到容器的80端口
+
+```bash
+docker run -d -p 8080:80 nginx
+```
+### 操作已建立的容器
+
+
+#### 進入交互式 Shell
 
 你可以使用 docker exec 進入容器的交互式 shell，以便進行手動操作或檢查容器內部的狀況：
 
@@ -147,7 +156,7 @@ docker exec -it <container-id-or-name> /bin/sh
 
 這會讓你進入容器內部的 shell，可以在其中執行各種命令。
 
-2. 執行單一命令
+#### 執行單一命令
 
 執行容器內部的單一命令而不進入 shell。例如，查看容器內部的文件：
 
@@ -155,7 +164,7 @@ docker exec -it <container-id-or-name> /bin/sh
 docker exec <container-id-or-name> ls /app
 ```
 
-3. 執行背景命令
+#### 執行背景命令
 
 可以使用 --detach 選項以分離模式運行命令，這意味著命令會在背景中運行：
 
@@ -163,7 +172,7 @@ docker exec <container-id-or-name> ls /app
 docker exec --detach <container-id-or-name> some-background-command
 ```
 
-4. 設置用戶
+#### 設置用戶
 
 可以使用 --user 選項指定執行命令的用戶。例如，以 www-data 用戶身份執行命令：
 
@@ -171,7 +180,7 @@ docker exec --detach <container-id-or-name> some-background-command
 docker exec --user www-data <container-id-or-name> ls /var/www
 ```
 
-5. 檢查容器內的應用
+#### 檢查容器內的應用
 
 檢查或操作容器內部的應用程序。例如，重啟某個服務：
 
@@ -179,7 +188,7 @@ docker exec --user www-data <container-id-or-name> ls /var/www
 docker exec <container-id-or-name> service apache2 restart
 ```
 
-6. 檢查系統信息
+#### 檢查系統信息
 
 檢查容器內部的系統狀況，例如查看系統資源使用情況：
 
@@ -187,7 +196,7 @@ docker exec <container-id-or-name> service apache2 restart
 docker exec <container-id-or-name> top
 ```
 
-7. 編輯配置文件
+#### 編輯配置文件
 
 進入容器並編輯配置文件，例如使用 vi 或 nano 編輯器：
 
@@ -195,7 +204,7 @@ docker exec <container-id-or-name> top
 docker exec -it <container-id-or-name> vi /etc/some-config-file
 ```
 
-8. 調試
+#### 調試
 
 在容器內部運行調試工具或腳本來檢查問題。例如，查看容器的環境變量：
 
@@ -209,64 +218,74 @@ docker exec <container-id-or-name> printenv
 docker ps [-a]
 ```
 
--a: 包括已停止的容器
+-a: 表示包括已停止的
 
-### 停止運行中的容器
+### docker start|stop|restart 啟動,停止或重啟一個已經存在的容器
+
+```
+docker <start|stop|restart> <container-id-or-name>
+```
+
+### 查看容器輸出日誌
+
+#### 查看容器日誌
 
 ```bash
-docker stop <container-id>
+docker logs <container_id>
 ```
 
-例如：
+將 <container_id> 替換為你要查看的容器 ID 或名稱。你可以從 docker ps 命令中獲取容器 ID 或名稱。
 
 ```bash
-docker stop mycontainer
+docker ps
 ```
 
-### 刪除停止的容器
+然後使用容器 ID 或名稱查看日誌：
 
 ```bash
-docker rm [-f] <container-id1> [container-id2]...
+docker logs my-container
 ```
 
--f: 表示強制刪除運行中的容器
+#### 查看實時日誌
 
-
-例如：
+若要查看實時日誌，可以使用 -f (follow) 選項。這會持續輸出日誌，直到你手動停止（按 Ctrl+C）。
 
 ```bash
-docker rm mycontainer
+docker logs -f <container_id>
 ```
 
-刪除所有已停止的容器
+這對於實時監控容器的運行非常有用。
+
+#### 顯示最近的日誌行
+
+若只想查看最近幾行日誌，可以使用 --tail 選項。例如，查看最近 100 行日誌：
 
 ```bash
-docker rm $(docker ps -a -q)
+docker logs --tail 100 <container_id>
 ```
 
-### docker logs 查看容器的日誌
+#### 顯示指定時間段的日誌
+
+若要查看從特定時間點開始的日誌，可以使用 --since 選項。例如，查看過去 1 小時的日誌：
 
 ```bash
-docker logs <container-id>
+docker logs --since 1h <container_id>
 ```
 
-例如：
-
-```
-docker logs mycontainer
-```
-
-### 查看 docker 容器的端口映射
+#### 使用具體的時間戳：
 
 ```bash
-docker port <Container> [PRIVATE_PORT[/PROTO]]
+docker logs --since "2024-09-10T15:00:00" <container_id>
 ```
 
-例如:
+#### 顯示日誌的時間戳
+
+使用 --timestamps 選項可以在日誌輸出中顯示時間戳：
 
 ```bash
-docker port mycontainer 80
+docker logs --timestamps <container_id>
 ```
+
 ### docker cp複製文件與目錄
 
 從主機到容器的複製方式
@@ -320,6 +339,9 @@ docer build -t myimage:latest -f mydockerfile.dockerfile .
 
 --progress：控制構建過程中輸出的詳細程度（例如 plain、tty、quiet）。
 
+
+
+
 ## 使用dockerfile建立鏡像
 
 dockerfile常用指令:
@@ -365,6 +387,95 @@ or
 CMD ["bash"]
 ```
 
+
+1. 創建 Dockerfile：
+
+```Dockerfile
+#可以建立一個資料夾，並在裡面帶有dockerfile與index.html檔案
+
+# 使用官方的 Ubuntu 作為基礎映像
+FROM ubuntu:latest
+
+# 安裝 Nginx
+RUN apt-get update && apt-get install -y nginx
+
+# 複製本地文件到容器中，需要準備index.html檔案
+COPY ./index.html /var/www/html/
+
+# 暴露端口 80
+EXPOSE 80
+
+# 啟動 Nginx[可以參考"正向代理 vs 反向代理.md"]
+
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+2. 構建映像： 在 Dockerfile 所在的目錄中運行：
+
+```bash
+docker build -t my-nginx-image .
+```
+
+3. 運行映像：
+
+```bash
+docker run -d -p 8080:80 my-nginx-image
+```
+
+這會將容器的端口 80 映射到主機的端口 8080。
+
+## 使用 Docker Compose
+
+Docker Compose 允許你使用 YAML 文件來定義和管理多個容器。這對於需要多個服務協同工作的應用程序特別有用。
+
+### 創建 docker-compose.yml 文件：
+
+以下創建兩個容器web與db
+
+```yaml
+version: '3'
+services:
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+```
+
+### 查看容器狀態：
+
+```bash
+docker-compose ps
+```
+
+### 啟動服務： 在 docker-compose.yml 文件所在的目錄中運行：
+
+```bash
+docker-compose up [-d]
+```
+
+-d: 表示在後台運行
+
+### 停止服務：
+
+```bash
+docker-compose down
+```
+
+### 查看日誌
+
+```bash
+docker-compose logs
+```
+查看特定服務的日誌：
+
+```bash
+docker-compose logs web
+```
+
 ## docker-compose
 
 Docker Compose 是一個用來定義和運行多容器 Docker 應用的工具。
@@ -374,6 +485,7 @@ Docker Compose 是一個用來定義和運行多容器 Docker 應用的工具。
 只需一條命令就可以創建並啟動你在配置文件中定義的所有服務。
 
 主要功能：
+
 多容器協調：允許你同時管理多個容器，適合那些需要多個服務協同工作的應用，例如一個需要 Web 服務器、數據庫和緩存服務器的應用。
 
 服務定義：你可以在一個 docker-compose.yml 文件中定義每個服務的配置，包括其映像、端口、環境變量、卷等。
@@ -442,3 +554,7 @@ docker-compose up
 ```bash
 docker-compose down
 ```
+
+## 其他資源
++ [Docker 官方文檔](https://docs.docker.com/)：涵蓋 Docker 的詳細使用說明和最佳實踐。
++ [Docker Hub](https://hub.docker.com/)：用於查找和分享 Docker 鏡像。

@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: "01-Install Ubuntu Platform"
+title: "Test1-To Install Lastest Ubuntu"
 date: 2024-09-07 09:56:00 +0800
 language: zh
 lang: zh
