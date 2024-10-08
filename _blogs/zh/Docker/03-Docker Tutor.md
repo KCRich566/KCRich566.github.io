@@ -5,6 +5,9 @@ language: zh
 lang: zh
 categories: Docker
 ---
+
+Docker 的常用內容
+
 ## Docker 基本概念
 
 ### 定義
@@ -204,6 +207,44 @@ docker exec <container-id-or-name> top
 docker exec -it <container-id-or-name> vi /etc/some-config-file
 ```
 
+#### Volume
+
+Docker Volume 用於持久化數據。以下是創建和使用 Docker Volume 的示例：
+
+創建 Volume：
+
+```
+docker volume create my_volume
+```
+
+運行容器並掛載 Volume：
+
+```
+docker run -d -v my_volume:/data my_image
+```
+
+查看 Volume：
+
+```
+docker volume ls
+```
+
+查看 Volume 詳細信息：
+
+```
+docker volume inspect my_volume
+```
+
+刪除 Volume：
+
+```
+docker volume rm my_volume
+```
+#### docker port
+
+```bash
+docker port CONTAINER [PRIVATE_PORT[/PROTO]]
+```
 #### 調試
 
 在容器內部運行調試工具或腳本來檢查問題。例如，查看容器的環境變量：
@@ -244,6 +285,17 @@ docker ps
 
 ```bash
 docker logs my-container
+```
+
+#### 查看 Docker 系統信息
+
+```bash
+docker info
+```
+#### 清理未使用的 Docker 資源
+
+```bash
+docker system prune
 ```
 
 #### 查看實時日誌
@@ -422,11 +474,11 @@ docker build -t my-nginx-image .
 docker run -d -p 8080:80 my-nginx-image
 ```
 
-這會將容器的端口 80 映射到主機的端口 8080。
+-p 會將容器的端口 80 映射到主機的端口 8080。
 
 ## 使用 Docker Compose
 
-Docker Compose 允許你使用 YAML 文件來定義和管理多個容器。這對於需要多個服務協同工作的應用程序特別有用。
+Docker Compose 允許你使用 YAML 文件來定義和管理多個容器，即用於定義和運行多容器 Docker 應用。
 
 ### 創建 docker-compose.yml 文件：
 
@@ -486,47 +538,34 @@ Docker Compose 是一個用來定義和運行多容器 Docker 應用的工具。
 
 主要功能：
 
-多容器協調：允許你同時管理多個容器，適合那些需要多個服務協同工作的應用，例如一個需要 Web 服務器、數據庫和緩存服務器的應用。
+1. 多容器協調
 
-服務定義：你可以在一個 docker-compose.yml 文件中定義每個服務的配置，包括其映像、端口、環境變量、卷等。
+允許你同時管理多個容器，適合那些需要多個服務協同工作的應用，例如一個需要 Web 服務器、數據庫和緩存服務器的應用。
 
-命令簡化：一條 docker-compose up 命令即可啟動所有服務，而不需要分別執行 docker run 命令。
+2. 服務定義
+
+你可以在一個 docker-compose.yml 文件中定義每個服務的配置，包括其映像、端口、環境變量、卷等。
+
+3. 命令簡化
+
+一條 docker-compose up 命令即可啟動所有服務，而不需要分別執行 docker run 命令。
 
 以下為docker-compose.yml的範例
 
-```
+```docker-compose.yml
+# version: 定義Docker Compose文件的語法版本。3是一個常見的版本
 version: '3'
+
+# services: 義了需要運行的 Docker 服務(容器)
 services:
-  web:
-    image: nginx:alpine
-    ports:
+  myubunutu:
+    image: ubuntu:latest # 鏡像
+    ports: # 端口映射
       - "8080:80"
-    volumes:
-      - ./html:/usr/share/nginx/html
-  db:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: example
-    volumes:
-      - db_data:/var/lib/mysql
-
-volumes:
-  db_data:
+    volumes: # 目錄的映射
+      - ./html:/var/www/html
+    command: /bin/bash -c "apt update && apt install -y nginx nano && nginx -g 'daemon off;'"
 ```
-
-version：這行定義了 Docker Compose 文件的語法版本。3 是一個常見的版本，適合多數現代 Docker 部署。
-services ：這部分定義了需要運行的 Docker 服務(也可以說是容器)。上述有兩個服務：web 和 db。
-
-web 服務
-	image: 鏡像
-	ports: 端口映射
-	volumes:定義一個宿主機目錄與容器內目錄的映射。
-db 服務
-	image: 鏡像：指定使用的 Docker 映像。db 服務使用的是 mysql:5.7，這是一個 MySQL 5.7 的版本映像。
-	environment環境變量：用來配置容器的環境參數。
-	volumes: 數據卷：將 MySQL 的數據目錄映射到宿主機的 db_data 卷上。這樣，數據庫數據可以持久化，即使容器刪除後，數據仍然保留。這個映射指向 MySQL 容器的 /var/lib/mysql 目錄，這是 MySQL 默認的數據存儲目錄。
-
-volumes 數據卷(全局定義)：定義一個名為 db_data 的卷，用來持久化數據。在 db 服務中，這個卷被用來存儲 MySQL 的數據。
 
 常用命令：
 
@@ -549,6 +588,7 @@ docker-compose up
 ```
 
 ### docker-compose down
+
 停止並刪除由 docker-compose up 啟動的容器。
 
 ```bash
