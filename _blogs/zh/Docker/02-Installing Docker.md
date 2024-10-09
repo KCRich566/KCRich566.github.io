@@ -53,6 +53,7 @@ categories: Docker
 ### 更新與安裝軟體包
 
 ```bash
+# ubuntu bash
 sudo apt-get update
 sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
 ```
@@ -60,18 +61,21 @@ sudo apt-get install apt-transport-https ca-certificates curl software-propertie
 ### 添加 Docker 的官方 GPG 密鑰
 
 ```bash
+# ubuntu bash
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
 
 ### 添加 Docker 的 APT 存儲庫
 
 ```bash
+# ubuntu bash
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 ```
 
 ### 更新與安裝軟體包
 
 ```bash
+# ubuntu bash
 sudo apt-get update
 sudo apt-get install docker-ce
 ```
@@ -79,6 +83,7 @@ sudo apt-get install docker-ce
 ### 啟動 Docker 並設置開機啟動
 
 ```bash
+# ubuntu bash
 sudo systemctl start docker
 sudo systemctl enable docker
 ```
@@ -98,12 +103,14 @@ Docker Compose 是 Docker 的一個工具，用於定義和運行多容器 Docke
 在 Linux 上，你可以使用以下命令安裝 Docker Compose：
 
 ```bash
+# ubuntu bash
 sudo curl -L "https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep tag_name | cut -d '"' -f 4)/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
 ### 設置執行權限:
 
 ```bash
+# ubuntu bash
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 

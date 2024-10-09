@@ -14,7 +14,7 @@ categories: docker
 拉取鏡像
 
 ```bash
-# windows
+# windows bash
 docker pull mysql:5.7
 docker pull python:3.9
 ```
@@ -22,7 +22,7 @@ docker pull python:3.9
 建立db容器
 
 ```bash
-# windows
+# windows bash
 docker run -it --name db --network my_network -e MYSQL_ROOT_PASSWORD=example -e MYSQL_DATABASE=mydb mysql:5.7
 ```
 Ctrl+Z Ctrl+C退出
@@ -32,14 +32,14 @@ Ctrl+Z Ctrl+C退出
 建立web容器
 
 ```bash
-# windows
+# windows bash
 docker run -it --name web --network my_network -p 5000:5000 -e DATABASE_HOST=db -e DATABASE_USER=root  -e DATABASE_PASSWORD=example  -e DATABASE_NAME=mydb -v {app資料夾位置}:/app python:3.9 /bin/bash
 ```
 
 確認重啟是否啟動
 
 ```bash
-# windows
+# windows bash
 docker start web
 docker start db
 ```
@@ -47,7 +47,7 @@ docker start db
 在web容器中
 
 ```bash
-# ubuntu
+# ubuntu bash
 apt update
 apt install nano
 pip install --upgrade pip
@@ -63,7 +63,9 @@ docker exec -it web /bin/bash
 
 首先要先在一個資料夾並放入docker-compose.yml的檔案，以及建立app檔案並且放入app.py檔案
 
-```app\app.py
+```python
+# app\app.py
+
 from flask import Flask, request, jsonify
 import mysql.connector
 import os
@@ -139,7 +141,8 @@ if __name__ == '__main__':
 在 Docker Compose 中，服務的名稱可以作為主機名來訪問其他服務。這意味著你可以使用服務的名稱（即在 docker-compose.yml 文件中的 services 部分定義的名稱）來作為數據庫連接的主機名。
 
 
-```docker-compose.yml
+```YAML
+# docker-compose.yml
 version: '3.8'
 
 services:
@@ -173,7 +176,7 @@ volumes:
 ```
 
 ```bash
-# windows
+# windows bash
 docker-compose up
 ```
 
@@ -182,14 +185,14 @@ docker-compose up
 初始化DB、建立使用者並且驗證是否執行成功
 
 ```bash
-# windows
+# windows bash
 curl http://localhost:5000/initdb
 curl -X POST http://localhost:5000/users -H "Content-Type: application/json" -d "{\"name\": \"John Doe\", \"email\": \"john@example.com\"}"
 curl http://localhost:5000/users
 ```
 
 ```bash
-# windows
+# windows bash
 docker-compose down
 ```
 
@@ -204,7 +207,7 @@ docker-compose down
 使用 docker run 命令中的 -v 參數將宿主機的某個目錄掛載到容器內的某個目錄。對於數據庫來說，通常是掛載數據庫的數據目錄。例如：
 
 ```bash
-# windows
+# windows bash
 docker run -d \
   -v /path/on/host:/var/lib/mysql \
   --name mysql-container \
@@ -236,14 +239,14 @@ ChatGPT
 例如：
 
 ```dockerfile
-
+# dockerfile
 FROM ubuntu:20.04
 RUN apt-get update && apt-get install -y vim curl
 ```
 然後構建映像：
 
 ```bash
-# windows
+# windows bash
 docker build -t mycustomimage .
 ```
 

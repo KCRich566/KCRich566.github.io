@@ -7,6 +7,7 @@ lang: zh
 categories: docker
 ---
 
+## 解決 Ubuntu 容器啟動後自動停止的問題：持續運行的進程設置方法
 
 如果docker run -d --name myubuntu ubuntu:latest的話
 但docker run -it --name myubuntu ubuntu:latest卻沒事情。
@@ -17,7 +18,8 @@ categories: docker
 
 使用sleep來設定閒置時間
 
-```
+```bash
+#windows bash
 docker run -d --name <container-name> <image> sleep infinity
 ```
 
@@ -33,6 +35,7 @@ CMD ["nginx", "-g", "daemon off;"]
 使用以下命令構件與運行鏡像
 
 ```bash
+#windows bash
 docker build -t mynginx .
 docker run -d --name mynginx-container mynginx
 ```
