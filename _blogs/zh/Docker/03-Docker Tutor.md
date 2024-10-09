@@ -106,36 +106,36 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 + COMMAND：可選，容器啟動後運行的命令。
 
-	+ -it 標誌表示交互模式，允許進入容器內操作。
++ +	 -it 標誌表示交互模式，允許進入容器內操作。
 
-	+ -d 參數表示以背景模式運行容器的程序,並返回容器的 ID
++ + -d 參數表示以背景模式運行容器的程序,並返回容器的 ID
 
-	+ --name 參數為容器指定名稱。
++ +	--name 參數為容器指定名稱。
 
-	+ -p：端口映射。將容器內的端口映射到主機端口，如將主機8080端口映射到容器內的80端口
++ + -p：端口映射。將容器內的端口映射到主機端口，如將主機8080端口映射到容器內的80端口
 
-	+ -e：設置環境變量。
++ + -e：設置環境變量。
 
 ```bash
 # windows bash
 docker run -d -e MY_ENV_VAR=value nginx
 ```
 
-	+ -v：卷掛載。將主機目錄或文件掛載到容器內,如將主機的/my/local/dir掛載到容器的/data
++ + -v：卷掛載。將主機目錄或文件掛載到容器內,如將主機的/my/local/dir掛載到容器的/data
 
 ```bash
 # windows bash
 docker run -d -v /my/local/dir:/data nginx
 ```
 
-	+ --rm：容器停止後自動刪除容器
++ + --rm：容器停止後自動刪除容器
 
 ```bash
 # windows bash
 docker run --rm nginx
 ```
 
-	+ --network：指定容器所屬的網絡，如將容器連接到名為 my-network 的 Docker 網絡
++ + --network：指定容器所屬的網絡，如將容器連接到名為 my-network 的 Docker 網絡
 
 ```bash
 # windows bash
@@ -312,7 +312,7 @@ docker <start|stop|restart> <container-id-or-name>
 docker logs <container_id>
 ```
 
-將 <container_id> 替換為你要查看的容器 ID 或名稱。你可以從 docker ps 命令中獲取容器 ID 或名稱。
+將 `<container_id>` 替換為你要查看的容器 ID 或名稱。你可以從 docker ps 命令中獲取容器 ID 或名稱。
 
 ```bash
 # windows bash
