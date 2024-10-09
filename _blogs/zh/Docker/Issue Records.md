@@ -1,11 +1,13 @@
 ---
 layout: blog
-title: "Issue Records"
+title: "[Docker] Issue Records"
 date: 2024-09-07 09:56:00 +0800
 language: zh
 lang: zh
 categories: docker
 ---
+
+
 如果docker run -d --name myubuntu ubuntu:latest的話
 但docker run -it --name myubuntu ubuntu:latest卻沒事情。
 啟動容器後容器馬上停止的問題，這通常是因為容器中沒有持續運行的進程。

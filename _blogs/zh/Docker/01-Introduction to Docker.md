@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: "01-Introduction to Docker"
+title: "[Docker] 01-Introduction to Docker"
 date: 2024-09-07 09:56:00 +0800
 language: zh
 lang: zh
@@ -12,6 +12,7 @@ categories: Docker
 Docker是一個開放源代碼的平台，用於自動化應用程序的部署、擴展和管理。它使用容器技術將應用程序及其所有依賴項打包在一起，從而確保應用程序能夠在任何環境中一致地運行。容器是輕量級、獨立的運行環境，與傳統的虛擬機相比，Docker 容器更快且占用資源更少。
 
 ## 為什麼要使用 Docker?
+
 
 ### 一致的開發環境
 
@@ -34,6 +35,7 @@ Docker映像可以在任何支持Docker的系統上運行，無論是開發環�
 使用Docker可以輕鬆地擴展應用程序，無論是水平擴展還是垂直擴展，都能快速完成。
 
 ## 使用 Docker 的場合
+
 
 ### 開發和測試
 

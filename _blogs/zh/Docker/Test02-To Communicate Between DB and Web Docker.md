@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: "Test02-To Communicate Between DB and Web Docker"
+title: "[Docker] Test02-To Communicate Between DB and Web Docker"
 date: 2024-09-07 09:56:00 +0800
 language: zh
 lang: zh
@@ -12,13 +12,17 @@ categories: docker
 ## 使用docker的一般安裝
 
 拉取鏡像
-```
+
+```bash
+# windows
 docker pull mysql:5.7
 docker pull python:3.9
 ```
 
 建立db容器
-```
+
+```bash
+# windows
 docker run -it --name db --network my_network -e MYSQL_ROOT_PASSWORD=example -e MYSQL_DATABASE=mydb mysql:5.7
 ```
 Ctrl+Z Ctrl+C退出
@@ -27,19 +31,23 @@ Ctrl+Z Ctrl+C退出
 
 建立web容器
 
-```windows bash
+```bash
+# windows
 docker run -it --name web --network my_network -p 5000:5000 -e DATABASE_HOST=db -e DATABASE_USER=root  -e DATABASE_PASSWORD=example  -e DATABASE_NAME=mydb -v {app資料夾位置}:/app python:3.9 /bin/bash
 ```
 
 確認重啟是否啟動
 
-```windows bash
+```bash
+# windows
 docker start web
 docker start db
 ```
 
 在web容器中
-```ubuntu bash
+
+```bash
+# ubuntu
 apt update
 apt install nano
 pip install --upgrade pip
@@ -164,7 +172,8 @@ volumes:
 
 ```
 
-```windows bash
+```bash
+# windows
 docker-compose up
 ```
 
@@ -172,13 +181,15 @@ docker-compose up
 
 初始化DB、建立使用者並且驗證是否執行成功
 
-```windows bash
+```bash
+# windows
 curl http://localhost:5000/initdb
 curl -X POST http://localhost:5000/users -H "Content-Type: application/json" -d "{\"name\": \"John Doe\", \"email\": \"john@example.com\"}"
 curl http://localhost:5000/users
 ```
 
-```windows bash
+```bash
+# windows
 docker-compose down
 ```
 
@@ -193,7 +204,7 @@ docker-compose down
 使用 docker run 命令中的 -v 參數將宿主機的某個目錄掛載到容器內的某個目錄。對於數據庫來說，通常是掛載數據庫的數據目錄。例如：
 
 ```bash
-
+# windows
 docker run -d \
   -v /path/on/host:/var/lib/mysql \
   --name mysql-container \
@@ -232,7 +243,7 @@ RUN apt-get update && apt-get install -y vim curl
 然後構建映像：
 
 ```bash
-
+# windows
 docker build -t mycustomimage .
 ```
 

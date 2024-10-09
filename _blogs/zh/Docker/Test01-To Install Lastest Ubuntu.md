@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: "Test1-To Install Lastest Ubuntu"
+title: "[Docker] Test1-To Install Lastest Ubuntu"
 date: 2024-09-07 09:56:00 +0800
 language: zh
 lang: zh
@@ -12,14 +12,16 @@ categories: Docker
 
 下載最新的ubuntu映像檔，並且建立與執行容器
 
-```windows bash
+```bash
+# windows
 docker pull ubuntu:latest
 docker run -it -p 8080:80 --name myubuntu ubuntu:latest
 ```
 
 安裝與更新Ubuntu軟體
 
-```ubuntu bash
+```bash
+# ubuntu 
 sudo apt update
 sudo apt-get update
 sudo apt install -y nano nginx
@@ -27,32 +29,37 @@ sudo apt install -y nano nginx
 
 建立Nginx渲染的檔案
 
-```ubuntu bash
+```bash
+# ubuntu
 echo "<h1>Welcome</h1>" > /var/www/html/index.html
 ```
 
 離開互動模式
 
-```ubuntu bash
+```bash
+# ubuntu
 exit
 ```
 
 啟動容器並且使用"-d"來在背景中執行nginx.
 
-```windows bash
+```bash
+# windows
 docker start myubuntu
 docker exec -d myubuntu nginx -g "daemon off;"
 ```
 
 驗證是否成功啟動nginx
 
-```windows bash
+```bash
+# windows
 curl localhost:8080
 ```
 
 建立一個新的映像並建立容器
 
-```windows bash
+```bash
+# windows
 docker commit myubuntu ubuntu:new
 docker run -it -p 7000:80 --name mynewubuntu ubuntu:new 
 ```
@@ -78,7 +85,8 @@ CMD ["nginx", "-g", "daemon off;"]
 <h1>Welcome</h1>
 ```
 
-```windows bash
+```bash
+# windows
 cd {資料夾}
 docker build -t my-nginx-image .
 docker run -d -p 8080:80 my-nginx-image
@@ -108,7 +116,8 @@ services:
 
 啟動並建立docker-compose的映像檔案與容器並且在背景執行
 
-```windows bash
+```bash
+# windows
 docker-compose up -d
 ```
 
@@ -120,23 +129,28 @@ docker-compose up -d
 
 檢驗是否啟動Nginx
 
-```
+```bash
+# windows
 curl localhost:8080
 ```
 
 啟動docker-compse的容器
 
 ```bash
+# windows
 docker-compose start
 ```
 
 關閉docker-compse的容器
 
 ```bash
+# windows
 docker-compose stop
 ```
 
 結束docker-compose的容器，並且刪除
+
 ```bash
+# windows
 docker-compose down
 ```

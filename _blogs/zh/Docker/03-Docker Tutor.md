@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: "03-Docker Tutor"
+title: "[Docker] 03-Docker Tutor"
 language: zh
 lang: zh
 categories: Docker
@@ -8,7 +8,9 @@ categories: Docker
 
 Docker 的常用內容
 
+
 ## Docker 基本概念
+
 
 ### 定義
 
@@ -38,7 +40,9 @@ Docker 的常用內容
 
 Docker Compose是一個用來定義和運行多容器 Docker 應用的工具。你可以通過一個 YAML 文件來配置應用的服務、網絡和卷等。只需一條命令就可以創建並啟動你在配置文件中定義的所有服務
 
+
 ## Docker 基本操作
+
 
 ### 顯示docker版本
 
@@ -67,13 +71,13 @@ docker pull ubuntu:latest
 #### 拉取指定標籤的映像
 
 ```bash
-	docker pull <image_name>:<tag>
+docker pull <image_name>:<tag>
 ```
 
 例如
 
 ```bash 
-	docker pull nginx:1.21.6
+docker pull nginx:1.21.6
 ```
 
 ### 刪除目前有的鏡像
@@ -94,33 +98,33 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 + COMMAND：可選，容器啟動後運行的命令。
 
-	- -it 標誌表示交互模式，允許進入容器內操作。
+	+ -it 標誌表示交互模式，允許進入容器內操作。
 
-	- -d 參數表示以背景模式運行容器的程序,並返回容器的 ID
+	+ -d 參數表示以背景模式運行容器的程序,並返回容器的 ID
 
-	- --name 參數為容器指定名稱。
+	+ --name 參數為容器指定名稱。
 
-	- -p：端口映射。將容器內的端口映射到主機端口，如將主機8080端口映射到容器內的80端口
+	+ -p：端口映射。將容器內的端口映射到主機端口，如將主機8080端口映射到容器內的80端口
 
-	- -e：設置環境變量。
+	+ -e：設置環境變量。
 
 ```bash
 docker run -d -e MY_ENV_VAR=value nginx
 ```
 
-	- -v：卷掛載。將主機目錄或文件掛載到容器內,如將主機的/my/local/dir掛載到容器的/data
+	+ -v：卷掛載。將主機目錄或文件掛載到容器內,如將主機的/my/local/dir掛載到容器的/data
 
 ```
 docker run -d -v /my/local/dir:/data nginx
 ```
 
-	- --rm：容器停止後自動刪除容器
+	+ --rm：容器停止後自動刪除容器
 
 ```
 docker run --rm nginx
 ```
 
-	- --network：指定容器所屬的網絡，如將容器連接到名為 my-network 的 Docker 網絡
+	+ --network：指定容器所屬的網絡，如將容器連接到名為 my-network 的 Docker 網絡
 
 ```bash
 docker run -d --network my-network nginx
@@ -140,6 +144,7 @@ docker run -it -d --name mycontainer ubuntu
 ```bash
 docker run -d -p 8080:80 nginx
 ```
+
 ### 操作已建立的容器
 
 
@@ -398,27 +403,27 @@ docer build -t myimage:latest -f mydockerfile.dockerfile .
 
 dockerfile常用指令:
 
-- FROM：指定基礎鏡像。
++ FROM：指定基礎鏡像。
 
-- RUN：在鏡像構建時執行命令。
++ RUN：在鏡像構建時執行命令。
 
-- COPY：將文件從宿主機複製到鏡像中。
++ COPY：將文件從宿主機複製到鏡像中。
 
-- ADD：類似於 COPY，但還支持從 URL 下載文件。
++ ADD：類似於 COPY，但還支持從 URL 下載文件。
 
-- WORKDIR：設置工作目錄(當容器啟動或你進入容器時（例如使用 docker exec），命令會在你設置的工作目錄下執行)。
++ WORKDIR：設置工作目錄(當容器啟動或你進入容器時（例如使用 docker exec），命令會在你設置的工作目錄下執行)。
 
-- CMD：設置容器啟動時執行的命令（可以被 docker run 指令覆蓋）。
++ CMD：設置容器啟動時執行的命令（可以被 docker run 指令覆蓋）。
 
-- ENTRYPOINT：設置容器啟動時執行的命令，通常與 CMD 配合使用。
++ ENTRYPOINT：設置容器啟動時執行的命令，通常與 CMD 配合使用。
 
-- EXPOSE：告訴 Docker 這個容器會使用哪些端口。
++ EXPOSE：告訴 Docker 這個容器會使用哪些端口。
 
-- ENV：設置環境變量。
++ ENV：設置環境變量。
 
-- VOLUME：在容器中掛載卷。
++ VOLUME：在容器中掛載卷。
 
-- USER：設置容器運行時的用戶
++ USER：設置容器運行時的用戶
 
 一個基礎的dockerfile內容如下:
 
