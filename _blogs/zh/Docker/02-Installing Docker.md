@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: "[Docker] 02-Installing Docker"
-date: 2024-09-07 09:56:00 +0800
+date: 2024-09-30 00:00:00 +0800
 language: zh
 lang: zh
 categories: Docker

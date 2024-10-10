@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: "[Docker] Test1-To Install Lastest Ubuntu"
-date: 2024-09-07 09:56:00 +0800
+date: 2024-09-28 09:56:00 +0800
 language: zh
 lang: zh
 categories: Docker

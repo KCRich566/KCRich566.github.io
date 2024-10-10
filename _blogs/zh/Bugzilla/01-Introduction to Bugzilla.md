@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: "01-初步認識Bugzilla"
+title: "[Bugzilla] 01-Introduction to Bugzilla"
 date: 2024-09-07 09:56:00 +0800
 language: zh
 lang: zh
