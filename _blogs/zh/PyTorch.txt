@@ -1,0 +1,46 @@
+anaconda
+
+建立環境
+
+conda create -n pytorch python=3.6
+-n: name
+
+激活環境
+conda activate pytorch
+
+解激活環境
+
+conda deactivate
+
+查詢目前的安裝包
+
+pip list
+
+至Pytorch網站上安裝pytorch並按照提示安裝
+
+檢驗安裝是否成功
+
+```python
+# 確認是否安裝成功
+import torch
+# 確認是否可以使用GPU
+torch.cuda.is_available();
+```
+
+dir(): 打開，看見
+help(): 說明書
+
+```
+
+dir(pytorch)
+dir(pytorch.3)
+help(pytorch.3.a)
+
+
+Pytorch加載數據的方式有兩種DataSet與Dataloader
+
+假設有個垃圾數據
+
+Dataset: 提供一種方式來獲取數據與Label
+
+Dataloader: 為後面的網路提供不同的數據形式(資料從DataSet來)
