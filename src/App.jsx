@@ -29,7 +29,13 @@ function LocaleApp() {
   const portfolioItems = portfolios.filter((x) => x.locale === locale);
 
   return (
-
+    // <Component prop={value} /> is the syntax for rendering a React component with props.
+    // prop is a way to be a parameter of a component, 
+    // allowing you to pass data from a parent component to a child component.
+    // <Route path="..." element={<Component prop={value} />} /> is the syntax for defining a route in React Router,
+    // where path is the URL path that triggers the route, and element is the React element to render when the route matches.
+    // path can be static (e.g. "resume") or "*" (catch-all)
+    // or dynamic (e.g. "blog/:slug"), where `:slug` is a placeholder for a variable part of the URL.
     <SiteLayout locale={locale}>
       <Routes>
         <Route path="" element={<HomePage locale={locale} />} />

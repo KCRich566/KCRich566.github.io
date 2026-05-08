@@ -1,6 +1,9 @@
-[import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import?utm_source=chatgpt.com)
-
 # React Learn
+
+## 🔗 Reference
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
+
+---
 
 ## 🧠 What is React
 
@@ -12,7 +15,7 @@ It is developed and maintained by Meta (formerly Facebook) and is widely used in
 
 ## ⚙️ Core Concepts
 
-### Component (Component-based Architecture)
+### 🧩 Component (Component-based Architecture)
 
 React breaks the UI into reusable, independent components.
 
@@ -21,21 +24,27 @@ function App() {
   return <h1>Hello React</h1>;
 }
 ```
-Benefits:
- - Reusable
- - Maintainable
- - Scalable structure
 
-## Declarative UI
+**Benefits:**
+- Reusable
+- Maintainable
+- Scalable structure
+
+---
+
+### 🎯 Declarative UI
 
 You describe what the UI should look like, not how to update it.
+
 ```js
 return isLogin ? <Dashboard /> : <Login />;
 ```
 
 React automatically updates the DOM when state changes.
 
-### State-driven
+---
+
+### 🔄 State-driven
 
 The UI updates automatically based on state changes.
 
@@ -43,27 +52,36 @@ The UI updates automatically based on state changes.
 const [count, setCount] = useState(0);
 ```
 
-### Virtual DOM
+---
+
+### ⚡ Virtual DOM
 
 React uses a Virtual DOM to improve performance:
 
-Computes differences in memory (diffing)
-Minimizes updates to the real DOM
+- Computes differences in memory (diffing)
+- Minimizes updates to the real DOM
 
-### JSX (Syntax Feature)
+---
 
-React uses JSX (JavaScript XML) to describe UI:
+### 🧪 JSX (Syntax Feature)
+
+JSX (JavaScript XML) is used to describe UI:
 
 ```js
 const element = <h1>Hello</h1>;
 ```
 
-JSX is compiled into JavaScript:
+Compiled into:
+
 ```js
 React.createElement("h1", null, "Hello");
 ```
 
-## Data Flow
+> JSX is NOT HTML, it's syntactic sugar for JavaScript.
+
+---
+
+## 🔄 Data Flow
 
 React uses one-way data binding:
 
@@ -71,63 +89,61 @@ React uses one-way data binding:
 Parent → Child (via props)
 ```
 
-Benefits:
-
+**Benefits:**
 - Predictable
 - Easier debugging
 
-## Why React
+---
 
-### Pros
-Component-based architecture
-High performance (Virtual DOM)
-Large ecosystem
-Scalable for large applications
-### Cons
-Requires understanding of tooling (Vite, Webpack)
-Ecosystem complexity (many choices)
+## 🚀 Why React
 
+### ✅ Pros
+- Component-based architecture
+- High performance (Virtual DOM)
+- Large ecosystem
+- Scalable for large applications
 
-## 
-### main.jsx 
+### ❌ Cons
+- Requires understanding of tooling (Vite, Webpack)
+- Ecosystem complexity
 
-This is the entry point of a React application and creates the root React component.
+---
 
-The `ReactDOM.createRoot()` method is used to create a React root for the DOM element passed to it.
+## 📁 Project Structure
 
-The `render()` method is then called on the root to render the `App` component into the DOM.
+### main.jsx
+
+Entry point of a React application.
 
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
-```
 
-```jsx
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
 ```
-👉 它負責：
 
-掛載 React
-注入 App
-初始化全域環境
+**Responsibilities:**
+- Mount React
+- Inject App
+- Initialize global environment
 
-👉 特性：
+**Best Practice:**
+- Keep it clean
+- Avoid business logic
 
-越乾淨越好
-不放業務邏輯
+---
 
 ### App.jsx
 
-This is Main application component: defines routing structure and renders page components based on URL paths.
+Main application component (routing logic).
 
-It provides the `export default function App()` to define the main routing logic, which handles locale-based routing using `react-router-dom` for navigation.
-```js
+```jsx
 export default function App() {
   return (
     <Routes>
@@ -139,121 +155,240 @@ export default function App() {
 }
 ```
 
-## ⚙️ What is Hooks
-
-**React Hooks** are special functions that let you use React features (like state and lifecycle) inside function components.
-
-They were introduced in React 16.8.
-
 ---
+
+## ⚙️ React Hooks
+
+Hooks are functions that let you use React features inside function components.
+
+Introduced in React 16.8.
 
 ### 🔹 Common Hooks
 
-```jsx
-import { useState, useEffect } from "react";
-1️⃣ useState
+#### 1️⃣ useState
+
+```js
+const [count, setCount] = useState(0);
+```
 
 Used to manage local state.
 
-const [count, setCount] = useState(0);
-2️⃣ useEffect
+---
 
-Used for side effects (API calls, subscriptions, etc.)
+#### 2️⃣ useEffect
 
+```js
 useEffect(() => {
   console.log("Component mounted");
 }, []);
-🧠 Key Rule
+```
+
+Used for side effects (API calls, subscriptions, etc.)
+
+---
+
+### 🧠 Rules of Hooks
+
 Hooks can only be used inside:
-Function components
-Custom hooks
-🧩 What is JSX
+- Function components
+- Custom hooks
 
-JSX (JavaScript XML) is a syntax extension for JavaScript that allows you to write HTML-like code inside JavaScript.
+---
 
-🔹 Example
+## 🧩 JSX Summary
+
+```js
 const element = <h1>Hello React</h1>;
-🔹 JSX is compiled into JavaScript
+```
+
+Compiled into:
+
+```js
 React.createElement("h1", null, "Hello React");
-🧠 Key Idea
+```
 
-JSX is NOT HTML
-It is syntactic sugar for JavaScript function calls.
+---
 
-🚦 react-router-dom
+## 🚦 react-router-dom
 
-A library used for handling routing in React applications.
+Library for handling routing in React applications.
 
-📌 Routes
+### 📌 Routes
 
-Defines all route mappings in the app.
-Route是誰先匹配就先選誰
-import { Routes, Route } from "react-router-dom";
+Container for all routes.
 
+```jsx
 <Routes>
   <Route path="/" element={<Home />} />
   <Route path="/about" element={<About />} />
-  // /:locale:表示可變值(變數)
-  // /*表示可以再接其他路由
   <Route path="/:locale/*" element={<LocaleApp />} />
-  // replace 表示不保留history
   <Route path="*" element={<Navigate to="/en" replace />} />
-
 </Routes>
+```
 
-👉 Think of it as: route container
+---
 
-📌 Route
+### 📌 Route
 
-Defines a single route.
+Maps URL → Component
 
+```jsx
 <Route path="/about" element={<About />} />
+```
 
-👉 Maps URL → Component
+---
 
-📌 Navigate
+### 📌 Navigate
 
-Used for programmatic navigation (redirect)
+Used for redirects
 
-import { Navigate } from "react-router-dom";
-
+```jsx
 return <Navigate to="/login" />;
+```
 
-👉 Used for:
+---
 
-redirect after login
-guard routes
-📌 useParams
+### 📌 useParams
 
-Used to get URL parameters.
+Get URL parameters
 
-import { useParams } from "react-router-dom";
-
+```jsx
 function User() {
   const { id } = useParams();
   return <h1>User ID: {id}</h1>;
 }
-🔹 Example Route
-<Route path="/user/:id" element={<User />} />
+```
 
-URL:
+Example:
 
-/user/123
+```
+/user/123 → User ID: 123
+```
 
-Result:
+---
 
-User ID: 123
-🧠 Summary
-Hooks → manage state & lifecycle
-JSX → UI syntax inside JS
-react-router-dom → navigation system
-Routes → container
-Route → mapping
-Navigate → redirect
-useParams → read URL params
+### 🔗 Link
 
+```jsx
+import { Link } from "react-router-dom";
+<Link to="/about">Go to About</Link>
+```
 
+- 不刷新頁面
+- SPA 導航
 
-Link
-useLocation, 
-useNavigate 
+---
+
+### 📍 useLocation
+
+```jsx
+const location = useLocation();
+```
+
+```js
+{
+  pathname: "/about",
+  search: "?id=123"
+}
+```
+
+---
+
+### 🚀 useNavigate
+
+```jsx
+const navigate = useNavigate();
+navigate("/dashboard");
+```
+
+```js
+navigate("/login", { replace: true });
+navigate(-1);
+```
+
+---
+
+## 🧠 Summary
+
+- Hooks → manage state & lifecycle  
+- JSX → UI syntax inside JS  
+- react-router-dom → navigation system  
+
+| Concept | Description |
+|--------|------------|
+| Routes | Container |
+| Route | Mapping |
+| Navigate | Redirect |
+| useParams | Read URL params |
+
+---
+
+## 📦 js-yaml
+
+### ✅ What is js-yaml
+
+A JavaScript library used to:
+
+- Parse YAML → JavaScript object  
+- Convert JS → YAML  
+
+---
+
+### ✅ Markdown Front Matter
+
+```md
+---
+title: 我的文章
+date: 2026-05-09
+tags:
+  - js
+  - yaml
+---
+```
+
+The section between `---` is YAML.
+
+---
+
+### ✅ Parse Front Matter with js-yaml
+
+```js
+import yaml from 'js-yaml';
+
+const md = `---
+title: 我的文章
+date: 2026-05-09
+tags:
+  - js
+  - yaml
+---
+
+# Hello World
+`;
+
+const match = md.match(/^---\n([\s\S]*?)\n---/);
+
+if (match) {
+  const yamlContent = match[1];
+  const data = yaml.load(yamlContent);
+  console.log(data);
+}
+```
+
+### 🧾 Output
+
+```js
+{
+  title: '我的文章',
+  date: '2026-05-09',
+  tags: ['js', 'yaml']
+}
+```
+
+---
+
+## ✅ Conclusion
+
+- `js-yaml` can parse Markdown Front Matter  
+- It only handles YAML (you must extract it manually)  
+- For convenience, consider using `gray-matter`

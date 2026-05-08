@@ -1,3 +1,4 @@
+// 如果圖太大要有轉轉圈圈
 import { useRef, useState } from "react";
 
 const KERNELS = {
