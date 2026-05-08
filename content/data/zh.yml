@@ -1,0 +1,28 @@
+home: "首頁"
+resume: "履歷"
+blog: "部落格"
+portfolio: "作品集"
+
+navigation:
+  - label: "首頁"
+    path: "/"
+  - label: "履歷"
+    path: "/resume.html"
+  - label: "部落格"
+    path: "/blog.html"
+    collection: "blogs"
+  - label: "作品集"
+    path: "/portfolio.html"
+    collection: "portfolios"
+
+# Common Messages
+read_more: "繼續閱讀"
+no_items: "沒有找到項目。"
+language: "語言"
+copyright: "版權所有"
+
+# Page Titles
+title_home: "KCRich566 的個人網站"
+title_resume: "履歷"
+title_blog: "部落格"
+title_portfolio: "作品集"

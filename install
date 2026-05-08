@@ -1,0 +1,16 @@
+```bashruby -v
+gem -v
+
+```
+
+
+```bashgem install bundler
+
+```
+
+
+```bashcd C:\Users\KCRic\Desktop\Code\KCRich566.github.io
+bundle install
+bundle exec jekyll serve
+
+```     

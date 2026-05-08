@@ -1,0 +1,28 @@
+home: "Home"
+resume: "Resume"
+blog: "Blog"
+portfolio: "Portfolio"
+
+navigation:
+  - label: "Home"
+    path: "/"
+  - label: "Resume"
+    path: "/resume.html"
+  - label: "Blog"
+    path: "/blog.html"
+    collection: "blogs"
+  - label: "Portfolio"
+    path: "/portfolio.html"
+    collection: "portfolios"
+
+# Common Messages
+read_more: "Read more"
+no_items: "No items found."
+language: "Language"
+copyright: "All rights reserved"
+
+# Page Titles
+title_home: "Home of KCRich566 Space"
+title_resume: "Resume of KCRich566"
+title_blog: "Blog"
+title_portfolio: "Portfolio"

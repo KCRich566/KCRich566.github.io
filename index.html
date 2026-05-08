@@ -1,18 +1,24 @@
----
-layout: default
-title: "Home of KCRich566 Space"
-language: "en"
----
-
-
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Refresh" content="0; url=/en/">
-    <title>Redirecting...</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KCRich566 software engineering portfolio and browser-based tools." />
+  <link rel="icon" href="/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="/images/logo180.png" />
+  <title>KCRich566 Space</title>
+  <script>
+    (function () {
+      var redirect = sessionStorage.getItem("spa_redirect");
+      if (redirect) {
+        sessionStorage.removeItem("spa_redirect");
+        history.replaceState(null, "", redirect);
+      }
+    })();
+  </script>
 </head>
 <body>
-    <p>If you are not redirected automatically, follow this <a href="/en/">link to the English version</a>.</p>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>

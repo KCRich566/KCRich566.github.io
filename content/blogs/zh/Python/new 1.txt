@@ -1,0 +1,17 @@
+Anaconda
+
+
+列出所有環境
+conda env list
+
+創建環境
+conda create -n "name" python=version
+
+激活環境
+conda activate "name"
+
+查詢package的下載版本有哪些
+conda search "package name"
+
+
+
