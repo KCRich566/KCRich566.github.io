@@ -14,7 +14,7 @@ const content = {
     featuredBlog: "Featured Blog Posts",
   },
   zh: {
-    greeting: "你好，我是KCRich566",
+    greeting: "你好, 我是KCRich566",
     tagline: "專注於機器視覺、深度學習、自動化與軟體開發的軟體工程師。",
     resumeCta: "查看履歷",
     blogCta: "瀏覽部落格",
@@ -31,6 +31,7 @@ export default function HomePage({ locale }) {
   const featuredBlogs = blogs.filter((x) => x.locale === locale && x.featured).slice(0, 3);
   return (
     <>
+    
       <Seo locale={locale} title={t.home} description={t.homeDesc} path={`/${locale}`} />
       <section className="hero">
         <h1>{c.greeting}</h1>
@@ -41,6 +42,7 @@ export default function HomePage({ locale }) {
           <Link to={`/${locale}/portfolio`} className="btn btn-secondary">{c.portfolioCta}</Link>
         </div>
       </section>
+
       <section>
         <h2>{c.featured}</h2>
         <div className="cards">
@@ -54,6 +56,7 @@ export default function HomePage({ locale }) {
           ))}
         </div>
       </section>
+
       <section>
         <h2>{c.featuredBlog}</h2>
         <div className="cards">

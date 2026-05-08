@@ -20,7 +20,7 @@ const content = {
         company: "Phoenix Technologies",
         url: "https://phoenixtech.com",
         role: "Software Designer",
-        period: "2025-05-05 – Present",
+        period: "2025-05-05 - Present",
         highlights: [
           "Collaborated with Microsoft platform engineering teams on hyperscale firmware validation",
           "Developed firmware validation automation using Python, Pytest and Robot Framework",
@@ -38,7 +38,7 @@ const content = {
         company: "FutureDial Inc",
         url: "https://www.futuredial.com/",
         role: "Software Engineer",
-        period: "2018-09-20 – 2025-04-30",
+        period: "2018-09-20 - 2025-04-30",
         highlights: [
           "Led AI inspection automation platform engineering",
           "Designed SMARTGrade inspection platform workflows",
@@ -56,7 +56,7 @@ const content = {
         company: "Xintec Inc",
         url: "https://www.xintec.com.tw/eng/IT/index.html",
         role: "Computer Vision Engineer",
-        period: "2017-10-31 – 2018-06-15",
+        period: "2017-10-31 - 2018-06-15",
         highlights: [
           "Developed CNN-based semiconductor defect detection models",
           "Designed wafer alignment measurement algorithms",
@@ -68,7 +68,7 @@ const content = {
         company: "Jettech Technology",
         url: "https://www.jettech.com.tw/index.php",
         role: "AOI Software Engineer",
-        period: "2015-09-16 – 2017-09-26",
+        period: "2015-09-16 - 2017-09-26",
         highlights: [
           "Developed AOI machine control software",
           "Optimized optical inspection scanning performance",
@@ -97,14 +97,14 @@ const content = {
     role: "軟體工程師",
     profileTitle: "個人簡介",
     profile:
-      "我是 KCRich566，一位軟體工程師，目前負責設計與規劃系統整合與自動化解決方案。在業界擁有超過 10 年的經驗，專長於機器視覺、自動化與軟體開發。我熱衷於運用科技解決複雜問題並推動技術創新。",
+      "我是 KCRich566, 一位軟體工程師, 目前負責設計與規劃系統整合與自動化解決方案。在業界擁有超過 10 年的經驗, 專長於機器視覺、自動化與軟體開發。我熱衷於運用科技解決複雜問題並推動技術創新。",
     experienceTitle: "工作經歷",
     experiences: [
       {
         company: "Phoenix Technologies",
         url: "https://phoenixtech.com",
         role: "軟體設計師",
-        period: "2025-05-05 – 至今",
+        period: "2025-05-05 - 至今",
         highlights: [
           "與 Microsoft 平台工程團隊合作進行超大規模韌體驗證",
           "使用 Python、Pytest 與 Robot Framework 開發韌體驗證自動化流程",
@@ -122,7 +122,7 @@ const content = {
         company: "FutureDial Inc",
         url: "https://www.futuredial.com/",
         role: "軟體工程師",
-        period: "2018-09-20 – 2025-04-30",
+        period: "2018-09-20 - 2025-04-30",
         highlights: [
           "主導 AI 檢測自動化平台開發",
           "設計 SMARTGrade 檢測平台流程",
@@ -140,7 +140,7 @@ const content = {
         company: "Xintec Inc",
         url: "https://www.xintec.com.tw/eng/IT/index.html",
         role: "機器視覺工程師",
-        period: "2017-10-31 – 2018-06-15",
+        period: "2017-10-31 - 2018-06-15",
         highlights: [
           "開發基於 CNN 的半導體缺陷檢測模型",
           "設計晶圓對位量測演算法",
@@ -152,7 +152,7 @@ const content = {
         company: "Jettech Technology",
         url: "https://www.jettech.com.tw/index.php",
         role: "AOI 軟體工程師",
-        period: "2015-09-16 – 2017-09-26",
+        period: "2015-09-16 - 2017-09-26",
         highlights: [
           "開發 AOI 機台控制軟體",
           "優化光學檢測掃描效能",
@@ -164,22 +164,22 @@ const content = {
     ],
     skillsTitle: "技能",
     skills: [
-      "程式語言：C#、Python、C++",
-      "影像處理函式庫：OpenCV、Halcon、EEvision",
-      "機器學習框架：TensorFlow",
-      "CI/CD 工具：Azure DevOps、GitHub Actions",
-      "測試框架：Pytest、Robot Framework、unittest",
-      "版本控制：Git"
+      "程式語言: C#、Python、C++",
+      "影像處理函式庫: OpenCV、Halcon、EEvision",
+      "機器學習框架: TensorFlow",
+      "CI/CD 工具: Azure DevOps、GitHub Actions",
+      "測試框架: Pytest、Robot Framework、unittest",
+      "版本控制: Git"
     ],
     languageTitle: "語言能力",
     language: [
-      "英文：進階",
-      "中文：母語"
+      "英文: 進階",
+      "中文: 母語"
     ],
     educationTitle: "學歷",
     education: [
-      "碩士：國立高雄科技大學 電子工程學系（2013–2015）",
-      "學士：國立高雄科技大學 電子工程學系（2009–2013）"
+      "碩士: 國立高雄科技大學 電子工程學系(2013-2015)",
+      "學士: 國立高雄科技大學 電子工程學系(2009-2013)"
     ]
   }
 };
