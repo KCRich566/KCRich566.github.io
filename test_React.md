@@ -177,6 +177,8 @@ Used to manage local state.
 
 #### 2️⃣ useEffect
 
+解釋
+
 ```js
 useEffect(() => {
   console.log("Component mounted");
@@ -186,6 +188,8 @@ useEffect(() => {
 Used for side effects (API calls, subscriptions, etc.)
 
 ---
+### useMemo
+
 
 ### 🧠 Rules of Hooks
 
@@ -392,3 +396,7 @@ if (match) {
 - `js-yaml` can parse Markdown Front Matter  
 - It only handles YAML (you must extract it manually)  
 - For convenience, consider using `gray-matter`
+
+
+## 每次更換頁面的執行順序
+main.jsx -> App.jsx -> 

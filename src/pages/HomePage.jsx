@@ -27,6 +27,7 @@ const content = {
 export default function HomePage({ locale }) {
   const t = i18n[locale];
   const c = content[locale];
+  // slice(0, 3) is used to get the first 3 items from the filtered array.
   const featured = portfolios.filter((x) => x.locale === locale && x.featured).slice(0, 3);
   const featuredBlogs = blogs.filter((x) => x.locale === locale && x.featured).slice(0, 3);
   return (

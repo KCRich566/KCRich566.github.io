@@ -28,6 +28,9 @@ export default function DetailPage({ locale, type, list }) {
         <h1>{item.title}</h1>
         <small>{item.date}</small>
         {ToolComponent && <ToolComponent locale={locale} />}
+        {/* dangerouslySetInnerHTML is a React prop that allows you to set HTML content directly from a string. 
+        It is considered dangerous because it can expose your application to cross-site scripting (XSS) attacks if the HTML content is not properly sanitized. 
+        You should only use this prop with trusted content that you have control over. */}
         <div dangerouslySetInnerHTML={{ __html: item.html }} />
       </article>
     </>

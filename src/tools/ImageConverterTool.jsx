@@ -1,9 +1,15 @@
+// 如果圖片太大張 要有個轉圈圈 讀圖或轉檔時都要
+// 讀圖進來後, 點選Convert 第一次會成功, 第二次如果選擇別的格式, 就會失敗(沒有輸出我指定的新格式, 反而是上次的格式), 這是為什麼?
+// 
+// 我想要做一個Affine transform圖片平行移動 + 縮放, 並且可以畫ROI並加以顯示在另個小框中
 import { useMemo, useState } from "react";
 
 const EXTENSIONS = {
+  "image/bmp": "bmp",
   "image/png": "png",
   "image/jpeg": "jpg",
   "image/webp": "webp",
+  "image/heic": "heic",
 };
 
 function loadImage(file) {
@@ -33,6 +39,7 @@ export default function ImageConverterTool({ locale }) {
   const [results, setResults] = useState([]);
   const [status, setStatus] = useState(locale === "zh" ? "尚未選擇圖片。" : "No images selected.");
 
+  // useMemo is not necessary here since the labels are simple and the component is not expected to re-render frequently, but it can be used for better performance if needed.
   const labels = useMemo(
     () =>
       locale === "zh"
@@ -40,7 +47,8 @@ export default function ImageConverterTool({ locale }) {
         : { title: "Online Image Converter", convert: "Convert", clear: "Clear", downloadAll: "Download all" },
     [locale]
   );
-
+// 用什麼元件轉換的? 
+// 
   async function convertFile(file) {
     const image = await loadImage(file);
     const sourceWidth = image.naturalWidth || image.width;
@@ -62,6 +70,7 @@ export default function ImageConverterTool({ locale }) {
     }
     context.drawImage(image, 0, 0, canvas.width, canvas.height);
 
+    // 根據format和quality參數將canvas轉換為Blob對象，並返回包含文件名、Blob對象、寬度、高度和URL的對象。
     const blob = await new Promise((resolve) => {
       canvas.toBlob(resolve, format, quality / 100);
     });

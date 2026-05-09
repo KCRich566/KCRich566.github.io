@@ -20,6 +20,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   // It activates additional checks and warnings for its descendants.
   // like identifying components with unsafe lifecycle methods, 
   // legacy API usage, and other potential issues.
+
+  // What does BrowserRouter do?
+  // It:
+  // - Listens for URL changes
+  // - Manages the History API
+  // - Provides Router Context
+  // - Notifies Routes to update
   <React.StrictMode>
     <HelmetProvider>
       <BrowserRouter>

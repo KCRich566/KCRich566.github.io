@@ -2,16 +2,12 @@
 layout: default
 title: "Image Conversion Tool (Single & Batch)"
 description: "A browser-based image conversion tool that supports PNG, JPEG, and WebP conversion with resizing, quality control, and batch processing."
+excerpt: ""
 date: 2026-05-05 10:00:00 +0800
-excerpt: "A comprehensive image conversion utility supporting both single file and batch processing with multiple format support."
 featured: true
 tool: image-converter
 image: /assets/images/logo180.png
 ---
-
-## Image Conversion Tool - Single & Batch Processing
-
-{% include image-converter.html %}
 
 ### Project Overview
 Developed a professional-grade image conversion application that supports flexible processing modes - both single file conversion and batch processing capabilities for large-scale image operations.

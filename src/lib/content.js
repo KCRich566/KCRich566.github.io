@@ -102,11 +102,12 @@ function normalizeItems(fileMap, type) {
         slug,
         path,
         title: data.title || slug,
-        date: data.date || "",
+        date: data.date ? new Intl.DateTimeFormat("en-GB").format(new Date(data.date)).replace(/\//g, "-") : data.date || "",
         description: data.description || "",
         featured: !!data.featured,
         tool: data.tool || null,
         // excerpt is the first 180 characters of the content, used for preview or summary.
+        // don't insert HTML tags in the excerpt.
         excerpt: content.trim().slice(0, 180),
         html: marked.parse(content),
       };

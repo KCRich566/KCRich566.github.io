@@ -9,10 +9,6 @@ tool: edge-detector
 image: /assets/images/logo180.png
 ---
 
-## Edge Detection App
-
-{% include edge-detector.html %}
-
 ### 項目概述
 實作一個純前端邊緣偵測應用程式，用於比較常見的電腦視覺邊緣算子。使用者可以在瀏覽器載入圖片，程式會在本機完成灰階轉換、模糊前處理、邊緣計算與 Canvas 視覺化，不需要後端服務。
 

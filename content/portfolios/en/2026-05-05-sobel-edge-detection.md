@@ -9,10 +9,6 @@ tool: edge-detector
 image: /assets/images/logo180.png
 ---
 
-## Edge Detection App
-
-{% include edge-detector.html %}
-
 ### Project Overview
 Implemented a browser-based edge detection application for comparing common computer vision edge operators without a backend. The app loads an image locally, converts it to grayscale, applies optional blur preprocessing, and renders the selected edge map on Canvas.
 

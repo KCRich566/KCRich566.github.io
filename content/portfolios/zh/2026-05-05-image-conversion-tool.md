@@ -1,17 +1,13 @@
 ---
 layout: default
 title: "圖片轉檔工具 (單次&批次)"
-description: "純前端圖片轉檔工具，支援 PNG、JPEG、WebP 轉換、尺寸調整、品質控制與批次處理。"
+description_zh: "純前端圖片轉檔工具，支援 PNG、JPEG、WebP 轉換、尺寸調整、品質控制與批次處理。"
+excerpt: ""
 date: 2026-05-05 10:00:00 +0800
-excerpt: "全面的圖片轉檔應用程式，支援單一檔案和批次處理功能，可進行大規模圖像操作。"
 featured: true
 tool: image-converter
 image: /assets/images/logo180.png
 ---
-
-## 圖片轉檔工具 - 單次&批次處理
-
-{% include image-converter.html %}
 
 ### 項目概述
 開發專業級的圖片轉檔應用程式，支援靈活的處理模式 - 包括單一檔案轉檔和批次處理功能，可進行大規模圖像操作。
