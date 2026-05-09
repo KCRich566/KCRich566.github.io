@@ -102,7 +102,7 @@ function normalizeItems(fileMap, type) {
         slug,
         path,
         title: data.title || slug,
-        date: data.date ? new Intl.DateTimeFormat("en-GB").format(new Date(data.date)).replace(/\//g, "-") : data.date || "",
+        date: data.date ? new Date(data.date).toLocaleDateString()  : data.date || "",
         description: data.description || "",
         featured: !!data.featured,
         tool: data.tool || null,
