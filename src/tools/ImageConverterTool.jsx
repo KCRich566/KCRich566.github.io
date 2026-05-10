@@ -38,6 +38,7 @@ export default function ImageConverterTool({ locale }) {
   const [background, setBackground] = useState("#ffffff");
   const [results, setResults] = useState([]);
   const [status, setStatus] = useState(locale === "zh" ? "尚未選擇圖片。" : "No images selected.");
+  const [loading, setLoading] = useState(false);
 
   // useMemo is not necessary here since the labels are simple and the component is not expected to re-render frequently, but it can be used for better performance if needed.
   const labels = useMemo(
@@ -83,6 +84,7 @@ export default function ImageConverterTool({ locale }) {
 
   async function onConvert() {
     if (files.length === 0) return;
+    setLoading(true);
     const next = [];
     for (const file of files) {
       try {
@@ -94,6 +96,7 @@ export default function ImageConverterTool({ locale }) {
       }
     }
     setResults(next);
+    setLoading(false);
   }
 
   function onClear() {
@@ -119,10 +122,24 @@ export default function ImageConverterTool({ locale }) {
         <input type="number" min="1" placeholder="H" value={height} onChange={(e) => setHeight(e.target.value)} />
         <label><input type="checkbox" checked={keepRatio} onChange={(e) => setKeepRatio(e.target.checked)} /> ratio</label>
         <input type="color" value={background} onChange={(e) => setBackground(e.target.value)} />
-        <button onClick={onConvert}>{labels.convert}</button>
-        <button onClick={onClear}>{labels.clear}</button>
+        <button onClick={onConvert} disable={loading}>{labels.convert}</button>
+        <button onClick={onClear} disable={loading}>{labels.clear}</button>
       </div>
       <p>{status}</p>
+      {loading && (
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", padding: "32px 0"}}>
+          <span style={{
+            display: "inline-block",
+            width: "48px",
+            height: "48px",
+            border: "5px solid #e5e7eb",
+            borderTop: "5px solid #2563eb",
+            broderRadius: "50%",
+            animation: "spin 0.8s linear infinite"
+          }}/>
+          <style>{`@keyframes spin { to { transform: rotate(360deg); } } ` }</style>
+        </div>
+      )}
       <div className="cards">
         {results.map((item) => (
           <article className="card" key={item.url}>
