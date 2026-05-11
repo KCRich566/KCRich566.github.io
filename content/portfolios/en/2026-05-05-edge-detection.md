@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Edge Detection App"
+title: "Edge Detection Viewer"
 description: "Browser-based edge detection app supporting Sobel, Canny, Prewitt, Scharr, and Laplacian methods with adjustable thresholds and preprocessing."
 date: 2026-05-05 11:00:00 +0800
 excerpt: "Interactive edge detection app supporting Sobel, Canny, Prewitt, Scharr, and Laplacian processing directly in the browser."
@@ -10,7 +10,7 @@ image: /assets/images/logo180.png
 ---
 
 ### Project Overview
-Implemented a browser-based edge detection application for comparing common computer vision edge operators without a backend. The app loads an image locally, converts it to grayscale, applies optional blur preprocessing, and renders the selected edge map on Canvas.
+Implemented a browser-based edge detection application. The app loads an image locally, converts it to grayscale, applies optional blur preprocessing, and renders the selected edge map on Canvas.
 
 ### Technical Implementation
 

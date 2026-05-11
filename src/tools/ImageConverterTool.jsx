@@ -9,7 +9,6 @@ const EXTENSIONS = {
   "image/png": "png",
   "image/jpeg": "jpg",
   "image/webp": "webp",
-  "image/heic": "heic",
 };
 
 function loadImage(file) {

@@ -251,7 +251,28 @@ return <Navigate to="/login" />;
 ```
 
 ---
+### useRef
 
+`useRef` is used to keep data between renders without causing a re-render.
+
+Compared with `useState`:
+
+- `useState` updates the UI when the value changes.
+- `useRef` keeps the value without updating the UI.
+
+`useRef` is commonly used for:
+
+- Accessing DOM elements
+- Storing timers
+- Keeping previous values
+- Saving mutable data
+
+Example:
+
+```jsx
+const countRef = useRef(0);
+
+countRef.current++;
 ### 📌 useParams
 
 Get URL parameters
