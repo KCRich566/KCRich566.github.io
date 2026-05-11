@@ -18,7 +18,7 @@ a brower-based image inspection tool that applies affine transformations (transp
 - **ROI Selection**: Switch to ROI mode and frag to draw a selection rectangle over the image.
 - **Live ROI Preview**: A floating canvas in the bottom-right corner shows the cropped region at full resolution
 - **Reset View**: One-click to restore the fitted intitial view
-- **Private first**: All processing is fone locally in the browser - no image is uploaded.
+- **Private first**: All processing is done locally in the browser - no image is uploaded.
 
 ### Technical Implementation
 - **Affine Transform Math**: Zoom anchored at the mouse cursor via `newTx = mx - ( mx - tx ) x (newScale / scale)`

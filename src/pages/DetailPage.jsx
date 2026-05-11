@@ -2,10 +2,12 @@ import { Navigate, useParams } from "react-router-dom";
 import Seo from "../seo/Seo";
 import ImageConverterTool from "../tools/ImageConverterTool";
 import EdgeDetectorTool from "../tools/EdgeDetectorTool";
+import AffineTransformTool from "../tools/AffineTransformTool";
 
 const toolComponents = {
   "image-converter": ImageConverterTool,
   "edge-detector": EdgeDetectorTool,
+  "affine-transform": AffineTransformTool
 };
 
 export default function DetailPage({ locale, type, list }) {
