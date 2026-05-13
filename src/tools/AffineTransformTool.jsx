@@ -32,7 +32,9 @@ export default function AffineTransformTool({ locale }) {
     const [mode, setMode] = useState("pan"); // "pan" || "roi"
     const [status, setStatus] = useState(locale === "zh" ? "尚未選擇圖片." : "No image selected.");
     const [hasImage, setHasImage] = useState(false);
-    const [hasRoi, setHasRoi] = useState(false);
+    const [hasRoi, setHasRoi] = useState(false); // Add hasRoi state
+    const offscreenRef = useRef(null);
+    const [pixelInfo, setPixelInfo] = useState(null);
 
     // Keep ref in sync with state
     // Update roiModeRef whenever mode changes
@@ -150,6 +152,13 @@ export default function AffineTransformTool({ locale }) {
             // 等圖片載入完成 就可以釋放記憶體
             URL.revokeObjectURL(url);
             imageRef.current = img;
+
+            const oc = document.createElement("canvas");
+            oc.width = img.naturalWidth;
+            oc.height = img.naturalHeight;
+            oc.getContext("2d").drawImage(img, 0, 0);
+            offscreenRef.current = oc;
+
             roiRef.current = null;
             setHasRoi(false);
             const canvas = canvasRef.current;
@@ -210,6 +219,20 @@ export default function AffineTransformTool({ locale }) {
     function onMouseMove(e) {
         if (!imageRef.current) return;
         const pos = getCanvasPos(e);
+
+        // Pixel inspection
+        const imgCoord = canvasToImage(pos.x, pos.y);
+        const ix = Math.floor(imgCoord.x);
+        const iy = Math.floor(imgCoord.y);
+        const oc = offscreenRef.current;
+        const curImg = imageRef.current;
+        if ( oc && ix >= 0 && iy>=0 && ix < curImg.naturalWidth && iy < curImg.naturalHeight){
+            const [r, g, b, a] = oc.getContext("2d").getImageData(ix, iy, 1, 1).data;
+            setPixelInfo({canvasX: pos.x, canvasY: pos.y, imgX: ix, imgY: iy, r, g, b, a});
+        } else {
+            setPixelInfo(null);
+        }
+
         if (roiModeRef.current && roiDrawingRef.current) {
             const imgPos = canvasToImage(pos.x, pos.y);
             const start = roiStartRef.current;
@@ -279,6 +302,33 @@ export default function AffineTransformTool({ locale }) {
                     onMouseUp={onMouseUp}
                     onMouseLeave={onMouseUp}
                 />
+                
+                {pixelInfo && (
+                    <div style={{
+                        position: "absolute",
+                        left: Math.min(pixelInfo.canvasX + 14, 740 - 160),
+                        top: Math.min(pixelInfo.canvasY + 14, 480 - 58),
+                        background: "rgba(0,0,0,0.75)",
+                        color: "#fff",
+                        padding: "5px 10px",
+                        borderRadius: 5,
+                        fontSize: "0.78em",
+                        pointerEvents: "none",
+                        zIndex: 10,
+                        whiteSpace: "nowrap",
+                        lineHeight: 1.7
+                    }}>
+                        <div>X: {pixelInfo.imgX} &nbsp; Y: {pixelInfo.imgY}</div>
+                        <div>
+                            <span style={{color: "#ff8080"}}>R: {pixelInfo.r}</span>
+                            {" "}
+                            <span style={{color: "#80ff80"}}>R: {pixelInfo.g}</span>
+                            {" "}
+                            <span style={{color: "#8080ff"}}>R: {pixelInfo.b}</span>
+                            {pixelInfo.a < 255 && <span style={{color: "#d1d5db"}}>A: {pixelInfo.a}</span>}
+                        </div>
+                    </div>
+                )}
 
                 <canvas
                     ref={previewRef}
