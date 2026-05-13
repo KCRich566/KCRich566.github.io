@@ -266,7 +266,6 @@ export default function AffineTransformTool({ locale }) {
             </div>
             <p style={{ fontSize: "0.85em", color: "#6b7280" }}>{status}</p>
             <div style={{ position: "relative", display: "inline-block", userSelect: "none" }}>
-                
                 <canvas
                     ref={canvasRef}
                     width={740}
