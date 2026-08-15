@@ -63,7 +63,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Navigate to="/en" replace />} />
       <Route path="/:locale/*" element={<LocaleApp />} />
-      <Route path="*" element={<Navigate to="/en" replace />} />
+      //<Route path="*" element={<Navigate to="/en" replace />} />
     </Routes>
   );
 }
