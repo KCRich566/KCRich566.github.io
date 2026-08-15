@@ -44,7 +44,7 @@ function LocaleApp() {
         <Route path="portfolio" element={<ListPage locale={locale} type="portfolio" items={portfolioItems} />} />
         <Route path="blog/:slug" element={<DetailPage locale={locale} type="blog" list={blogs} />} />
         <Route path="portfolio/:slug" element={<DetailPage locale={locale} type="portfolio" list={portfolios} />} />
-        <Route path="*" element={<Navigate to={`/${locale}`} replace />} />
+        //<Route path="*" element={<Navigate to={`/${locale}`} replace />} />
       </Routes>
     </SiteLayout>
   );
