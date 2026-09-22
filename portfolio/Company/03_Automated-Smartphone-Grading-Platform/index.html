@@ -1,0 +1,346 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="image" href="/images/logo.png"/><link rel="stylesheet" href="/_next/static/chunks/00xzi4uxp748n.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/3s6nzrbk-8mnv.js"/><script src="/_next/static/chunks/2l-klmn7cx9f1.js" async=""></script><script src="/_next/static/chunks/2zo-35mkum35q.js" async=""></script><script src="/_next/static/chunks/2rf4jlhk8jejf.js" async=""></script><script src="/_next/static/chunks/turbopack-3fegmw4fef7st.js" async=""></script><script src="/_next/static/chunks/3fntmmi971322.js" async="" crossorigin=""></script><script src="/_next/static/chunks/3gr05i7c6a_e1.js" async="" crossorigin=""></script><title>Kenzo - Software Engineer</title><meta name="description" content="Personal professional platform of Kenzo Chang, covering software engineering, automation, system integration, projects, experiments, and technical notes."/><link rel="icon" href="/favicon.ico?favicon.23jcd2jgwl8zu.ico" sizes="256x256" type="image/x-icon"/><link rel="apple-touch-icon" href="/images/logo.png"/><script src="/_next/static/chunks/0cz1d0mv5g_q7.js" noModule=""></script></head><body><div hidden=""><!--$--><!--/$--></div><header class="
+        sticky
+        top-0
+        z-[100]
+        w-full
+        border-b
+        border-[#d8d7d2]
+        bg-white
+      "><div class="
+          mx-auto
+          flex
+          h-[68px]
+          w-[calc(100%-32px)]
+          items-center
+          justify-between
+          md:w-[calc(100%-64px)]
+          xl:w-[min(1400px,calc(100%-80px))]
+        "><a class="flex shrink-0 items-center" href="/"><img alt="KCRich566" width="44" height="44" decoding="async" data-nimg="1" class="block h-11 w-11 rounded-full object-cover" style="color:transparent" src="/images/logo.png"/></a><nav class="hidden items-center gap-8 md:flex"><a class="
+                text-sm
+                font-medium
+                text-[#777]
+                transition-colors
+                duration-150
+                hover:text-[#171717]
+              " href="/">Home</a><a class="
+                text-sm
+                font-medium
+                text-[#777]
+                transition-colors
+                duration-150
+                hover:text-[#171717]
+              " href="/about/">About</a><a class="
+                text-sm
+                font-medium
+                text-[#777]
+                transition-colors
+                duration-150
+                hover:text-[#171717]
+              " href="/portfolio/">Portfolio</a><a class="
+                text-sm
+                font-medium
+                text-[#777]
+                transition-colors
+                duration-150
+                hover:text-[#171717]
+              " href="/lab/">Lab</a><a class="
+                text-sm
+                font-medium
+                text-[#777]
+                transition-colors
+                duration-150
+                hover:text-[#171717]
+              " href="/notes/">Notes</a></nav><button type="button" class="
+            border-0
+            bg-transparent
+            p-0
+            text-sm
+            font-medium
+            text-[#171717]
+            md:hidden
+          " aria-label="Open navigation menu" aria-expanded="false">Menu</button></div></header><main><main class="portfolio-detail"><a class="portfolio-back" href="/portfolio/">← All work</a><header class="portfolio-detail-header"><p class="eyebrow">Company<!-- --> / case study</p><h1>Automated Smartphone Grading Platform</h1><p class="portfolio-lede">A production platform that converts inspection results into configurable smartphone cosmetic grades with device identification, traceability, and customer integration.</p><div class="portfolio-tags"><span>Smartphone Grading</span><span>Refurbishment</span><span>Production Platform</span></div></header><article class="portfolio-content"><h2 id="01-產品背景">01. 產品背景</h2>
+<p>在 Smartphone Refurbishment 流程中，Cosmetic Grading 需要根據 Inspection System 產生的檢測結果，判斷裝置的外觀狀態與對應 Grade。</p>
+<p>傳統的 Cosmetic Grading 高度依賴人工判斷，不同 Operator 可能產生不同的判定結果；同時，不同 Customer 對於 Defect Type、Defect Size、Defect Location 與 Grade 定義，也可能具有不同要求。</p>
+<p>因此，需要將既有 Inspection System 的檢測結果，轉換成一套<strong>可配置、可重複執行、可追溯的自動化 Grading Decision</strong>。</p>
+<p>本產品的核心並非開發 Inspection Equipment，而是從既有 Inspection System 的輸出開始，建立後續的 Software Platform，將 Inspection Result、Device Identification、Grading、Production Traceability、Cloud Integration 與 Customer Integration 串接成完整的 Production Workflow。</p>
+<p>產品由初期 MVP 開始，逐步加入 Machine Integration、Configurable Grading、AI-based Device Identification、Cloud Integration、Customer API 與 Production Deployment，最終形成完整的 Automated Smartphone Grading Platform。</p>
+<hr/>
+<h2 id="02-產品定義">02. 產品定義</h2>
+<p>產品定位為一套連接 <strong>Inspection System 與 Production System</strong> 的 Automated Smartphone Grading Platform。</p>
+<p>系統接收 Inspection Equipment 產生的 Inspection Result，根據 Device Model 與 Grading Rules 進行 Grade Calculation，產生 Grade Decision 與 Downgrade Reason，並建立 Production Record。</p>
+<h3 id="核心功能">核心功能</h3>
+<p>平台主要涵蓋：</p>
+<ul>
+<li>Inspection Result Processing</li>
+<li>Machine Integration</li>
+<li>Device Identification</li>
+<li>Model-Specific Configuration</li>
+<li>Configurable Grading Engine</li>
+<li>Production Traceability</li>
+<li>Cloud Integration</li>
+<li>Customer API Integration</li>
+<li>Production Reporting</li>
+<li>Production Deployment</li>
+</ul>
+<p>核心概念是將原本分散於 Inspection Result、人工判斷與 Customer Requirement 中的資訊，轉換成一致且可追蹤的 Software Decision Process。</p>
+<hr/>
+<h2 id="03-系統設計">03. 系統設計</h2>
+<h3 id="31-platform-architecture">3.1 Platform Architecture</h3>
+<p>系統採用分層設計，將 Machine Integration、Application Workflow、AI Inference、Grading Decision、Production Traceability 與 External Integration 分離。</p>
+<p>Inspection Equipment 產生 Inspection Result 後，由 Machine Integration Layer 接收設備事件與檢測資料，再交由 Application Workflow 進行後續處理。</p>
+<p>Application Workflow 負責管理 Device Context、Inspection Result 與後續 Decision Process，並串接 Device Identification、Model Configuration 與 Grading Engine。</p>
+<p>完成 Grade Decision 後，再將結果進入 Production Traceability、Cloud Integration 與 Customer System。</p>
+<p>透過分層設計，使 Machine Communication、Business Logic、AI Service 與 External System Integration 能夠保持相對獨立，降低後續產品演進時的耦合程度。</p>
+<h3 id="32-configurable-grading-engine">3.2 Configurable Grading Engine</h3>
+<p>Grading Engine 是平台的核心 Decision Logic。</p>
+<p>初期 Grading Logic 直接存在 Application Code 中。當 Customer Grading Requirement 改變時，需要修改程式並重新部署。</p>
+<p>因此，我將 <strong>Grading Rule 與 Application Logic 分離</strong>，建立 Configurable Grading Engine，並使用 XML 定義 Grading Rules。</p>
+<p>Rule 可以根據不同 Inspection Result 進行組合，例如：</p>
+<ul>
+<li>Defect Type</li>
+<li>Defect Count</li>
+<li>Defect Size</li>
+<li>Defect Area</li>
+<li>Defect Location</li>
+<li>Region-Based Rules</li>
+<li>Critical Defect Override</li>
+<li>AND / OR Conditions</li>
+</ul>
+<p>透過這種設計，Grading Decision 不再完全依賴 Hard-coded Logic，而是由 Inspection Result、Device Model 與 Grading Configuration 共同決定。</p>
+<p>這讓 Grading Rule 可以獨立於 Application Code 演進，也讓不同 Customer 的 Grading Requirement 更容易管理。</p>
+<h3 id="33-grading-decision-design">3.3 Grading Decision Design</h3>
+<p>在設計 Grading Engine 時，也考慮過 Machine Learning 與 Decision Tree 等方式。</p>
+<p>最終採用 Rule-Based Grading Engine，主要考量 Production Grading 不只需要產生結果，也需要能夠說明判定依據。</p>
+<p>因此 Decision Logic 需要具備：</p>
+<ul>
+<li>Transparent</li>
+<li>Traceable</li>
+<li>Auditable</li>
+<li>Configurable</li>
+<li>Customer-specific</li>
+</ul>
+<p>等特性。</p>
+<p>透過 Rule-Based Design，可以讓 Grade Decision 與其判定條件保持明確關聯，便於 Production Troubleshooting、Rule Tuning 與 Customer Acceptance。</p>
+<h3 id="34-ai-device-identification">3.4 AI Device Identification</h3>
+<p>不同 Smartphone Model 可能需要不同的 Inspection Configuration 與 Grading Rules。</p>
+<p>原始流程需要 Operator 手動選擇 Device Model，因此我加入 AI-based Device Identification。</p>
+<p>既有 Inspection Workflow 已經能取得 Smartphone Image，因此直接利用既有 Image Stream，不需要額外增加影像硬體。</p>
+<p>AI Model 使用 Xception 進行 Image Classification，將影像轉換為 Device Model Identification 結果，再提供給主要 Application 選擇對應的 Model-Specific Configuration。</p>
+<p>AI Model 透過獨立的 Inference Service 提供識別能力，主要 Application 透過 HTTP Interface 與 Inference Service 溝通。</p>
+<p>將 AI Model 與主要 Application 分離，可以降低模型更新對主系統的影響。</p>
+<h3 id="35-production-traceability">3.5 Production Traceability</h3>
+<p>為了讓每次 Production Transaction 都能追蹤，我將 Device、Inspection、Grade 與 Production Information 串接在同一個 Workflow。</p>
+<p>Production Record 可包含：</p>
+<ul>
+<li>Device Information</li>
+<li>Grade</li>
+<li>Downgrade Reason</li>
+<li>Machine Information</li>
+<li>Inspection Information</li>
+<li>Software / Rule Version</li>
+<li>Production Transaction Information</li>
+</ul>
+<p>因此系統不只是產生 Grade，也建立從 Device、Inspection、Decision 到 Production 的完整 Traceability。</p>
+<h3 id="36-cloud--customer-integration">3.6 Cloud &amp; Customer Integration</h3>
+<p>平台進一步整合 Cloud Service，將 Inspection 與 Production Data 進行集中管理。</p>
+<p>Cloud Integration 支援：</p>
+<ul>
+<li>Production Data Storage</li>
+<li>Inspection Data Storage</li>
+<li>Reporting</li>
+<li>KPI Tracking</li>
+<li>Yield Analysis</li>
+<li>Production Monitoring</li>
+<li>Transaction Tracking</li>
+<li>Cross-Site Operational Visibility</li>
+</ul>
+<p>另外透過 Customer API 與外部 Production System 整合，使 Grading Result 能夠進入既有 Customer Workflow。</p>
+<hr/>
+<h2 id="04-產品開發">04. 產品開發</h2>
+<h3 id="41-mvp-development">4.1 MVP Development</h3>
+<p>產品採用 Incremental Development，先建立最小可運作的 End-to-End Workflow，再逐步加入 Production Requirement。</p>
+<p>初期 MVP 先完成基本流程：</p>
+<p>Inspection Result → Basic Grading Logic → Grade Result</p>
+<p>先驗證 Inspection Result 能否正確進入 Application，並完成基本 Grade Calculation。</p>
+<h3 id="42-machine-integration">4.2 Machine Integration</h3>
+<p>完成 MVP 後，進一步建立與 Inspection Equipment 的 Machine Communication。</p>
+<p>主要處理：</p>
+<ul>
+<li>Persistent Socket Communication</li>
+<li>Machine Event</li>
+<li>Inspection Completion</li>
+<li>Inspection Result Processing</li>
+<li>Application Workflow Trigger</li>
+</ul>
+<p>系統不以固定時間等待，而是根據 Machine Event 與 Inspection Result 驅動後續 Workflow，使 Application Flow 能夠與實際設備狀態同步。</p>
+<h3 id="43-grading-engine-development">4.3 Grading Engine Development</h3>
+<p>初期 Grading Logic 為 Application 內的固定邏輯。</p>
+<p>隨著 Customer Requirement 增加，逐步將 Grading Logic 抽離成 Configurable Rule Engine。</p>
+<p>透過 Rule Abstraction 與 XML Configuration，使 Grading Rule 可以獨立於核心 Application Logic 進行調整。</p>
+<p>這項設計也讓後續 Customer-specific Requirement 能夠透過 Configuration 擴充，而不需要頻繁修改核心程式。</p>
+<h3 id="44-ai-integration">4.4 AI Integration</h3>
+<p>加入 Device Identification 後，將 Image Classification Service 整合進既有 Workflow。</p>
+<p>使用既有 Inspection Image，透過 Xception Model 進行 Device Model Classification，再將結果提供給主要 Application。</p>
+<p>Inference Service 使用 FastAPI 建立獨立 Service Interface，使 AI Model 與 Application Workflow 解耦。</p>
+<h3 id="45-cloud--customer-integration">4.5 Cloud &amp; Customer Integration</h3>
+<p>完成核心 Grading Workflow 後，加入 Cloud Data Integration 與 Customer API。</p>
+<p>平台逐步從單純的 Grading Application 擴展成涵蓋：</p>
+<ul>
+<li>Inspection</li>
+<li>AI Identification</li>
+<li>Grading</li>
+<li>Traceability</li>
+<li>Cloud Integration</li>
+<li>Customer Integration</li>
+</ul>
+<p>的 Production Software Platform。</p>
+<h3 id="46-production-deployment">4.6 Production Deployment</h3>
+<p>產品進入 Production 後，持續處理：</p>
+<ul>
+<li>Customer Acceptance</li>
+<li>Grading Rule Tuning</li>
+<li>Deployment</li>
+<li>Architecture Documentation</li>
+<li>Production Troubleshooting</li>
+<li>Customer-specific Customization</li>
+</ul>
+<p>並根據 Production Feedback 持續調整 System Architecture 與 Application Behavior。</p>
+<hr/>
+<h2 id="05-產品演進">05. 產品演進</h2>
+<h3 id="51-從固定-grading-到-configurable-grading">5.1 從固定 Grading 到 Configurable Grading</h3>
+<p>第一階段先驗證基本 Grading Flow。</p>
+<p>當 Customer Requirement 增加後，將原本 Hard-coded Grading Logic 演進成 Configurable Rule Engine。</p>
+<p>使 Grading Logic 從單一產品邏輯，演進成可以支援不同 Grading Requirement 的平台能力。</p>
+<h3 id="52-從人工選擇到自動-device-identification">5.2 從人工選擇到自動 Device Identification</h3>
+<p>原始流程需要 Operator 指定 Device Model。</p>
+<p>加入 AI Device Identification 後，系統可以根據 Inspection Image 自動判斷 Device Model，再選擇對應 Configuration。</p>
+<p>這降低人工介入，也讓後續 Inspection 與 Grading Workflow 可以根據 Device Model 自動使用對應設定。</p>
+<h3 id="53-從-grading-application-到-production-platform">5.3 從 Grading Application 到 Production Platform</h3>
+<p>產品最初只需要完成 Grade Calculation。</p>
+<p>隨著 Production Requirement 增加，逐步加入：</p>
+<ul>
+<li>Machine Integration</li>
+<li>AI Identification</li>
+<li>Configurable Grading</li>
+<li>Production Traceability</li>
+<li>Cloud Integration</li>
+<li>Customer API</li>
+<li>Reporting</li>
+<li>Production Deployment</li>
+</ul>
+<p>產品因此由單一 Grading Application 演進成完整 Production Platform。</p>
+<h3 id="54-production-driven-iteration">5.4 Production-driven Iteration</h3>
+<p>整個產品不是一次完成所有功能，而是透過 Production Feedback 持續演進。</p>
+<p>Production 使用過程中產生新的 Requirement、Integration Issue 或 Grading Rule 調整需求後，再回饋至 Architecture、Implementation 與 Deployment。</p>
+<p>透過這種 Iterative Development，產品逐步從 MVP 演進成符合 Production 與 Customer Requirement 的 Software Platform。</p>
+<hr/>
+<h2 id="06-成果">06. 成果</h2>
+<h3 id="61-產品成果">6.1 產品成果</h3>
+<p>最終建立一套 Automated Smartphone Grading Platform，將既有 Inspection System 的結果接入後續 Production Workflow。</p>
+<p>平台具備：</p>
+<ul>
+<li>Automated Grading Decision</li>
+<li>Configurable Grading Rules</li>
+<li>AI-based Device Identification</li>
+<li>Production Traceability</li>
+<li>Cloud Data Integration</li>
+<li>Customer API Integration</li>
+<li>Production Reporting</li>
+<li>Production Deployment</li>
+</ul>
+<h3 id="62-產品演進成果">6.2 產品演進成果</h3>
+<p>產品由最初的 Basic Grading MVP，逐步演進為整合：</p>
+<p><strong>Inspection + AI + Grading + Traceability + Cloud Integration</strong></p>
+<p>的 Production Software Platform。</p>
+<p>核心價值不只是自動產生 Grade，而是將 Inspection Result、Decision Logic、Production Data 與 External System Integration 組合成可持續演進的產品架構。</p>
+<h3 id="63-我的主要負責內容">6.3 我的主要負責內容</h3>
+<p>在這個 0 → 1 Product 中，我主要負責：</p>
+<ul>
+<li>Software Architecture</li>
+<li>Windows Forms Application Development</li>
+<li>Machine Communication Integration</li>
+<li>Inspection Result Processing</li>
+<li>Configurable Grading Engine</li>
+<li>AI Device Identification Integration</li>
+<li>FastAPI Inference Service Integration</li>
+<li>Production Traceability</li>
+<li>Cloud Integration</li>
+<li>Customer API Integration</li>
+<li>Production Deployment</li>
+<li>Customer Acceptance &amp; Grading Rule Tuning</li>
+<li>Production Troubleshooting</li>
+<li>Architecture &amp; Deployment Documentation</li>
+</ul>
+<p>其中 <strong>Inspection Equipment / AOI 本身的開發不屬於我的負責範圍</strong>。</p>
+<p>我的工作從既有 Inspection System 的輸出開始，負責其後的 Software Platform、Decision Logic、System Integration 與 Production Deployment。</p>
+<h3 id="64-0--1-產品經驗">6.4 0 → 1 產品經驗</h3>
+<p>這個專案的核心經驗，是從既有 Inspection System 出發，將一個最初的 Grading MVP，逐步建立成能夠支援 <strong>AI、Configurable Decision Logic、Production Traceability、Cloud Integration 與 Customer Integration</strong> 的完整 Software Product。</p>
+<p>這個過程涵蓋從 Product Definition、System Architecture、Software Development，到 Production Deployment 與後續 Product Evolution 的完整 0 → 1 開發流程。</p></article></main><!--$--><!--/$--></main><footer class="border-t border-[#d8d7d2] bg-white"><div class="
+          mx-auto
+          w-[calc(100%-32px)]
+          py-12
+          md:w-[calc(100%-64px)]
+          xl:w-[min(1400px,calc(100%-80px))]
+        "><div class="grid grid-cols-1 gap-10 md:grid-cols-3"><div class="flex flex-col gap-4"><a class="flex w-fit items-center gap-3" href="/"><img alt="KCRich566" loading="lazy" width="44" height="44" decoding="async" data-nimg="1" class="h-11 w-11 rounded-full object-cover" style="color:transparent" src="/images/logo.png"/><div><p class="text-sm font-semibold text-[#171717]">KCRich566</p><p class="text-xs text-[#777]">Software Engineer</p></div></a><p class="max-w-sm text-sm leading-6 text-[#777]">Building software, exploring ideas, and documenting what I learn.</p></div><div><h2 class="mb-4 text-sm font-semibold text-[#171717]">Navigation</h2><nav class="flex flex-col gap-3"><a class="
+                    w-fit
+                    text-sm
+                    text-[#777]
+                    transition-colors
+                    duration-150
+                    hover:text-[#171717]
+                  " href="/">Home</a><a class="
+                    w-fit
+                    text-sm
+                    text-[#777]
+                    transition-colors
+                    duration-150
+                    hover:text-[#171717]
+                  " href="/about/">About</a><a class="
+                    w-fit
+                    text-sm
+                    text-[#777]
+                    transition-colors
+                    duration-150
+                    hover:text-[#171717]
+                  " href="/portfolio/">Portfolio</a><a class="
+                    w-fit
+                    text-sm
+                    text-[#777]
+                    transition-colors
+                    duration-150
+                    hover:text-[#171717]
+                  " href="/lab/">Lab</a><a class="
+                    w-fit
+                    text-sm
+                    text-[#777]
+                    transition-colors
+                    duration-150
+                    hover:text-[#171717]
+                  " href="/notes/">Notes</a></nav></div><div><h2 class="mb-4 text-sm font-semibold text-[#171717]">Contact</h2><nav class="flex flex-col gap-3"><a target="_blank" rel="noopener noreferrer" class="
+                    w-fit
+                    text-sm
+                    text-[#777]
+                    transition-colors
+                    duration-150
+                    hover:text-[#171717]
+                  " href="https://github.com/KCRich566">GitHub</a><a class="
+                    w-fit
+                    text-sm
+                    text-[#777]
+                    transition-colors
+                    duration-150
+                    hover:text-[#171717]
+                  " href="mailto:KCRich566@gmail.com">Email</a></nav></div></div><div class="
+            mt-10
+            flex
+            flex-col
+            gap-3
+            border-t
+            border-[#d8d7d2]
+            pt-6
+            text-xs
+            text-[#777]
+            md:flex-row
+            md:items-center
+            md:justify-between
+          "><p>© <!-- -->2026<!-- --> KCRich566. All rights reserved.</p></div></div></footer><script src="/_next/static/chunks/3s6nzrbk-8mnv.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[73398,[\"/_next/static/chunks/3fntmmi971322.js\",\"/_next/static/chunks/3gr05i7c6a_e1.js\"],\"default\"]\n3:I[39756,[\"/_next/static/chunks/3fntmmi971322.js\",\"/_next/static/chunks/3gr05i7c6a_e1.js\"],\"default\"]\n4:I[37457,[\"/_next/static/chunks/3fntmmi971322.js\",\"/_next/static/chunks/3gr05i7c6a_e1.js\"],\"default\"]\n5:I[22016,[\"/_next/static/chunks/3fntmmi971322.js\",\"/_next/static/chunks/3gr05i7c6a_e1.js\"],\"\"]\n6:I[5500,[\"/_next/static/chunks/3fntmmi971322.js\",\"/_next/static/chunks/3gr05i7c6a_e1.js\"],\"Image\"]\n10:I[68027,[\"/_next/static/chunks/3fntmmi971322.js\",\"/_next/static/chunks/3gr05i7c6a_e1.js\"],\"default\",1]\n:HL[\"/_next/static/chunks/00xzi4uxp748n.css\",\"style\"]\ne:X\n0:{\"P\":null,\"c\":[\"\",\"portfolio\",\"Company\",\"03_Automated-Smartphone-Grading-Platform\",\"\"],\"q\":\"\",\"i\":false,\"f\":[[[\"\",{\"children\":[\"portfolio\",{\"children\":[[\"category\",\"Company\",\"d\",[]],{\"children\":[[\"slug\",\"03_Automated-Smartphone-Grading-Platform\",\"d\",[]],{\"children\":[\"__PAGE__\",{},\"$undefined\",\"$undefined\",4608]},\"$undefined\",\"$undefined\",4608]},\"$undefined\",\"$undefined\",4608]},\"$undefined\",\"$undefined\",4608]},\"$undefined\",\"$undefined\",4624],[[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/00xzi4uxp748n.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/3fntmmi971322.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/_next/static/chunks/3gr05i7c6a_e1.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"children\":[[\"$\",\"$L2\",null,{}],[\"$\",\"main\",null,{\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}],[\"$\",\"footer\",null,{\"className\":\"border-t border-[#d8d7d2] bg-white\",\"children\":[\"$\",\"div\",null,{\"className\":\"\\n          mx-auto\\n          w-[calc(100%-32px)]\\n          py-12\\n          md:w-[calc(100%-64px)]\\n          xl:w-[min(1400px,calc(100%-80px))]\\n        \",\"children\":[[\"$\",\"div\",null,{\"className\":\"grid grid-cols-1 gap-10 md:grid-cols-3\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-4\",\"children\":[[\"$\",\"$L5\",null,{\"href\":\"/\",\"className\":\"flex w-fit items-center gap-3\",\"children\":[[\"$\",\"$L6\",null,{\"src\":\"/images/logo.png\",\"alt\":\"KCRich566\",\"width\":44,\"height\":44,\"className\":\"h-11 w-11 rounded-full object-cover\"}],[\"$\",\"div\",null,{\"children\":[[\"$\",\"p\",null,{\"className\":\"text-sm font-semibold text-[#171717]\",\"children\":\"KCRich566\"}],[\"$\",\"p\",null,{\"className\":\"text-xs text-[#777]\",\"children\":\"Software Engineer\"}]]}]]}],[\"$\",\"p\",null,{\"className\":\"max-w-sm text-sm leading-6 text-[#777]\",\"children\":\"Building software, exploring ideas, and documenting what I learn.\"}]]}],[\"$\",\"div\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"mb-4 text-sm font-semibold text-[#171717]\",\"children\":\"Navigation\"}],[\"$\",\"nav\",null,{\"className\":\"flex flex-col gap-3\",\"children\":[[\"$\",\"$L5\",\"/\",{\"href\":\"/\",\"className\":\"\\n                    w-fit\\n                    text-sm\\n                    text-[#777]\\n                    transition-colors\\n                    duration-150\\n                    hover:text-[#171717]\\n                  \",\"children\":\"Home\"}],[\"$\",\"$L5\",\"/about\",{\"href\":\"/about\",\"className\":\"\\n                    w-fit\\n                    text-sm\\n                    text-[#777]\\n                    transition-colors\\n                    duration-150\\n                    hover:text-[#171717]\\n                  \",\"children\":\"About\"}],[\"$\",\"$L5\",\"/portfolio\",{\"href\":\"/portfolio\",\"className\":\"\\n                    w-fit\\n                    text-sm\\n                    text-[#777]\\n                    transition-colors\\n                    duration-150\\n                    hover:text-[#171717]\\n                  \",\"children\":\"Portfolio\"}],[\"$\",\"$L5\",\"/lab\",{\"href\":\"/lab\",\"className\":\"\\n                    w-fit\\n                    text-sm\\n                    text-[#777]\\n                    transition-colors\\n                    duration-150\\n                    hover:text-[#171717]\\n                  \",\"children\":\"Lab\"}],\"$L7\"]}]]}],\"$L8\"]}],\"$L9\"]}]}]]}]}]]}],{\"children\":[\"$La\",{\"children\":[\"$Lb\",{\"children\":[\"$Lc\",{\"children\":[\"$Ld\",{},null,false,null]},null,false,\"$e\"]},null,false,\"$e\"]},null,false,\"$e\"]},null,false,null],\"$Lf\",false]],\"m\":\"$undefined\",\"G\":[\"$10\",[\"$L11\"]],\"S\":true,\"h\":null,\"r\":\"$undefined\",\"s\":\"$undefined\",\"a\":\"$undefined\",\"l\":\"$undefined\",\"p\":\"$undefined\",\"d\":\"$undefined\",\"b\":\"g3SmAWa8tNHX0I2_l5Q9Q\"}\n13:I[97367,[\"/_next/static/chunks/3fntmmi971322.js\",\"/_next/static/chunks/3gr05i7c6a_e1.js\"],\"OutletBoundary\"]\n14:\"$Sreact.suspense\"\n16:I[97367,[\"/_next/static/chunks/3fntmmi971322.js\",\"/_next/static/chunks/3gr05i7c6a_e1.js\"],\"ViewportBoundary\"]\n18:I[97367,[\"/_next/static/chunks/3fntmmi971322.js\",\"/_next/static/chunks/3gr05i7c6a_e1.js\"],\"MetadataBoundary\"]\n7:[\"$\",\"$L5\",\"/notes\",{\"href\":\"/notes\",\"className\":\"\\n                    w-fit\\n                    text-sm\\n                    text-[#777]\\n                    transition-colors\\n                    duration-150\\n                    hover:text-[#171717]\\n                  \",\"children\":\"Notes\"}]\n8:[\"$\",\"div\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"mb-4 text-sm font-semibold text-[#171717]\",\"children\":\"Contact\"}],[\"$\",\"nav\",null,{\"className\":\"flex flex-col gap-3\",\"children\":[[\"$\",\"$L5\",\"GitHub\",{\"href\":\"https://github.com/KCRich566\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"className\":\"\\n                    w-fit\\n                    text-sm\\n                    text-[#777]\\n                    transition-colors\\n                    duration-150\\n                    hover:text-[#171717]\\n                  \",\"children\":\"GitHub\"}],[\"$\",\"$L5\",\"Email\",{\"href\":\"mailto:KCRich566@gmail.com\",\"target\":\"$undefined\",\"rel\":\"$undefined\",\"className\":\"\\n                    w-fit\\n                    text-sm\\n                    text-[#777]\\n                    transition-colors\\n                    duration-150\\n                    hover:text-[#171717]\\n                  \",\"children\":\"Email\"}]]}]]}]\n9:[\"$\",\"div\",null,{\"className\":\"\\n            mt-10\\n            flex\\n            flex-col\\n            gap-3\\n            border-t\\n            border-[#d8d7d2]\\n            pt-6\\n            text-xs\\n            text-[#777]\\n            md:flex-row\\n            md:items-center\\n            md:justify-between\\n          \",\"children\":[\"$\",\"p\",null,{\"children\":[\"© \",2026,\" KCRich566. All rights reserved.\"]}]}]\na:[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}]\nb:[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}]\nc:[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}]\nd:[\"$\",\"$1\",\"c\",{\"children\":[\"$L12\",null,[\"$\",\"$L13\",null,{\"children\":[\"$\",\"$14\",null,{\"name\":\"Next.MetadataOutlet\",\"children\":\"$@15\"}]}]]}]\nf:[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$L16\",null,{\"children\":\"$L17\"}],[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$L18\",null,{\"children\":[\"$\",\"$14\",null,{\"name\":\"Next.Metadata\",\"children\":\"$L19\"}]}]}],null]}]\n11:[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/00xzi4uxp748n.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]\ne:C\n12:[\"$\",\"main\",null,{\"className\":\"portfolio-detail\",\"children\":[[\"$\",\"$L5\",null,{\"className\":\"portfolio-back\",\"href\":\"/portfolio\",\"children\":\"← All work\"}],[\"$\",\"header\",null,{\"className\":\"portfolio-detail-header\",\"children\":[[\"$\",\"p\",null,{\"className\":\"eyebrow\",\"children\":[\"Company\",\" / case study\"]}],[\"$\",\"h1\",null,{\"children\":\"Automated Smartphone Grading Platform\"}],[\"$\",\"p\",null,{\"className\":\"portfolio-lede\",\"children\":\"A production platform that converts inspection results into configurable smartphone cosmetic grades with device identification, traceability, and customer integration.\"}],[\"$\",\"div\",null,{\"className\":\"portfolio-tags\",\"children\":[[\"$\",\"span\",\"Smartphone Grading\",{\"children\":\"Smartphone Grading\"}],[\"$\",\"span\",\"Refurbishment\",{\"children\":\"Refurbishment\"}],[\"$\",\"span\",\"Production Platform\",{\"children\":\"Production Platform\"}]]}]]}],[\"$\",\"article\",null,{\"className\":\"portfolio-content\",\"children\":[[\"$\",\"h2\",null,{\"id\":\"01-產品背景\",\"children\":\"01. 產品背景\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"在 Smartphone Refurbishment 流程中，Cosmetic Grading 需要根據 Inspection System 產生的檢測結果，判斷裝置的外觀狀態與對應 Grade。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"傳統的 Cosmetic Grading 高度依賴人工判斷，不同 Operator 可能產生不同的判定結果；同時，不同 Customer 對於 Defect Type、Defect Size、Defect Location 與 Grade 定義，也可能具有不同要求。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"因此，需要將既有 Inspection System 的檢測結果，轉換成一套\",[\"$\",\"strong\",null,{\"children\":\"可配置、可重複執行、可追溯的自動化 Grading Decision\"}],\"。\"]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"本產品的核心並非開發 Inspection Equipment，而是從既有 Inspection System 的輸出開始，建立後續的 Software Platform，將 Inspection Result、Device Identification、Grading、Production Traceability、Cloud Integration 與 Customer Integration 串接成完整的 Production Workflow。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"產品由初期 MVP 開始，逐步加入 Machine Integration、Configurable Grading、AI-based Device Identification、Cloud Integration、Customer API 與 Production Deployment，最終形成完整的 Automated Smartphone Grading Platform。\"}],\"\\n\",[\"$\",\"hr\",null,{}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"02-產品定義\",\"children\":\"02. 產品定義\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"產品定位為一套連接 \",[\"$\",\"strong\",null,{\"children\":\"Inspection System 與 Production System\"}],\" 的 Automated Smartphone Grading Platform。\"]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"系統接收 Inspection Equipment 產生的 Inspection Result，根據 Device Model 與 Grading Rules 進行 Grade Calculation，產生 Grade Decision 與 Downgrade Reason，並建立 Production Record。\"}],\"\\n\",[\"$\",\"h3\",null,{\"id\":\"核心功能\",\"children\":\"核心功能\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"平台主要涵蓋：\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Inspection Result Processing\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Machine Integration\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Device Identification\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Model-Specific Configuration\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Configurable Grading Engine\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Production Traceability\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Cloud Integration\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Customer API Integration\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Production Reporting\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Production Deployment\"}],\"\\n\"]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"核心概念是將原本分散於 Inspection Result、人工判斷與 Customer Requirement 中的資訊，轉換成一致且可追蹤的 Software Decision Process。\"}],\"\\n\",[\"$\",\"hr\",null,{}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"03-系統設計\",\"children\":\"03. 系統設計\"}],\"\\n\",[\"$\",\"h3\",null,{\"id\":\"31-platform-architecture\",\"children\":\"3.1 Platform Architecture\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"系統採用分層設計，將 Machine Integration、Application Workflow、AI Inference、Grading Decision、Production Traceability 與 External Integration 分離。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"Inspection Equipment 產生 Inspection Result 後，由 Machine Integration Layer 接收設備事件與檢測資料，再交由 Application Workflow 進行後續處理。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"Application Workflow 負責管理 Device Context、Inspection Result 與後續 Decision Process，並串接 Device Identification、Model Configuration 與 Grading Engine。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"完成 Grade Decision 後，再將結果進入 Production Traceability、Cloud Integration 與 Customer System。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"透過分層設計，使 Machine Communication、Business Logic、AI Service 與 External System Integration 能夠保持相對獨立，降低後續產品演進時的耦合程度。\"}],\"\\n\",\"$L1a\",\"\\n\",\"$L1b\",\"\\n\",\"$L1c\",\"\\n\",\"$L1d\",\"\\n\",\"$L1e\",\"\\n\",\"$L1f\",\"\\n\",\"$L20\",\"\\n\",\"$L21\",\"\\n\",\"$L22\",\"\\n\",\"$L23\",\"\\n\",\"$L24\",\"\\n\",\"$L25\",\"\\n\",\"$L26\",\"\\n\",\"$L27\",\"\\n\",\"$L28\",\"\\n\",\"$L29\",\"\\n\",\"$L2a\",\"\\n\",\"$L2b\",\"\\n\",\"$L2c\",\"\\n\",\"$L2d\",\"\\n\",\"$L2e\",\"\\n\",\"$L2f\",\"\\n\",\"$L30\",\"\\n\",\"$L31\",\"\\n\",\"$L32\",\"\\n\",\"$L33\",\"\\n\",\"$L34\",\"\\n\",\"$L35\",\"\\n\",\"$L36\",\"\\n\",\"$L37\",\"\\n\",\"$L38\",\"\\n\",\"$L39\",\"\\n\",\"$L3a\",\"\\n\",\"$L3b\",\"\\n\",\"$L3c\",\"\\n\",\"$L3d\",\"\\n\",\"$L3e\",\"\\n\",\"$L3f\",\"\\n\",\"$L40\",\"\\n\",\"$L41\",\"\\n\",\"$L42\",\"\\n\",\"$L43\",\"\\n\",\"$L44\",\"\\n\",\"$L45\",\"\\n\",\"$L46\",\"\\n\",\"$L47\",\"\\n\",\"$L48\",\"\\n\",\"$L49\",\"\\n\",\"$L4a\",\"\\n\",\"$L4b\",\"\\n\",\"$L4c\",\"\\n\",\"$L4d\",\"\\n\",\"$L4e\",\"\\n\",\"$L4f\",\"\\n\",\"$L50\",\"\\n\",\"$L51\",\"\\n\",\"$L52\",\"\\n\",\"$L53\",\"\\n\",\"$L54\",\"\\n\",\"$L55\",\"\\n\",\"$L56\",\"\\n\",\"$L57\",\"\\n\",\"$L58\",\"\\n\",\"$L59\",\"\\n\",\"$L5a\",\"\\n\",\"$L5b\",\"\\n\",\"$L5c\",\"\\n\",\"$L5d\",\"\\n\",\"$L5e\",\"\\n\",\"$L5f\",\"\\n\",\"$L60\",\"\\n\",\"$L61\",\"\\n\",\"$L62\",\"\\n\",\"$L63\",\"\\n\",\"$L64\",\"\\n\",\"$L65\",\"\\n\",\"$L66\",\"\\n\",\"$L67\",\"\\n\",\"$L68\",\"\\n\",\"$L69\",\"\\n\",\"$L6a\",\"\\n\",\"$L6b\",\"\\n\",\"$L6c\",\"\\n\",\"$L6d\",\"\\n\",\"$L6e\",\"\\n\",\"$L6f\",\"\\n\",\"$L70\",\"\\n\",\"$L71\",\"\\n\",\"$L72\",\"\\n\",\"$L73\",\"\\n\",\"$L74\",\"\\n\",\"$L75\",\"\\n\",\"$L76\",\"\\n\",\"$L77\",\"\\n\",\"$L78\",\"\\n\",\"$L79\",\"\\n\",\"$L7a\",\"\\n\",\"$L7b\",\"\\n\",\"$L7c\",\"\\n\",\"$L7d\"]}]]}]\n1a:[\"$\",\"h3\",null,{\"id\":\"32-configurable-grading-engine\",\"children\":\"3.2 Configurable Grading Engine\"}]\n1b:[\"$\",\"p\",null,{\"children\":\"Grading Engine 是平台的核心 Decision Logic。\"}]\n1c:[\"$\",\"p\",null,{\"children\":\"初期 Grading Logic 直接存在 Application Code 中。當 Customer Grading Requirement 改變時，需要修改程式並重新部署。\"}]\n1d:[\"$\",\"p\",null,{\"children\":[\"因此，我將 \",[\"$\",\"strong\",null,{\"children\":\"Grading Rule 與 Application Logic 分離\"}],\"，建立 Configurable Grading Engine，並使用 XML 定義 Grading Rules。\"]}]\n1e:[\"$\",\"p\",null,{\"children\":\"Rule 可以根據不同 Inspection Result 進行組合，例如：\"}]\n1f:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Defect Type\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Defect Count\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Defect Size\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Defect Area\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Defect Location\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Region-Based Rules\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Critical Defect Override\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"AND / OR Conditions\"}],\"\\n\"]}]\n20:[\"$\",\"p\",null,{\"children\":\"透過這種設計，Grading Decision 不再完全依賴 Hard-coded Logic，而是由 Inspection Result、Device Model 與 Grading Configuration 共同決定。\"}]\n21:[\"$\",\"p\",null,{\"children\":\"這讓 Grading Rule 可以獨立於 Application Code 演進，也讓不同 Customer 的 Grading Requirement 更容易管理。\"}]\n22:[\"$\",\"h3\",null,{\"id\":\"33-grading-decision-design\",\"children\":\"3.3 Grading Decision Design\"}]\n23:[\"$\",\"p\",null,{\"children\":\"在設計 Grading Engine 時，也考慮過 Machine Learning 與 Decision Tree 等方式。\"}]\n24:[\"$\",\"p\",null,{\"children\":\"最終採用 Rule-Based Grading Engine，主要考量 Production Grading 不只需要產生結果，也需要能夠說明判定依據。\"}]\n25:[\"$\",\"p\",null,{\"children\":\"因此 Decision Logic 需要具備：\"}]\n26:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Transparent\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Traceable\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Auditable\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Configurable\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Customer-specific\"}],\"\\n\"]}]\n27:[\"$\",\"p\",null,{\"children\":\"等特性。\"}]\n28:[\"$\",\"p\",null,{\"children\":\"透過 Rule-Based Design，可以讓 Grade Decision 與其判定條件保持明確關聯，便於 Production Troubleshooting、Rule Tuning 與 Customer Acceptance。\"}]\n29:[\"$\",\"h3\",null,{\"id\":\"34-ai-device-identification\",\"children\":\"3.4 AI Device Identification\"}]\n2a:[\"$\",\"p\",null,{\"children\":\"不同 Smartphone Model 可能需要不同的 Inspection Configuration 與 Grading Rules。\"}]\n2b:[\"$\",\"p\",null,{\"children\":\"原始流程需要 Operator 手動選擇 Device Model，因此我加入 AI-based Device Identification。\"}]\n2c:[\"$\",\"p\",null,{\"children\":\"既有 Inspection Workflow 已經能取得 Smartphone Image，因此直接利用既有 Image Stream，不需要額外增加影像硬體。\"}]\n2d:[\"$\",\"p\",null,{\"children\":\"AI Model 使用 Xception 進行 Image Classification，將影像轉換為 Device Model Identification 結果，再提供給主要 Application 選擇對應的 Model-Specific Configuration。\"}]\n2e:[\"$\",\"p\",null,{\"children\":\"AI Model 透過獨立的 Inference Service 提供識別能力，主要 Application 透過 HTTP Interface 與 Inference Service 溝通。\"}]\n2f:[\"$\",\"p\",null,{\"children\":\"將 AI Model 與主要 Application 分離，可以降低模型更新對主系統的影響。\"}]\n30:[\"$\",\"h3\",null,{\"id\":\"35-production-traceability\",\"children\":\"3.5 Production Traceability\"}]\n31:[\"$\",\"p\",null,{\"children\":\"為了讓每次 Production Transaction 都能追蹤，我將 Device、Inspection、Grade 與 Production Information 串接在同一個 Workflow。\"}]\n32:[\"$\",\"p\",null,{\"children\":\"Production Record 可包含：\"}]\n33:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Device Information\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Grade\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Downgrade Reason\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Machine Information\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Inspection Information\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Software / Rule Version\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Production Transaction Information\"}],\"\\n\"]}]\n34:[\"$\",\"p\",null,{\"children\":\"因此系統不只是產生 Grade，也建立從 Device、Inspection、Decision 到 Production 的完整 Traceability。\"}]\n35:[\"$\",\"h3\",null,{\"id\":\"36-cloud--customer-integration\",\"children\":\"3.6 Cloud \u0026 Customer Integration\"}]\n36:[\"$\",\"p\",null,{\"children\":\"平台進一步整合 Cloud Service，將 Inspection 與 Production Data 進行集中管理。\"}]\n37:[\"$\",\"p\",null,{\"children\":\"Cloud Integration 支援：\"}]\n38:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Production Data Storage\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Inspection Data Storage\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Reporting\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"KPI Tracking\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Yield Analysis\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Production Monitoring\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Transaction Tracking\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Cross-Site Operational Visibility\"}],\"\\n\"]}]\n39:[\"$\",\"p\",null,{\"children\":\"另外透過 Customer API 與外部 Production System 整合，使 Grading Result 能夠進入既有 Customer Workflow。\"}]\n3a:[\"$\",\"hr\",null,{}]\n3b:[\"$\",\"h2\",null,{\"id\":\"04-產品開發\",\"children\":\"04. 產品開發\"}]\n3c:[\"$\",\"h3\",null,{\"id\":\"41-mvp-development\",\"children\":\"4.1 MVP Development\"}]\n3d:[\"$\",\"p\",null,{\"children\":\"產品採用 Incremental Development，先建立最小可運作的 End-to-End Workflow，再逐步加入 Production Requirement。\"}]\n3e:[\"$\",\"p\",null,{\"children\":\"初期 MVP 先完成基本流程：\"}]\n3f:[\"$\",\"p\",null,{\"children\":\"Inspection Result → Basic Grading Logic → Grade Result\"}]\n40:[\"$\",\"p\",null,{\"children\":\"先驗證 Inspection Result 能否正確進入 Application，並完成基本 Grade Calculation。\"}]\n41:[\"$\",\"h3\",null,{\"id\":\"42-machine-integration\",\"children\":\"4.2 Machine Integration\"}]\n42:[\"$\",\"p\",null,{\"children\":\"完成 MVP 後，進一步建立與 Inspection Equipment 的 Machine Communication。\"}]\n43:[\"$\",\"p\",null,{\"children\":\"主要處理：\"}]\n44:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Persistent Socket Communication\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Machine Event\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Inspection Completion\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Inspection Result Processing\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Application Workflow Trigger\"}],\"\\n\"]}]\n45:[\"$\",\"p\",null,{\"children\":\"系統不以固定時間等待，而是根據 Machine Event 與 Inspection Result 驅動後續 Workflow，使 Application Flow 能夠與實際設備狀態同步。\"}]\n46:[\"$\",\"h3\",null,{\"id\":\"43-grading-engine-development\",\"children\":\"4.3 Grading Engine Development\"}]\n47:[\"$\",\"p\",null,{\"children\":\"初期 Grading Logic 為 Application 內的固定邏輯。\"}]\n48:[\"$\",\"p\",null,{\"children\":\"隨著 Customer Requirement 增加，逐步將 Grading Logic 抽離成 Configurable Rule Engine。\"}]\n49:[\"$\",\"p\",null,{\"children\":\"透過 Rule Abstraction 與 XML Configuration，使 Grading Rule 可以獨立於核心 Application Logic 進行調整。\"}]\n4a:[\"$\",\"p\",null,{\"children\":\"這項設計也讓後續 Customer-specific Requirement 能夠透過 Configuration 擴充，而不需要頻繁修改核心程式。\"}]\n4b:[\"$\",\"h3\",null,{\"id\":\"44-ai-integration\",\"children\":\"4.4 AI Integration\"}]\n4c:[\"$\",\"p\",null,{\"children\":\"加入 Device Identification 後，將 Image Classification Service 整合進既有 Workflow。\"}]\n4d:[\"$\",\"p\",null,{\"children\":\"使用既有 Inspection Image，透過 Xception Model 進行 Device Model Classification，再將結果提供給主要 Application。\"}]\n4e:[\"$\",\"p\",null,{\"children\":\"Inference Service 使用 FastAPI 建立獨立 Service Interface，使 AI Model 與 Application Workflow 解耦。\"}]\n4f:[\"$\",\"h3\",null,{\"id\":\"45-cloud--customer-integration\",\"children\":\"4.5 Cloud \u0026 Customer Integration\"}]\n50:[\"$\",\"p\",null,{\"children\":\"完成核心 Grading Workflow 後，加入 Cloud Data Integration 與 Customer API。\"}]\n51:[\"$\",\"p\",null,{\"children\":\"平台逐步從單純的 Grading Application 擴展成涵蓋：\"}]\n52:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Inspection\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"AI Identification\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Grading\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Traceability\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Cloud Integration\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Customer Integration\"}],\"\\n\"]}]\n53:[\"$\",\"p\",null,{\"children\":\"的 Production Software Platform。\"}]\n54:[\"$\",\"h3\",null,{\"id\":\"46-production-deployment\",\"children\":\"4.6 Production Deployment\"}]\n55:[\"$\",\"p\",null,{\"children\":\"產品進入 Production 後，持續處理：\"}]\n56:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Customer Acceptance\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Grading Rule Tuning\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Deployment\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Architecture Documentation\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Production Troubleshooting\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Customer-specific Customization\"}],\"\\n\"]}]\n57:[\"$\",\"p\",null,{\"children\":\"並根據 Production Feedback 持續調整 System Architecture 與 Application Behavior。\"}]\n58:[\"$\",\"hr\",null,{}]\n59:[\"$\",\"h2\",null,{\"id\":\"05-產品演進\",\"children\":\"05. 產品演進\"}]\n5a:[\"$\",\"h3\",null,{\"id\":\"51-從固定-grading-到-configurable-grading\",\"children\":\"5.1 從固定 Grading 到 Configurable Grading\"}]\n5b:[\"$\",\"p\",null,{\"children\":\"第一階段先驗證基本 Grading Flow。\"}]\n5c:[\"$\",\"p\",null,{\"children\":\"當 Customer Requirement 增加後，將原本 Hard-coded Grading Logic 演進成 Configurable Rule Engine。\"}]\n5d:[\"$\",\"p\",null,{\"children\":\"使 Grading Logic 從單一產品邏輯，演進成可以支援不同 Grading Requirement 的平台能力。\"}]\n5e:[\"$\",\"h3\",null,{\"id\":\"52-從人工選擇到自動-device-identification\",\"children\":\"5.2 從人工選擇到自動 Device Identification\"}]\n5f:[\"$\",\"p\",null,{\"children\":\"原始流程需要 Operator 指定 Device Model。\"}]\n60:[\"$\",\"p\",null,{\"children\":\"加入 AI Device Identification 後，系統可以根據 Inspection Image 自動判斷 Device Model，再選擇對應 Configuration。\"}]\n61:[\"$\",\"p\",null,{\"children\":\"這降低人工介入，也讓後續 Inspection 與 Grading Workflow 可以根據 Device Model 自動使用對應設定。\"}]\n62:[\"$\",\"h3\",null,{\"id\":\"53-從-grading-application-到-production-platform\",\"children\":\"5.3 從 Grading Application 到 Production Platform\"}]\n63:[\"$\",\"p\",null,{\"children\":\"產品最初只需要完成 Grade Calculation。\"}]\n64:[\"$\",\"p\",null,{\"children\":\"隨著 Production Requirement 增加，逐步加入：\"}]\n65:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Machine Integration\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"AI Identification\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Configurable Grading\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Production Traceability\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Cloud Integration\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Customer API\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Reporting\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Production Deployment\"}],\"\\n\"]}]\n66:[\"$\",\"p\",null,{\"children\":\"產品因此由單一 Grading Application 演進成完整 Production Platform。\"}]\n67:[\"$\",\"h3\",null,{\"id\":\"54-production-driven-iteration\",\"children\":\"5.4 Production-driven Iteration\"}]\n68:[\"$\",\"p\",null,{\"children\":\"整個產品不是一次完成所有功能，而是透過 Production Feedback 持續演進。\"}]\n69:[\"$\",\"p\",null,{\"children\":\"Production 使用過程中產生新的 Requirement、Integration Issue 或 Grading Rule 調整需求後，再回饋至 Architecture、Implementation 與 Deployment。\"}]\n6a:[\"$\",\"p\",null,{\"children\":\"透過這種 Iterative Development，產品逐步從 MVP 演進成符合 Production 與 Customer Requirement 的 Software Platform。\"}]\n6b:[\"$\",\"hr\",null,{}]\n6c:[\"$\",\"h2\",null,{\"id\":\"06-成果\",\"children\":\"06. 成果\"}]\n6d:[\"$\",\"h3\",null,{\"id\":\"61-產品成果\",\"children\":\"6.1 產品成果\"}]\n6e:[\"$\",\"p\",null,{\"children\":\"最終建立一套 Automated Smartphone Grading Platform，將既有 Inspection System 的結果接入後續 Production Workflow。\"}]\n6f:[\"$\",\"p\",null,{\"children\":\"平台具備：\"}]\n70:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Automated Grading Decision\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Configurable Grading Rules\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"AI-based Device Identification\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Production Traceability\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Cloud Data Integration\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Customer API Integration\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Production Reporting\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Production Deployment\"}],\"\\n\"]}]\n71:[\"$\",\"h3\",null,{\"id\":\"62-產品演進成果\",\"children\":\"6.2 產品演進成果\"}]\n72:[\"$\",\"p\",null,{\"children\":\"產品由最初的 Basic Grading MVP，逐步演進為整合：\"}]\n73:[\"$\",\"p\",null,{\"children\":[\"$\",\"strong\",null,{\"children\":\"Inspection + AI + Grading + Traceability + Cloud Integration\"}]}]\n74:[\"$\",\"p\",null,{\"children\":\"的 Production Software Platform。\"}]\n75:[\"$\",\"p\",null,{\"children\":\"核心價值不只是自動產生 Grade，而是將 Inspection Result、Decision Logic、Production Data 與 External System Integration 組合成可持續演進的產品架構。\"}]\n76:[\"$\",\"h3\",null,{\"id\":\"63-我的主要負責內容\",\"children\":\"6.3 我的主要負責內容\"}]\n77:[\"$\",\"p\",null,{\"children\":\"在這個 0 → 1 Product 中，我主要負責：\"}]\n78:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Software Architecture\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Windows Forms Application Development\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Machine Communication Integration\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Inspection Result Processing\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Configurable Grading Engine\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"AI Device Identification Integration\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"FastAPI Inference Service Integration\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Production Traceability\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Cloud Integration\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Customer API Integration\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Production Deployment\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Customer Acceptance \u0026 Grading Rule Tuning\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Production Troubleshooting\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Architecture \u0026 Deployment Documentation\"}],\"\\n\"]}]\n79:[\"$\",\"p\",null,{\"children\":[\"其中 \",[\"$\",\"strong\",null,{\"children\":\"Inspection Equipment / AOI 本身的開發不屬於我的負責範圍\"}],\"。\"]}]\n7a:[\"$\",\"p\",null,{\"children\":\"我的工作從既有 Inspection System 的輸出開始，負責其後的 Software Platform、Decision Logic、System Integration 與 Production Deployment。\"}]\n7b:[\"$\",\"h3\",null,{\"id\":\"64-0--1-產品經驗\",\"children\":\"6.4 0 → 1 產品經驗\"}]\n7c:[\"$\",\"p\",null,{\"children\":[\"這個專案的核心經驗，是從既有 Inspection System 出發，將一個最初的 Grading MVP，逐步建立成能夠支援 \",[\"$\",\"strong\",null,{\"children\":\"AI、Configurable Decision Logic、Production Traceability、Cloud Integration 與 Customer Integration\"}],\" 的完整 Software Product。\"]}]\n7d:[\"$\",\"p\",null,{\"children\":\"這個過程涵蓋從 Product Definition、System Architecture、Software Development，到 Production Deployment 與後續 Product Evolution 的完整 0 → 1 開發流程。\"}]\n17:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n7e:I[27201,[\"/_next/static/chunks/3fntmmi971322.js\",\"/_next/static/chunks/3gr05i7c6a_e1.js\"],\"IconMark\"]\n15:null\n19:[[\"$\",\"title\",\"0\",{\"children\":\"Kenzo - Software Engineer\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Personal professional platform of Kenzo Chang, covering software engineering, automation, system integration, projects, experiments, and technical notes.\"}],[\"$\",\"link\",\"2\",{\"rel\":\"icon\",\"href\":\"/favicon.ico?favicon.23jcd2jgwl8zu.ico\",\"sizes\":\"256x256\",\"type\":\"image/x-icon\"}],[\"$\",\"link\",\"3\",{\"rel\":\"apple-touch-icon\",\"href\":\"/images/logo.png\"}],[\"$\",\"$L7e\",\"4\",{}]]\n"])</script></body></html>
